@@ -5,360 +5,396 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ICCP - CAB 12/08/2026</title>
 <style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d27;
+    --card2: #212633;
+    --border: #2d333b;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --blue: #60a5fa;
+    --purple: #a78bfa;
+    --green: #34d399;
+    --red: #f87171;
+    --yellow: #fbbf24;
+  }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: #f5f6fa; color: #1a1a2e; padding: 24px; }
-  .container { max-width: 980px; margin: 0 auto; }
-  h1 { font-size: 20px; margin-bottom: 4px; }
-  .subtitle { color: #666; font-size: 13px; margin-bottom: 20px; }
-  .filters { background: white; border-radius: 8px; padding: 10px 14px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); display: flex; gap: 12px; align-items: center; flex-wrap: wrap; font-size: 12px; }
-  .filters input { flex: 1; min-width: 200px; padding: 7px 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 13px; }
-  .filter-pill { cursor: pointer; user-select: none; padding: 5px 10px; border-radius: 14px; border: 1px solid #ddd; background: #fafafa; }
-  .filter-pill.active { border-color: #2563eb; color: #2563eb; font-weight: 600; }
-  .summary-table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 24px; font-size: 13px; }
-  .summary-table th { background: #1a1a2e; color: white; padding: 10px 12px; text-align: left; font-weight: 500; cursor: pointer; }
-  .summary-table td { padding: 8px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); padding: 24px; }
+  .container { max-width: 1040px; margin: 0 auto; }
+  h1 { font-size: 21px; margin-bottom: 4px; }
+  .subtitle { color: var(--muted); font-size: 13px; margin-bottom: 20px; }
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .filters { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin-bottom: 16px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; font-size: 12px; }
+  .filters input { flex: 1; min-width: 220px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--card2); color: var(--text); font-size: 13px; }
+  .filters input::placeholder { color: var(--muted); }
+  .filter-pill { cursor: pointer; user-select: none; padding: 6px 12px; border-radius: 16px; border: 1px solid var(--border); background: var(--card2); color: var(--muted); }
+  .filter-pill.active { border-color: var(--blue); color: var(--blue); font-weight: 600; }
+  .summary-table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 24px; font-size: 13px; }
+  .summary-table th { background: var(--card2); color: var(--text); padding: 10px 12px; text-align: left; font-weight: 600; cursor: pointer; white-space: nowrap; }
+  .summary-table th:hover { color: var(--blue); }
+  .summary-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .summary-table tbody tr { cursor: pointer; }
+  .summary-table tbody tr:hover { background: var(--card2); }
   .summary-table tr:last-child td { border-bottom: none; }
-  .summary-table a { color: #2563eb; text-decoration: none; }
-  .card { background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 16px; overflow: hidden; }
-  .card-header { padding: 14px 18px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 16px; overflow: hidden; }
+  .card-header { padding: 15px 18px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; background: linear-gradient(180deg, rgba(96,165,250,0.05), transparent); }
   .card-header h2 { font-size: 15px; font-weight: 600; }
-  .card-header h2 a { color: #1a1a2e; text-decoration: none; }
-  .card-meta { font-size: 12px; color: #666; white-space: nowrap; text-align: right; line-height: 1.5; }
+  .card-header h2 a { color: var(--text); }
+  .card-meta { font-size: 12px; color: var(--muted); white-space: nowrap; text-align: right; line-height: 1.5; }
   .card-body { padding: 16px 18px; }
-  .section { margin-bottom: 14px; }
+  .section { margin-bottom: 16px; }
   .section:last-child { margin-bottom: 0; }
-  .section-title { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
-  .section p, .section li { font-size: 13px; line-height: 1.55; color: #374151; }
-  .section ul { padding-left: 18px; }
-  .section li { margin-bottom: 4px; }
-  .badge { display: inline-block; padding: 1px 7px; border-radius: 4px; font-size: 11px; font-weight: 600; }
-  .badge-red { background: #fee2e2; color: #dc2626; }
-  .badge-yellow { background: #fef3c7; color: #d97706; }
-  .badge-green { background: #d1fae5; color: #059669; }
-  .badge-blue { background: #dbeafe; color: #2563eb; }
-  .badge-gray { background: #e5e7eb; color: #4b5563; }
-  .pill { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 500; background: #f3f4f6; color: #374151; margin-right: 4px; margin-bottom: 2px; }
-  .pill.risk-high { background: #fee2e2; color: #dc2626; }
-  .pill.risk-med { background: #fef3c7; color: #d97706; }
-  .pr-stats { display: flex; flex-wrap: wrap; gap: 5px; margin: 6px 0; }
-  .pr-stats .stat { background: #f3f4f6; border-radius: 6px; padding: 3px 8px; font-size: 11px; color: #374151; }
+  .section-title { font-size: 13px; font-weight: 700; margin-bottom: 6px; letter-spacing: 0.2px; }
+  .section p, .section li { font-size: 13px; line-height: 1.6; color: #cbd5e1; }
+  .section ul, .section ol { padding-left: 20px; }
+  .section li { margin-bottom: 5px; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .badge-red { background: rgba(248,113,113,0.15); color: var(--red); }
+  .badge-yellow { background: rgba(251,191,36,0.15); color: var(--yellow); }
+  .badge-green { background: rgba(52,211,153,0.15); color: var(--green); }
+  .badge-blue { background: rgba(96,165,250,0.15); color: var(--blue); }
+  .badge-gray { background: rgba(148,163,184,0.15); color: var(--muted); }
+  .pill { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 500; background: var(--card2); color: var(--muted); margin-right: 4px; margin-bottom: 2px; border: 1px solid var(--border); }
+  .pill.risk-high { background: rgba(248,113,113,0.15); color: var(--red); border-color: rgba(248,113,113,0.3); }
+  .pill.risk-med { background: rgba(251,191,36,0.15); color: var(--yellow); border-color: rgba(251,191,36,0.3); }
+  .pill.risk-low { background: rgba(96,165,250,0.15); color: var(--blue); border-color: rgba(96,165,250,0.3); }
+  .pr-stats { display: flex; flex-wrap: wrap; gap: 5px; margin: 8px 0; }
+  .pr-stats .stat { background: var(--card2); border: 1px solid var(--border); border-radius: 6px; padding: 3px 8px; font-size: 11px; color: #cbd5e1; }
+  .pr-stats .stat b { color: var(--text); }
   .file-table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 6px 0; }
-  .file-table th { text-align: left; background: #f9fafb; padding: 4px 8px; border: 1px solid #eee; }
-  .file-table td { padding: 4px 8px; border: 1px solid #eee; }
-  .footer { text-align: center; color: #999; font-size: 11px; margin-top: 24px; }
-  code { background: #f3f4f6; padding: 1px 5px; border-radius: 4px; font-size: 12px; }
+  .file-table th { text-align: left; background: var(--card2); padding: 5px 9px; border: 1px solid var(--border); color: var(--muted); font-weight: 600; }
+  .file-table td { padding: 5px 9px; border: 1px solid var(--border); color: #cbd5e1; }
+  .file-table .add { color: var(--green); }
+  .file-table .del { color: var(--red); }
+  .footer { text-align: center; color: var(--muted); font-size: 11px; margin-top: 24px; opacity: 0.8; }
+  code { background: var(--card2); padding: 1px 5px; border-radius: 4px; font-size: 12px; color: var(--yellow); }
   .hidden { display: none; }
+  .q { font-style: italic; color: var(--purple); }
 </style>
 </head>
 <body>
 <div class="container">
 
 <h1>ICCP — CAB 12/08/2026</h1>
-<p class="subtitle">19 mudanças em Liberação analisadas · Análise automatizada de apoio ao comitê · Somente leitura · Quarta-feira</p>
+<p class="subtitle">19 mudanças em Liberação · Análise de apoio ao comitê · Somente leitura · Quarta-feira, 12/08/2026</p>
 
 <div class="filters">
   <input id="search" type="text" placeholder="Buscar por GMUD, IC ou título...">
   <span class="filter-pill" data-risk="all">Todos</span>
   <span class="filter-pill" data-risk="high">🔴 Crítico</span>
   <span class="filter-pill" data-risk="med">🟡 Atenção</span>
-  <span class="filter-pill" data-risk="none">Sem achados</span>
+  <span class="filter-pill" data-risk="low">🔵 Leve</span>
 </div>
 
-<table class="summary-table">
+<table class="summary-table" id="summary">
 <thead>
-<tr><th>GMUD</th><th>IC</th><th>Janela</th><th>Tipo</th><th>PR</th><th>Achados</th></tr>
+<tr><th data-key="g">GMUD</th><th data-key="i">IC</th><th data-key="j">Janela</th><th data-key="t">Tipo</th><th data-key="p">PR</th><th>Achados</th></tr>
 </thead>
 <tbody>
-<tr data-risk="med"><td><a href="https://ifood-zoop.atlassian.net/browse/GST-49756">GST-49756</a></td><td>Tooling Payments</td><td>15:30–16:00</td><td>Nova Func.</td><td>—</td><td><span class="pill risk-med">🟡 2</span></td></tr>
-<tr data-risk="med"><td><a href="https://ifood-zoop.atlassian.net/browse/GST-49755">GST-49755</a></td><td>Tooling Payments</td><td>15:30–16:00</td><td>Nova Func.</td><td>—</td><td><span class="pill risk-med">🟡 2</span></td></tr>
-<tr data-risk="med"><td><a href="https://ifood-zoop.atlassian.net/browse/GST-49753">GST-49753</a></td><td>Tooling Payments</td><td>15:30–16:00</td><td>Nova Func.</td><td><a href="https://github.com/getzoop/zoop-backoffice-admin/pull/1977">#1977</a></td><td><span class="pill risk-med">🟡 3</span></td></tr>
-<tr data-risk="med"><td><a href="https://ifood-zoop.atlassian.net/browse/GST-49747">GST-49747</a></td><td>Core-payments-zoop</td><td>15:45–16:45</td><td>Nova Func.</td><td><a href="https://github.com/getzoop/rv-tokenization/pull/794">#794</a></td><td><span class="pill risk-med">🟡 2</span></td></tr>
-<tr data-risk="med"><td><a href="https://ifood-zoop.atlassian.net/browse/GST-49758">GST-49758</a></td><td>Onboarding</td><td>16:00–18:00</td><td>Nova Func.</td><td><a href="https://github.com/getzoop/banking-accreditation/pull/470">#470</a></td><td><span class="pill risk-med">🟡 2</span></td></tr>
-<tr data-risk="med"><td><a href="https://ifood-zoop.atlassian.net/browse/GST-49757">GST-49757</a></td><td>Tooling Payments</td><td>16:00–16:30</td><td>Nova Func.</td><td>—</td><td><span class="pill risk-med">🟡 2</span></td></tr>
-<tr data-risk="med"><td><a href="https://ifood-zoop.atlassian.net/browse/GST-49748">GST-49748</a></td><td>Cloud Platform</td><td>16:00–16:30</td><td>Correção</td><td>—</td><td><span class="pill risk-high">🔴 1</span> <span class="pill risk-med">🟡 1</span></td></tr>
-<tr data-risk="med"><td><a href="https://ifood-zoop.atlassian.net/browse/GST-49744">GST-49744</a></td><td>Onboarding</td><td>16:00–18:00</td><td>Correção</td><td><a href="https://github.com/getzoop/zoop-rules-data-api/pull/90">#90</a></td><td><span class="pill risk-med">🟡 1</span></td></tr>
-<tr data-risk="med"><td><a href="https://ifood-zoop.atlassian.net/browse/GST-49742">GST-49742</a></td><td>Onboarding</td><td>16:00–18:00</td><td>Correção</td><td><a href="https://github.com/getzoop/banking-accreditation/pull/469">#469</a></td><td><span class="pill risk-med">🟡 2</span></td></tr>
-<tr data-risk="high"><td><a href="https://ifood-zoop.atlassian.net/browse/GST-49729">GST-49729</a></td><td>Cloud Platform</td><td>16:00–17:30</td><td>Manutenção</td><td><a href="https://github.com/getzoop/proxy-omnichannel/pull/100">#100</a> + <a href="https://github.com/getzoop/eks-ifp-transaction/pull/13">#13</a></td><td><span class="pill risk-high">🔴 1</span> <span class="pill risk-med">🟡 2</span></td></tr>
-<tr data-risk="med"><td><a href="https://ifood-zoop.atlassian.net/browse/GST-49759">GST-49759</a></td><td>Core Products / Tooling</td><td>16:30–18:00</td><td>Manutenção</td><td><a href="https://github.com/getzoop/zoop-backoffice-admin/pull/1966">#1966</a></td><td><span class="pill risk-med">🟡 1</span></td></tr>
-<tr data-risk="med"><td><a href="https://ifood-zoop.atlassian.net/browse/GST-49736">GST-49736</a></td><td>Database Platform</td><td>17:00–17:30</td><td>Manutenção</td><td>—</td><td><span class="pill risk-med">🟡 2</span></td></tr>
-<tr data-risk="med"><td><a href="https://ifood-zoop.atlassian.net/browse/GST-49752">GST-49752</a></td><td>Canais Digitais</td><td>19:00–23:30</td><td>Manutenção</td><td>—</td><td><span class="pill risk-med">🟡 2</span></td></tr>
-<tr data-risk="med"><td><a href="https://ifood-zoop.atlassian.net/browse/GST-49749">GST-49749</a></td><td>Canais Digitais</td><td>19:00–23:30</td><td>Manutenção</td><td>—</td><td><span class="pill risk-med">🟡 2</span></td></tr>
-<tr data-risk="med"><td><a href="https://ifood-zoop.atlassian.net/browse/GST-49751">GST-49751</a></td><td>Core-payments-zoop</td><td>04:00–06:00*</td><td>Correção</td><td><a href="https://github.com/getzoop/zoop-ratier-security/pull/306">#306</a></td><td><span class="pill risk-med">🟡 1</span></td></tr>
-<tr data-risk="med"><td><a href="https://ifood-zoop.atlassian.net/browse/GST-49750">GST-49750</a></td><td>Core-payments-zoop</td><td>04:00–06:00*</td><td>Correção</td><td><a href="https://github.com/getzoop/zoop-api/pull/1846">#1846</a></td><td><span class="pill risk-med">🟡 2</span></td></tr>
-<tr data-risk="med"><td><a href="https://ifood-zoop.atlassian.net/browse/GST-49746">GST-49746</a></td><td>Core-payments-zoop</td><td>04:00–06:00*</td><td>Manutenção</td><td><a href="https://github.com/getzoop/zoop-qrcode/pull/271">#271</a></td><td><span class="pill risk-med">🟡 1</span></td></tr>
-<tr data-risk="med"><td><a href="https://ifood-zoop.atlassian.net/browse/GST-49745">GST-49745</a></td><td>Core-payments-zoop</td><td>04:00–06:00*</td><td>Manutenção</td><td><a href="https://github.com/getzoop/txn-pix-listener/pull/189">#189</a></td><td><span class="pill risk-med">🟡 2</span></td></tr>
-<tr data-risk="med"><td><a href="https://ifood-zoop.atlassian.net/browse/GST-49739">GST-49739</a></td><td>Database Platform</td><td>04:00–04:30*</td><td>Manutenção</td><td>—</td><td><span class="pill risk-med">🟡 2</span></td></tr>
+<tr data-risk="med" data-sort="1530"><td><a href="#g49756">GST-49756</a></td><td>Tooling Payments</td><td>15:30–16:00</td><td>Nova Func.</td><td>—</td><td><span class="pill risk-med">🟡 2</span></td></tr>
+<tr data-risk="med" data-sort="1530"><td><a href="#g49755">GST-49755</a></td><td>Tooling Payments</td><td>15:30–16:00</td><td>Nova Func.</td><td>—</td><td><span class="pill risk-med">🟡 2</span></td></tr>
+<tr data-risk="med" data-sort="1530"><td><a href="#g49753">GST-49753</a></td><td>Tooling Payments</td><td>15:30–16:00</td><td>Nova Func.</td><td>#1977</td><td><span class="pill risk-med">🟡 3</span></td></tr>
+<tr data-risk="med" data-sort="1545"><td><a href="#g49747">GST-49747</a></td><td>Core-payments-zoop</td><td>15:45–16:45</td><td>Nova Func.</td><td>#794</td><td><span class="pill risk-med">🟡 2</span></td></tr>
+<tr data-risk="med" data-sort="1600"><td><a href="#g49758">GST-49758</a></td><td>Onboarding</td><td>16:00–18:00</td><td>Nova Func.</td><td>#470</td><td><span class="pill risk-med">🟡 2</span></td></tr>
+<tr data-risk="med" data-sort="1600"><td><a href="#g49757">GST-49757</a></td><td>Tooling Payments</td><td>16:00–16:30</td><td>Nova Func.</td><td>—</td><td><span class="pill risk-med">🟡 2</span></td></tr>
+<tr data-risk="high" data-sort="1600"><td><a href="#g49748">GST-49748</a></td><td>Cloud Platform</td><td>16:00–16:30</td><td>Correção</td><td>—</td><td><span class="pill risk-high">🔴 1</span> <span class="pill risk-med">🟡 1</span></td></tr>
+<tr data-risk="low" data-sort="1600"><td><a href="#g49744">GST-49744</a></td><td>Onboarding</td><td>16:00–18:00</td><td>Correção</td><td>#90</td><td><span class="pill risk-low">🔵 1</span></td></tr>
+<tr data-risk="med" data-sort="1600"><td><a href="#g49742">GST-49742</a></td><td>Onboarding</td><td>16:00–18:00</td><td>Correção</td><td>#469</td><td><span class="pill risk-med">🟡 2</span></td></tr>
+<tr data-risk="high" data-sort="1600"><td><a href="#g49729">GST-49729</a></td><td>Cloud Platform</td><td>16:00–17:30</td><td>Manutenção</td><td>#100 + #13</td><td><span class="pill risk-high">🔴 1</span> <span class="pill risk-med">🟡 2</span></td></tr>
+<tr data-risk="low" data-sort="1630"><td><a href="#g49759">GST-49759</a></td><td>Core Products / Tooling</td><td>16:30–18:00</td><td>Manutenção</td><td>#1966</td><td><span class="pill risk-low">🔵 1</span></td></tr>
+<tr data-risk="med" data-sort="1700"><td><a href="#g49736">GST-49736</a></td><td>Database Platform</td><td>17:00–17:30</td><td>Manutenção</td><td>—</td><td><span class="pill risk-med">🟡 2</span></td></tr>
+<tr data-risk="med" data-sort="1900"><td><a href="#g49752">GST-49752</a></td><td>Canais Digitais</td><td>19:00–23:30</td><td>Manutenção</td><td>—</td><td><span class="pill risk-med">🟡 2</span></td></tr>
+<tr data-risk="med" data-sort="1900"><td><a href="#g49749">GST-49749</a></td><td>Canais Digitais</td><td>19:00–23:30</td><td>Manutenção</td><td>—</td><td><span class="pill risk-med">🟡 2</span></td></tr>
+<tr data-risk="low" data-sort="2800"><td><a href="#g49751">GST-49751</a></td><td>Core-payments-zoop</td><td>04:00–06:00*</td><td>Correção</td><td>#306</td><td><span class="pill risk-low">🔵 1</span></td></tr>
+<tr data-risk="med" data-sort="2800"><td><a href="#g49750">GST-49750</a></td><td>Core-payments-zoop</td><td>04:00–06:00*</td><td>Correção</td><td>#1846</td><td><span class="pill risk-med">🟡 2</span></td></tr>
+<tr data-risk="low" data-sort="2800"><td><a href="#g49746">GST-49746</a></td><td>Core-payments-zoop</td><td>04:00–06:00*</td><td>Manutenção</td><td>#271</td><td><span class="pill risk-low">🔵 1</span></td></tr>
+<tr data-risk="med" data-sort="2800"><td><a href="#g49745">GST-49745</a></td><td>Core-payments-zoop</td><td>04:00–06:00*</td><td>Manutenção</td><td>#189</td><td><span class="pill risk-med">🟡 2</span></td></tr>
+<tr data-risk="med" data-sort="2800"><td><a href="#g49739">GST-49739</a></td><td>Database Platform</td><td>04:00–04:30*</td><td>Manutenção</td><td>—</td><td><span class="pill risk-med">🟡 2</span></td></tr>
 </tbody>
 </table>
-<p style="font-size:11px;color:#888;margin:-14px 0 20px">* janelas de 13/08 (madrugada). RDS e demais janelas 04h–06h seguem o padrão do catálogo GSTI.</p>
+<p style="font-size:11px;color:var(--muted);margin:-14px 0 20px">* janelas de 13/08 (madrugada). Click em uma linha para ir ao card.</p>
 
-<!-- ============ GST-49756 ============ -->
-<div class="card" data-risk="med" data-text="GST-49756 rotas transferencias painel-conciliation-api Tooling Payments">
+<!-- GST-49756 -->
+<div class="card" id="g49756" data-risk="med" data-text="GST-49756 rotas transferencias painel-conciliation-api Tooling Payments">
 <div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49756">GST-49756</a> · Rotas transferências — painel-conciliation-api</h2><div class="card-meta"><span class="badge badge-blue">Liberação</span><br>Tooling Payments · 15:30–16:00<br>Ticket: SWTPAYM-938</div></div>
 <div class="card-body">
-<div class="section"><div class="section-title" style="color:#2563eb">📌 O QUE FAZ</div><p>Criação de rotas para a jornada de transferências do bko zoop atlas no <code>painel-conciliation-api</code>. GMUD sem PR associado — apenas o ticket externo <code>SWTPAYM-938</code>. Objetivo declarado: "subir o deploy e testar rotas".</p></div>
-<div class="section"><div class="section-title" style="color:#7c3aed">❓ POR QUE</div><p>Nova funcionalidade no backoffice de conciliação (domínio Plataforma / Ferramentas de Backoffice).</p></div>
-<div class="section"><div class="section-title" style="color:#d97706">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Sem link de PR ou evidência de código no ticket — impossível cruzar escopo declarado × diff real.</li><li>Plano de rollback (<code>10948</code>) vazio; rollback declarado em outro campo é genérico ("reverter o deploy e acompanhar logs").</li><li>Template da GMUD em branco (Escopo/Premissas/Critérios de Aceite vazios).</li></ul></div>
-<div class="section"><div class="section-title" style="color:#dc2626">⚠️ PARA DISCUTIR NO CAB</div><ul><li>🟡 <strong>Sem PR associado</strong> — o CAB não tem visibilidade do código que entra em produção. Pergunta: qual artefato está sendo deployado?</li><li>🟡 Template não preenchido + rollback genérico.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#059669">✅ ROLLBACK</div><p>"Reverter o deploy e acompanhar logs" (genérico). Confiança: média — depende de deploy versionado/feature flag, não evidenciado.</p></div>
+<div class="section"><div class="section-title" style="color:var(--blue)">🎯 OBJETIVO DA MUDANÇA</div><p>Criação de rotas para a jornada de transferências do bko zoop atlas no <code>painel-conciliation-api</code> (Ferramentas de Backoffice, domínio Plataforma). GMUD sem PR associado — apenas o ticket externo <code>SWTPAYM-938</code>. Objetivo declarado: "subir o deploy e testar rotas".</p></div>
+<div class="section"><div class="section-title" style="color:var(--purple)">🔬 SUPERFÍCIE TÉCNICA</div><p>Sem PR associado na GMUD — não há diff para inspecionar. Evidência técnica indisponível.</p></div>
+<div class="section"><div class="section-title" style="color:var(--yellow)">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Sem link de PR ou evidência de código no ticket — impossível cruzar escopo declarado × diff real.</li><li>Plano de rollback (<code>10948</code>) vazio; rollback declarado em outro campo é genérico ("reverter o deploy e acompanhar logs").</li><li>Template da GMUD em branco (Escopo/Premissas/Critérios de Aceite vazios).</li></ul></div>
+<div class="section"><div class="section-title" style="color:var(--red)">⚠️ AVALIAÇÃO DE RISCO E PONTOS PARA O CAB</div><ol><li>🟡 <strong>Sem PR associado</strong> — o CAB não tem visibilidade do código que entra em produção. <span class="q">Qual artefato está sendo deployado?</span></li><li>🟡 Template não preenchido + rollback genérico.</li></ol></div>
+<div class="section"><div class="section-title" style="color:var(--green)">✅ ROLLBACK</div><p><strong>Documentado:</strong> "reverter o deploy e acompanhar logs". <strong>Análise:</strong> plano genérico, sem evidência de versão/flag. <strong>Confiança: média</strong> — depende de deploy versionado ou feature flag, não evidenciado.</p></div>
 </div></div>
 
-<!-- ============ GST-49755 ============ -->
-<div class="card" data-risk="med" data-text="GST-49755 rotas transferencias sinergia Tooling Payments">
+<!-- GST-49755 -->
+<div class="card" id="g49755" data-risk="med" data-text="GST-49755 rotas transferencias sinergia Tooling Payments">
 <div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49755">GST-49755</a> · Rotas transferências — sinergia</h2><div class="card-meta"><span class="badge badge-blue">Liberação</span><br>Tooling Payments · 15:30–16:00<br>Ticket: SWTPAYM-937</div></div>
 <div class="card-body">
-<div class="section"><div class="section-title" style="color:#2563eb">📌 O QUE FAZ</div><p>Criação de rotas para a jornada de transferências do bko zoop atlas no <strong>sinergia</strong>. Sem PR associado; ticket externo <code>SWTPAYM-937</code>. Objetivo: "realizar o deploy e testar rotas".</p></div>
-<div class="section"><div class="section-title" style="color:#7c3aed">❓ POR QUE</div><p>Nova funcionalidade (Plataforma / Ferramentas de Backoffice).</p></div>
-<div class="section"><div class="section-title" style="color:#d97706">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Sem link de PR ou evidência de código.</li><li>Plano de rollback (<code>10948</code>) vazio; rollback declarado: "realizar o revert e acompanhar logs".</li><li>Template em branco.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#dc2626">⚠️ PARA DISCUTIR NO CAB</div><ul><li>🟡 <strong>Sem PR associado</strong> — sem visibilidade do código.</li><li>🟡 Template não preenchido + rollback genérico.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#059669">✅ ROLLBACK</div><p>"Realizar o revert e acompanhar logs". Confiança: média.</p></div>
+<div class="section"><div class="section-title" style="color:var(--blue)">🎯 OBJETIVO DA MUDANÇA</div><p>Criação de rotas para a jornada de transferências do bko zoop atlas no <strong>sinergia</strong>. Sem PR associado; ticket externo <code>SWTPAYM-937</code>. Objetivo: "realizar o deploy e testar rotas".</p></div>
+<div class="section"><div class="section-title" style="color:var(--purple)">🔬 SUPERFÍCIE TÉCNICA</div><p>Sem PR associado — evidência técnica indisponível.</p></div>
+<div class="section"><div class="section-title" style="color:var(--yellow)">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Sem link de PR ou evidência de código.</li><li>Plano de rollback (<code>10948</code>) vazio; rollback declarado: "realizar o revert e acompanhar logs".</li><li>Template em branco.</li></ul></div>
+<div class="section"><div class="section-title" style="color:var(--red)">⚠️ AVALIAÇÃO DE RISCO E PONTOS PARA O CAB</div><ol><li>🟡 <strong>Sem PR associado</strong> — sem visibilidade do código.</li><li>🟡 Template não preenchido + rollback genérico.</li></ol></div>
+<div class="section"><div class="section-title" style="color:var(--green)">✅ ROLLBACK</div><p><strong>Documentado:</strong> "realizar o revert e acompanhar logs". <strong>Confiança: média.</strong></p></div>
 </div></div>
 
-<!-- ============ GST-49753 ============ -->
-<div class="card" data-risk="med" data-text="GST-49753 featureflag credenciamento marketplaces backoffice Tooling Payments">
+<!-- GST-49753 -->
+<div class="card" id="g49753" data-risk="med" data-text="GST-49753 featureflag credenciamento marketplaces backoffice Tooling Payments">
 <div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49753">GST-49753</a> · FF esconder menu Credenciamento Marketplaces</h2><div class="card-meta"><span class="badge badge-blue">Liberação</span><br>Tooling Payments · 15:30–16:00<br><a href="https://github.com/getzoop/zoop-backoffice-admin/pull/1977">zoop-backoffice-admin#1977</a></div></div>
 <div class="card-body">
-<div class="section"><div class="section-title" style="color:#2563eb">📌 O QUE FAZ</div><p>Introduz a flag <code>banking_accreditation_marketplaces</code> para ocultar o menu e bloquear as rotas da jornada de Credenciamento Banking Marketplaces. Decorator <code>@feature_flag_enabled("marketplaces")</code> em 2 views; menu condicionado no template; mapeamento em <code>templatetags/flags.py</code>.</p>
-<div class="pr-stats"><span class="stat">PR aberto (não mergeado)</span><span class="stat">6 arquivos</span><span class="stat">+130/−2</span><span class="stat">CI: pending (0 checks)</span><span class="stat">1 aprovação (cm-ribeiro)</span></div>
+<div class="section"><div class="section-title" style="color:var(--blue)">🎯 OBJETIVO DA MUDANÇA</div><p>Introduz a feature flag <code>banking_accreditation_marketplaces</code> para ocultar o menu e bloquear as rotas da jornada de Credenciamento Banking Marketplaces no backoffice (ticket <code>SWTPAYM-928</code>).</p></div>
+<div class="section"><div class="section-title" style="color:var(--purple)">🔬 SUPERFÍCIE TÉCNICA</div>
+<div class="pr-stats"><span class="stat">PR <b>aberto (não mergeado)</b></span><span class="stat">6 arquivos</span><span class="stat"><b>+130/−2</b></span><span class="stat">CI: <b>pending (0 checks)</b></span><span class="stat">1 aprovação (cm-ribeiro)</span></div>
 <table class="file-table"><tr><th>arquivo</th><th>Δ</th></tr>
-<tr><td>bankingaccreditation/tests/test_views.py</td><td>+84</td></tr>
-<tr><td>core/tests/test_flags.py</td><td>+34/−1</td></tr>
-<tr><td>core/templates/admin/zoop-index.html</td><td>+5/−1</td></tr>
-<tr><td>bankingaccreditation/views.py</td><td>+3</td></tr>
-<tr><td>core/flags.py</td><td>+3</td></tr>
-<tr><td>core/templatetags/flags.py</td><td>+1</td></tr></table>
+<tr><td>bankingaccreditation/tests/test_views.py</td><td class="add">+84</td></tr>
+<tr><td>core/tests/test_flags.py</td><td class="add">+34</td><td class="del">−1</td></tr>
+<tr><td>core/templates/admin/zoop-index.html</td><td class="add">+5</td><td class="del">−1</td></tr>
+<tr><td>bankingaccreditation/views.py</td><td class="add">+3</td></tr>
+<tr><td>core/flags.py</td><td class="add">+3</td></tr>
+<tr><td>core/templatetags/flags.py</td><td class="add">+1</td></tr></table>
 </div>
-<div class="section"><div class="section-title" style="color:#7c3aed">❓ POR QUE</div><p>Nova funcionalidade — esconder jornada legada via feature flag (ticket <code>SWTPAYM-928</code>).</p></div>
-<div class="section"><div class="section-title" style="color:#d97706">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Flag só bloqueia quando valor = <code>"disabled"</code>; flag inexistente ou <code>"enabled"</code> mantém a jornada visível (comportamento <em>fail-open</em>).</li><li>PR criado hoje (14:19) e aprovado às 14:54 — janela às 15:30, aprovação a 36 min da execução.</li><li>PR aberto, não mergeado, no momento da janela.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#dc2626">⚠️ PARA DISCUTIR NO CAB</div><ul><li>🟡 <strong>PR ainda aberto</strong> (não mergeado) na janela de Liberação — o que efetivamente será deployado?</li><li>🟡 CI sem nenhum check reportado (0 statuses) apesar de 130 linhas novas de teste.</li><li>🟡 Aprovação única + template da GMUD em branco.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#059669">✅ ROLLBACK</div><p>Reverter deploy + desativar flag. Confiança: alta (feature flag permite kill-switch rápido).</p></div>
+<div class="section"><div class="section-title" style="color:var(--yellow)">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Flag só bloqueia quando valor = <code>"disabled"</code>; flag inexistente ou <code>"enabled"</code> mantém a jornada visível (comportamento <em>fail-open</em>).</li><li>PR criado hoje (14:19) e aprovado às 14:54 — aprovação a 36 min da execução.</li><li>PR aberto, não mergeado, no momento da janela.</li></ul></div>
+<div class="section"><div class="section-title" style="color:var(--red)">⚠️ AVALIAÇÃO DE RISCO E PONTOS PARA O CAB</div><ol><li>🟡 <strong>PR ainda aberto</strong> (não mergeado) na janela de Liberação. <span class="q">O que efetivamente será deployado?</span></li><li>🟡 CI sem nenhum check reportado (0 statuses) apesar de 130 linhas novas de teste.</li><li>🟡 Aprovação única + template da GMUD em branco.</li></ol></div>
+<div class="section"><div class="section-title" style="color:var(--green)">✅ ROLLBACK</div><p><strong>Documentado:</strong> reverter deploy. <strong>Análise:</strong> feature flag permite kill-switch rápido. <strong>Confiança: alta.</strong></p></div>
 </div></div>
 
-<!-- ============ GST-49747 ============ -->
-<div class="card" data-risk="med" data-text="GST-49747 feature flag adquirentes rv-tokenization Core-payments">
+<!-- GST-49747 -->
+<div class="card" id="g49747" data-risk="med" data-text="GST-49747 feature flag adquirentes rv-tokenization Core-payments">
 <div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49747">GST-49747</a> · [RV] FF adquirentes permitidas por marketplace</h2><div class="card-meta"><span class="badge badge-blue">Liberação</span><br>Core-payments-zoop · 15:45–16:45<br><a href="https://github.com/getzoop/rv-tokenization/pull/794">rv-tokenization#794</a></div></div>
 <div class="card-body">
-<div class="section"><div class="section-title" style="color:#2563eb">📌 O QUE FAZ</div><p>Configura a lista de adquirentes permitidas por marketplace via variável de ambiente <code>ALLOWED_ACQUIRERS_PER_MARKETPLACE</code> (Lambda tokenização). Se o marketplace não tem config, acata o que veio no body.</p>
-<div class="pr-stats"><span class="stat">PR aberto</span><span class="stat">11 arquivos</span><span class="stat">+241/−34</span><span class="stat">CI: pending (0 checks)</span><span class="stat">1 aprovação (lobaostibich)</span></div>
+<div class="section"><div class="section-title" style="color:var(--blue)">🎯 OBJETIVO DA MUDANÇA</div><p>Configurar a lista de adquirentes permitidas por marketplace na Lambda de tokenização, via env var <code>ALLOWED_ACQUIRERS_PER_MARKETPLACE</code>. Marketplace sem config acata o body (ticket <code>SWPPLBU-591</code>).</p></div>
+<div class="section"><div class="section-title" style="color:var(--purple)">🔬 SUPERFÍCIE TÉCNICA</div>
+<div class="pr-stats"><span class="stat">PR <b>aberto</b></span><span class="stat">11 arquivos</span><span class="stat"><b>+241/−34</b></span><span class="stat">CI: <b>pending (0 checks)</b></span><span class="stat">1 aprovação (lobaostibich)</span></div>
 <table class="file-table"><tr><th>arquivo</th><th>Δ</th></tr>
-<tr><td>handlers_test.go</td><td>+109/−22</td></tr>
-<tr><td>service_test.go</td><td>+64</td></tr>
-<tr><td>handlers.go</td><td>+34/−10</td></tr>
-<tr><td>service.go</td><td>+20</td></tr>
-<tr><td>config.go / main.go / router.go / lambda.tf / variables.tf / tfvars(prod,staging)</td><td>+11/−2</td></tr></table>
+<tr><td>cmd/tokenization-lambda/handlers_test.go</td><td class="add">+109</td><td class="del">−22</td></tr>
+<tr><td>tokenization/service_test.go</td><td class="add">+64</td></tr>
+<tr><td>cmd/tokenization-lambda/handlers.go</td><td class="add">+34</td><td class="del">−10</td></tr>
+<tr><td>tokenization/service.go</td><td class="add">+20</td></tr>
+<tr><td>config.go / main.go / router.go / lambda.tf / variables.tf / tfvars(prod,staging)</td><td class="add">+11</td><td class="del">−2</td></tr></table>
 </div>
-<div class="section"><div class="section-title" style="color:#7c3aed">❓ POR QUE</div><p>Nova funcionalidade — controlar adquirentes por marketplace (ticket <code>SWPPLBU-591</code>).</p></div>
-<div class="section"><div class="section-title" style="color:#d97706">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Valor da config é uma <strong>string</strong> parseada em runtime (não lista tipada) — sem validação visível de formato no código além dos testes.</li><li>Comportamento de fallback: marketplace sem config acata o body — comportamento permissivo que não aparece na GMUD.</li><li>Tfvars de prod/staging alterados (+1 cada) para injetar a env var.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#dc2626">⚠️ PARA DISCUTIR NO CAB</div><ul><li>🟡 PR aberto + CI sem checks + aprovação única.</li><li>🟡 Template da GMUD em branco.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#059669">✅ ROLLBACK</div><p>Subir tag anterior no GitHub Actions. Confiança: média (depende de tag versionada da Lambda).</p></div>
+<div class="section"><div class="section-title" style="color:var(--yellow)">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Valor da config é uma <strong>string</strong> parseada em runtime (não lista tipada) — sem validação visível de formato além dos testes.</li><li>Fallback permissivo: marketplace sem config acata o body.</li><li>Tfvars de prod/staging alterados (+1 cada) para injetar a env var.</li></ul></div>
+<div class="section"><div class="section-title" style="color:var(--red)">⚠️ AVALIAÇÃO DE RISCO E PONTOS PARA O CAB</div><ol><li>🟡 PR aberto + CI sem checks + aprovação única.</li><li>🟡 Template da GMUD em branco.</li></ol></div>
+<div class="section"><div class="section-title" style="color:var(--green)">✅ ROLLBACK</div><p><strong>Documentado:</strong> subir tag anterior no GitHub Actions. <strong>Confiança: média</strong> — depende de tag versionada da Lambda.</p></div>
 </div></div>
 
-<!-- ============ GST-49758 ============ -->
-<div class="card" data-risk="med" data-text="GST-49758 coluna engine tabela analysis banking-accreditation Onboarding">
+<!-- GST-49758 -->
+<div class="card" id="g49758" data-risk="med" data-text="GST-49758 coluna engine tabela analysis banking-accreditation Onboarding">
 <div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49758">GST-49758</a> · Coluna engine na tabela analysis</h2><div class="card-meta"><span class="badge badge-blue">Liberação</span><br>Onboarding · 16:00–18:00<br><a href="https://github.com/getzoop/banking-accreditation/pull/470">banking-accreditation#470</a></div></div>
 <div class="card-body">
-<div class="section"><div class="section-title" style="color:#2563eb">📌 O QUE FAZ</div><p>Adiciona coluna <code>engine</code> (VARCHAR(30)) à tabela <code>analysis</code> via Liquibase, com enum <code>Analysis.Engine</code> (<code>PREVENTION_STEPS</code>, <code>IFP_PROFILE</code>) e exposição no <code>AnalysisResponse</code>.</p>
-<div class="pr-stats"><span class="stat">PR aberto</span><span class="stat">8 arquivos</span><span class="stat">+63/−1</span><span class="stat">CI: pending (0 checks)</span><span class="stat">2 aprovações</span></div>
+<div class="section"><div class="section-title" style="color:var(--blue)">🎯 OBJETIVO DA MUDANÇA</div><p>Adicionar coluna <code>engine</code> à tabela <code>analysis</code> para rastrear qual motor executou a análise de antifraud (fluxo legado vs IFP Profile), com enum <code>PREVENTION_STEPS</code> / <code>IFP_PROFILE</code> e exposição no <code>AnalysisResponse</code>.</p></div>
+<div class="section"><div class="section-title" style="color:var(--purple)">🔬 SUPERFÍCIE TÉCNICA</div>
+<div class="pr-stats"><span class="stat">PR <b>aberto</b></span><span class="stat">8 arquivos</span><span class="stat"><b>+63/−1</b></span><span class="stat">CI: <b>pending (0 checks)</b></span><span class="stat">2 aprovações</span></div>
 <table class="file-table"><tr><th>arquivo</th><th>Δ</th></tr>
-<tr><td>domain/model/Analysis.kt</td><td>+11</td></tr>
-<tr><td>application/model/Analysis.kt</td><td>+2</td></tr>
-<tr><td>db/migration/202608061800__add_engine_to_analysis.sql</td><td>+8 (novo)</td></tr>
-<tr><td>db/migration/202608121000__rename_legacy_risk_to_prevention_steps.sql</td><td>+5 (novo)</td></tr>
-<tr><td>changelog.yaml + testes</td><td>+37</td></tr></table>
+<tr><td>domain/model/Analysis.kt</td><td class="add">+11</td></tr>
+<tr><td>application/model/Analysis.kt</td><td class="add">+2</td></tr>
+<tr><td>db/migration/202608061800__add_engine_to_analysis.sql</td><td class="add">+8 (novo)</td></tr>
+<tr><td>db/migration/202608121000__rename_legacy_risk_to_prevention_steps.sql</td><td class="add">+5 (novo)</td></tr>
+<tr><td>changelog.yaml + testes</td><td class="add">+37</td></tr></table>
 </div>
-<div class="section"><div class="section-title" style="color:#7c3aed">❓ POR QUE</div><p>Rastrear qual engine executou a análise de antifraud (fluxo legado vs IFP Profile).</p></div>
-<div class="section"><div class="section-title" style="color:#d97706">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Descrição do PR diz default <code>PREVENTION_STEPS</code>, mas a migration 1 cria coluna com <code>DEFAULT 'LEGACY_RISK'</code> e a migration 2 faz <code>UPDATE ... SET PREVENTION_STEPS WHERE LEGACY_RISK</code> — duas migrations para chegar no valor final; janela de inconsistência entre elas.</li><li>Backfill e constraint NOT NULL aplicados sobre a tabela <code>analysis</code> em produção sem menção de volume/lock.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#dc2626">⚠️ PARA DISCUTIR NO CAB</div><ul><li>🟡 <strong>Migration de schema em produção</strong> com enum divergente entre migrations — risco de estado intermediário <code>LEGACY_RISK</code>.</li><li>🟡 PR aberto + CI sem checks.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#059669">✅ ROLLBACK</div><p>Reverter merge + pipeline CD. Confiança: média — rollback de migration exige drop de coluna/novo changeset.</p></div>
+<div class="section"><div class="section-title" style="color:var(--yellow)">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Descrição do PR diz default <code>PREVENTION_STEPS</code>, mas a migration 1 cria a coluna com <code>DEFAULT 'LEGACY_RISK'</code> e a migration 2 faz <code>UPDATE ... SET PREVENTION_STEPS WHERE LEGACY_RISK</code> — duas migrations para o valor final; janela de inconsistência entre elas.</li><li>Backfill e constraint NOT NULL sobre a tabela <code>analysis</code> em produção sem menção de volume/lock.</li></ul></div>
+<div class="section"><div class="section-title" style="color:var(--red)">⚠️ AVALIAÇÃO DE RISCO E PONTOS PARA O CAB</div><ol><li>🟡 <strong>Migration de schema em produção</strong> com enum divergente entre migrations — risco de estado intermediário <code>LEGACY_RISK</code>.</li><li>🟡 PR aberto + CI sem checks.</li></ol></div>
+<div class="section"><div class="section-title" style="color:var(--green)">✅ ROLLBACK</div><p><strong>Documentado:</strong> reverter merge + pipeline CD. <strong>Análise:</strong> rollback de migration exige drop de coluna/novo changeset. <strong>Confiança: média.</strong></p></div>
 </div></div>
 
-<!-- ============ GST-49757 ============ -->
-<div class="card" data-risk="med" data-text="GST-49757 featureflag transferencias legado backoffice Tooling Payments">
+<!-- GST-49757 -->
+<div class="card" id="g49757" data-risk="med" data-text="GST-49757 featureflag transferencias legado backoffice Tooling Payments">
 <div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49757">GST-49757</a> · FF esconder jornada Transferências (legado)</h2><div class="card-meta"><span class="badge badge-blue">Liberação</span><br>Tooling Payments · 16:00–16:30<br>Ticket: SWTPAYM-939</div></div>
 <div class="card-body">
-<div class="section"><div class="section-title" style="color:#2563eb">📌 O QUE FAZ</div><p>Criação de feature flag para esconder a jornada de Transferências no bko zoop legado. Sem PR associado. Objetivo: "subir o deploy e validar tela".</p></div>
-<div class="section"><div class="section-title" style="color:#7c3aed">❓ POR QUE</div><p>Nova funcionalidade (Plataforma / Ferramentas de Backoffice).</p></div>
-<div class="section"><div class="section-title" style="color:#d97706">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Sem PR / evidência de código.</li><li>Rollback genérico ("reverter o deploy e validar tela"), plano <code>10948</code> vazio.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#dc2626">⚠️ PARA DISCUTIR NO CAB</div><ul><li>🟡 Sem PR associado.</li><li>🟡 Template em branco.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#059669">✅ ROLLBACK</div><p>"Reverter o deploy e validar tela". Confiança: média.</p></div>
+<div class="section"><div class="section-title" style="color:var(--blue)">🎯 OBJETIVO DA MUDANÇA</div><p>Criação de feature flag para esconder a jornada de Transferências no bko zoop legado. Sem PR associado. Objetivo: "subir o deploy e validar tela".</p></div>
+<div class="section"><div class="section-title" style="color:var(--purple)">🔬 SUPERFÍCIE TÉCNICA</div><p>Sem PR associado — evidência técnica indisponível.</p></div>
+<div class="section"><div class="section-title" style="color:var(--yellow)">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Sem PR / evidência de código.</li><li>Rollback genérico ("reverter o deploy e validar tela"), plano <code>10948</code> vazio.</li></ul></div>
+<div class="section"><div class="section-title" style="color:var(--red)">⚠️ AVALIAÇÃO DE RISCO E PONTOS PARA O CAB</div><ol><li>🟡 Sem PR associado.</li><li>🟡 Template em branco.</li></ol></div>
+<div class="section"><div class="section-title" style="color:var(--green)">✅ ROLLBACK</div><p><strong>Documentado:</strong> "reverter o deploy e validar tela". <strong>Confiança: média.</strong></p></div>
 </div></div>
 
-<!-- ============ GST-49748 ============ -->
-<div class="card" data-risk="high" data-text="GST-49748 exclusao infraestrutura repositorio painel-conciliation-api-health Cloud Platform">
-<div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49748">GST-49748</a> · Exclusão de infra e arquivamento do repo</h2><div class="card-meta"><span class="badge badge-blue">Liberação</span><br>Cloud Platform · 16:00–16:30<br>Repo: zoop-painel-conciliation-api-health</div></div>
+<!-- GST-49748 -->
+<div class="card" id="g49748" data-risk="high" data-text="GST-49748 exclusao infraestrutura repositorio painel-conciliation-api-health Cloud Platform">
+<div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49748">GST-49748</a> · Exclusão de infra e arquivamento do repo</h2><div class="card-meta"><span class="badge badge-red">Liberação</span><br>Cloud Platform · 16:00–16:30<br>Repo: zoop-painel-conciliation-api-health</div></div>
 <div class="card-body">
-<div class="section"><div class="section-title" style="color:#2563eb">📌 O QUE FAZ</div><p>Exclusão da infraestrutura obsoleta (<code>ecr zp-production-ecr-painel-api</code>, policies/roles/lambda <code>banking-rpa-event-redirect-*</code>) e arquivamento do repositório. Solicitado por @cicero.ribeiro.</p></div>
-<div class="section"><div class="section-title" style="color:#7c3aed">❓ POR QUE</div><p>Infra criada para migração ECS→EKS em 2023/24 que não seguiu; sem uso. Staging já deletada.</p></div>
-<div class="section"><div class="section-title" style="color:#d97706">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>"Não há state no bucket para produção, será necessário excluir tudo na console" — exclusão <strong>manual via console AWS</strong>, sem Terraform state.</li><li>Recursos listados: ECR, 6 policies/roles, 1 lambda log. Nenhum serviço dependente mapeado na GMUD.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#dc2626">⚠️ PARA DISCUTIR NO CAB</div><ul><li>🔴 <strong>Destrutivo e irreversível</strong> — exclusão manual na console sem state; confirmar que nenhum fluxo ainda referencia esses recursos (lambda <code>banking-rpa-event-redirect</code> sugere redirect de eventos de pagamento).</li><li>🟡 Rollback inexistente (recurso excluído não pode ser "revertido").</li></ul></div>
-<div class="section"><div class="section-title" style="color:#059669">✅ ROLLBACK</div><p>Não se aplica (exclusão). Confiança: baixa — sem mecanismo de reversão; mitigação seria recriar via código.</p></div>
+<div class="section"><div class="section-title" style="color:var(--blue)">🎯 OBJETIVO DA MUDANÇA</div><p>Excluir infraestrutura obsoleta (<code>ecr zp-production-ecr-painel-api</code>, policies/roles/lambda <code>banking-rpa-event-redirect-*</code>) e arquivar o repositório. Solicitado por @cicero.ribeiro. Infra criada para migração ECS→EKS em 2023/24 que não seguiu; staging já deletada.</p></div>
+<div class="section"><div class="section-title" style="color:var(--purple)">🔬 SUPERFÍCIE TÉCNICA</div><p>Sem PR. Recursos alvo: ECR, 6 policies/roles, 1 lambda log. "Não há state no bucket para produção, será necessário excluir tudo na console" — exclusão <strong>manual via console AWS</strong>.</p></div>
+<div class="section"><div class="section-title" style="color:var(--yellow)">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Exclusão manual na console, sem Terraform state — sem registro versionado do que será removido.</li><li>Nenhum serviço dependente mapeado na GMUD; lambda <code>banking-rpa-event-redirect</code> sugere redirect de eventos de pagamento.</li></ul></div>
+<div class="section"><div class="section-title" style="color:var(--red)">⚠️ AVALIAÇÃO DE RISCO E PONTOS PARA O CAB</div><ol><li>🔴 <strong>Destrutivo e irreversível</strong> — exclusão manual na console sem state. <span class="q">Nenhum fluxo ainda referencia esses recursos?</span></li><li>🟡 Rollback inexistente (recurso excluído não pode ser revertido).</li></ol></div>
+<div class="section"><div class="section-title" style="color:var(--green)">✅ ROLLBACK</div><p><strong>Documentado:</strong> não se aplica. <strong>Análise:</strong> sem mecanismo de reversão; mitigação seria recriar via código. <strong>Confiança: baixa.</strong></p></div>
 </div></div>
 
-<!-- ============ GST-49744 ============ -->
-<div class="card" data-risk="med" data-text="GST-49744 correcao datadog apm imdsv2 rules-data-api Onboarding">
+<!-- GST-49744 -->
+<div class="card" id="g49744" data-risk="low" data-text="GST-49744 correcao datadog apm imdsv2 rules-data-api Onboarding">
 <div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49744">GST-49744</a> · Correção Datadog APM (IMDSv2)</h2><div class="card-meta"><span class="badge badge-blue">Liberação</span><br>Onboarding · 16:00–18:00<br><a href="https://github.com/getzoop/zoop-rules-data-api/pull/90">zoop-rules-data-api#90</a></div></div>
 <div class="card-body">
-<div class="section"><div class="section-title" style="color:#2563eb">📌 O QUE FAZ</div><p>Resolve envio de traces Datadog: o entrypoint passa a obter o host do agente via <strong>IMDSv2</strong> (token) em vez de IMDSv1, corrigindo o fallback para localhost.</p>
-<div class="pr-stats"><span class="stat">PR aberto</span><span class="stat">3 arquivos</span><span class="stat">+9/−4</span><span class="stat">CI: pending (0 checks)</span><span class="stat">2 aprovações</span></div>
+<div class="section"><div class="section-title" style="color:var(--blue)">🎯 OBJETIVO DA MUDANÇA</div><p>Corrigir envio de traces Datadog: o entrypoint passa a obter o host do agente via <strong>IMDSv2</strong> (token) em vez de IMDSv1, corrigindo o fallback para localhost (ticket <code>SWPAYZP-620</code>).</p></div>
+<div class="section"><div class="section-title" style="color:var(--purple)">🔬 SUPERFÍCIE TÉCNICA</div>
+<div class="pr-stats"><span class="stat">PR <b>aberto</b></span><span class="stat">3 arquivos</span><span class="stat"><b>+9/−4</b></span><span class="stat">CI: <b>pending (0 checks)</b></span><span class="stat">2 aprovações</span></div>
 <table class="file-table"><tr><th>arquivo</th><th>Δ</th></tr>
-<tr><td>docker-entrypoint-ecs.sh</td><td>+4 (novo)</td></tr>
-<tr><td>Dockerfile</td><td>+4/−1</td></tr>
-<tr><td>deployment/terraform/locals.tf</td><td>+1/−3</td></tr></table>
+<tr><td>docker-entrypoint-ecs.sh</td><td class="add">+4 (novo)</td></tr>
+<tr><td>Dockerfile</td><td class="add">+4</td><td class="del">−1</td></tr>
+<tr><td>deployment/terraform/locals.tf</td><td class="add">+1</td><td class="del">−3</td></tr></table>
 </div>
-<div class="section"><div class="section-title" style="color:#7c3aed">❓ POR QUE</div><p>Correção — traces não chegavam ao Datadog (ticket <code>SWPAYZP-620</code>).</p></div>
-<div class="section"><div class="section-title" style="color:#d97706">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Mudança no <code>CMD</code> do container (passa a chamar script entrypoint) — altera contrato de inicialização da imagem.</li><li>Uso de IMDSv2 com <code>curl -m 5</code> para token e IP; sem tratamento de erro visível se o metadata endpoint falhar.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#dc2626">⚠️ PARA DISCUTIR NO CAB</div><ul><li>🟡 PR aberto + CI sem checks (correção em infra de observabilidade).</li></ul></div>
-<div class="section"><div class="section-title" style="color:#059669">✅ ROLLBACK</div><p>Disfazer merge + rodar pipeline. Confiança: alta (mudança pequena e reversível).</p></div>
+<div class="section"><div class="section-title" style="color:var(--yellow)">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Mudança no <code>CMD</code> do container (passa a chamar script entrypoint) — altera o contrato de inicialização da imagem.</li><li>IMDSv2 com <code>curl -m 5</code> para token e IP; sem tratamento de erro visível se o metadata endpoint falhar.</li></ul></div>
+<div class="section"><div class="section-title" style="color:var(--red)">⚠️ AVALIAÇÃO DE RISCO E PONTOS PARA O CAB</div><ol><li>🔵 PR aberto + CI sem checks (correção em infra de observabilidade, escopo pequeno e reversível).</li></ol></div>
+<div class="section"><div class="section-title" style="color:var(--green)">✅ ROLLBACK</div><p><strong>Documentado:</strong> disfazer merge + rodar pipeline. <strong>Confiança: alta</strong> — mudança pequena e reversível.</p></div>
 </div></div>
 
-<!-- ============ GST-49742 ============ -->
-<div class="card" data-risk="med" data-text="GST-49742 criterio main socio banking-accreditation Onboarding">
+<!-- GST-49742 -->
+<div class="card" id="g49742" data-risk="med" data-text="GST-49742 criterio main socio banking-accreditation Onboarding">
 <div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49742">GST-49742</a> · Critério automático do atributo main</h2><div class="card-meta"><span class="badge badge-blue">Liberação</span><br>Onboarding · 16:00–18:00<br><a href="https://github.com/getzoop/banking-accreditation/pull/469">banking-accreditation#469</a></div></div>
 <div class="card-body">
-<div class="section"><div class="section-title" style="color:#2563eb">📌 O QUE FAZ</div><p>O código passa a validar não só a porcentagem societária, mas também o sócio que possui documentos vinculados, como critério de desempate quando sócios têm porcentagens iguais.</p>
-<div class="pr-stats"><span class="stat">PR aberto</span><span class="stat">4 arquivos</span><span class="stat">+184/−286</span><span class="stat">CI: pending (0 checks)</span><span class="stat">4 aprovações</span></div>
+<div class="section"><div class="section-title" style="color:var(--blue)">🎯 OBJETIVO DA MUDANÇA</div><p>O código passa a validar não só a porcentagem societária, mas também o sócio que possui documentos vinculados, como critério de desempate quando sócios têm porcentagens iguais (ticket <code>SWACCRE-1223</code>).</p></div>
+<div class="section"><div class="section-title" style="color:var(--purple)">🔬 SUPERFÍCIE TÉCNICA</div>
+<div class="pr-stats"><span class="stat">PR <b>aberto</b></span><span class="stat">4 arquivos</span><span class="stat"><b>+184/−286</b></span><span class="stat">CI: <b>pending (0 checks)</b></span><span class="stat">4 aprovações</span></div>
 <table class="file-table"><tr><th>arquivo</th><th>Δ</th></tr>
-<tr><td>Jenkinsfile</td><td>−274 (removido)</td></tr>
-<tr><td>PartnerControllerIT.kt</td><td>+146/−4</td></tr>
-<tr><td>PartnerJPARepository.kt</td><td>+20/−5</td></tr>
-<tr><td>DocumentFacade.kt</td><td>+18/−3</td></tr></table>
+<tr><td>Jenkinsfile</td><td class="del">−274 (removido)</td></tr>
+<tr><td>PartnerControllerIT.kt</td><td class="add">+146</td><td class="del">−4</td></tr>
+<tr><td>PartnerJPARepository.kt</td><td class="add">+20</td><td class="del">−5</td></tr>
+<tr><td>DocumentFacade.kt</td><td class="add">+18</td><td class="del">−3</td></tr></table>
 </div>
-<div class="section"><div class="section-title" style="color:#7c3aed">❓ POR QUE</div><p>Correção — cenário específico com múltiplos sócios administradores de porcentagem igual (ticket <code>SWACCRE-1223</code>).</p></div>
-<div class="section"><div class="section-title" style="color:#d97706">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li><strong>Jenkinsfile removido (−274 linhas)</strong> — mudança de esteira CI/CD embutida num PR de regra de negócio.</li><li>PR body vazio (template "O que precisava ser alterado" não preenchido).</li><li>GMUD reconhece: "não é possível testar em produção pois ocorre em cenário muito específico".</li></ul></div>
-<div class="section"><div class="section-title" style="color:#dc2626">⚠️ PARA DISCUTIR NO CAB</div><ul><li>🟡 <strong>Remoção do Jenkinsfile</strong> junto de correção de negócio — escopo misturado (CI/CD + regra).</li><li>🟡 Mudança sem teste real em produção (cenário raro); confiança vem só de teste automatizado.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#059669">✅ ROLLBACK</div><p>Rollback PR + run actions. Confiança: média — reversão restaura Jenkinsfile junto, exigindo atenção ao pipeline.</p></div>
+<div class="section"><div class="section-title" style="color:var(--yellow)">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li><strong>Jenkinsfile removido (−274 linhas)</strong> — mudança de esteira CI/CD embutida num PR de regra de negócio.</li><li>PR body vazio (template "O que precisava ser alterado" não preenchido).</li><li>GMUD reconhece: "não é possível testar em produção pois ocorre em cenário muito específico".</li></ul></div>
+<div class="section"><div class="section-title" style="color:var(--red)">⚠️ AVALIAÇÃO DE RISCO E PONTOS PARA O CAB</div><ol><li>🟡 <strong>Remoção do Jenkinsfile</strong> junto de correção de negócio — escopo misturado (CI/CD + regra).</li><li>🟡 Mudança sem teste real em produção (cenário raro); confiança só de teste automatizado.</li></ol></div>
+<div class="section"><div class="section-title" style="color:var(--green)">✅ ROLLBACK</div><p><strong>Documentado:</strong> rollback PR + run actions. <strong>Análise:</strong> reversão restaura Jenkinsfile junto, exigindo atenção ao pipeline. <strong>Confiança: média.</strong></p></div>
 </div></div>
 
-<!-- ============ GST-49729 ============ -->
-<div class="card" data-risk="high" data-text="GST-49729 migrar proxy-omnichannel cluster EKS transaction Cloud Platform">
-<div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49729">GST-49729</a> · Fase 1 — Migrar proxy-omnichannel p/ EKS txn</h2><div class="card-meta"><span class="badge badge-blue">Liberação</span><br>Cloud Platform · 16:00–17:30<br><a href="https://github.com/getzoop/proxy-omnichannel/pull/100">proxy#100</a> + <a href="https://github.com/getzoop/eks-ifp-transaction/pull/13">eks#13</a></div></div>
+<!-- GST-49729 -->
+<div class="card" id="g49729" data-risk="high" data-text="GST-49729 migrar proxy-omnichannel cluster EKS transaction Cloud Platform">
+<div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49729">GST-49729</a> · Fase 1 — Migrar proxy-omnichannel p/ EKS txn</h2><div class="card-meta"><span class="badge badge-red">Liberação</span><br>Cloud Platform · 16:00–17:30<br><a href="https://github.com/getzoop/proxy-omnichannel/pull/100">proxy#100</a> + <a href="https://github.com/getzoop/eks-ifp-transaction/pull/13">eks#13</a></div></div>
 <div class="card-body">
-<div class="section"><div class="section-title" style="color:#2563eb">📌 O QUE FAZ</div><p>Fase 1 da migração do <code>proxy-omnichannel</code> para o cluster EKS transaction: cria um <em>espelho</em> do proxy no cluster txn (sem tráfego real, DNS não produtivo) para testar conectividade PCI. Dois PRs: RBAC no cluster (<code>eks-ifp-transaction#13</code>) e o proxy (<code>proxy-omnichannel#100</code>).</p>
-<div class="pr-stats"><span class="stat">eks#13: RBAC +12 arquivos +504</span><span class="stat">proxy#100: +22 arquivos +804/−2</span><span class="stat">CI: pending (0 checks)</span><span class="stat">1 aprovação cada</span></div>
-<p style="font-size:12px;color:#666">proxy#100 inclui: cd-v2.yaml, ansible playbook/vars/values-v2, k8s-v2 (httproute, namespace, network-policy, pdb, targetgroupconfig), terraform-v2 (ecr, main, variables, versions).</p>
+<div class="section"><div class="section-title" style="color:var(--blue)">🎯 OBJETIVO DA MUDANÇA</div><p>Fase 1 da migração do <code>proxy-omnichannel</code> para o cluster EKS transaction: cria um <em>espelho</em> do proxy no cluster txn (sem tráfego real, DNS não produtivo) para testar conectividade PCI (ticket <code>SWPJSRE-1769</code>).</p></div>
+<div class="section"><div class="section-title" style="color:var(--purple)">🔬 SUPERFÍCIE TÉCNICA</div>
+<div class="pr-stats"><span class="stat">eks#13: RBAC, 12 arquivos, <b>+504</b></span><span class="stat">proxy#100: 22 arquivos, <b>+804/−2</b></span><span class="stat">CI: <b>pending (0 checks)</b></span><span class="stat">1 aprovação cada</span></div>
+<p style="font-size:12px;color:var(--muted)">proxy#100: cd-v2.yaml, ansible (playbook/vars/values-v2), k8s-v2 (httproute, namespace, network-policy, pdb, targetgroupconfig), terraform-v2 (ecr, main, variables, versions). eks#13: RBAC (clusterrole, role, rolebinding, namespace) prod+staging.</p>
 </div>
-<div class="section"><div class="section-title" style="color:#7c3aed">❓ POR QUE</div><p>Ajustar o proxy-omnichannel à estrutura PCI, em duas fases (ticket <code>SWPJSRE-1769</code>).</p></div>
-<div class="section"><div class="section-title" style="color:#d97706">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Repo <code>proxy-omnichannel</code> com <code>default_branch = feat/SWPJSRE-1769</code> (a própria branch de feature) — sinal de que o repo/branch ainda não está consolidado na main.</li><li>Rede/segurança nova: network-policies, targetgroupconfig e namespace <code>proxy-omnichannel-v2</code> criados do zero.</li><li>Rollback declarado "não se aplica" — fase 1 sem tráfego real.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#dc2626">⚠️ PARA DISCUTIR NO CAB</div><ul><li>🔴 <strong>Janela fora do catálogo GSTI:</strong> o IC <strong>Proxy Omnichannel</strong> tem dia de implantação proibido em <strong>4ª feira</strong> (e 6ª a domingo) — a janela é hoje, quarta-feira 16:00. <em>Pergunta: a mudança tem dispensa/execução ágil aprovada?</em></li><li>🟡 PRs abertos + CI sem checks + aprovação única.</li><li>🟡 Escopo grande (804 linhas de infra nova) para uma "fase 1 sem tráfego".</li></ul></div>
-<div class="section"><div class="section-title" style="color:#059669">✅ ROLLBACK</div><p>Não se aplica (deploy espelho sem tráfego). Confiança: média — resíduo de recursos criados (namespace, ECR, RBAC) pode permanecer se não for removido.</p></div>
+<div class="section"><div class="section-title" style="color:var(--yellow)">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Repo <code>proxy-omnichannel</code> com <code>default_branch = feat/SWPJSRE-1769</code> (a própria branch de feature) — repo ainda não consolidado na main.</li><li>Rede/segurança nova: network-policies, targetgroupconfig e namespace <code>proxy-omnichannel-v2</code> criados do zero.</li><li>Rollback declarado "não se aplica" — fase 1 sem tráfego real.</li></ul></div>
+<div class="section"><div class="section-title" style="color:var(--red)">⚠️ AVALIAÇÃO DE RISCO E PONTOS PARA O CAB</div><ol><li>🔴 <strong>Janela fora do catálogo GSTI:</strong> o IC <strong>Proxy Omnichannel</strong> tem dia proibido em <strong>4ª feira</strong> (e 6ª a domingo) — a janela é hoje, quarta-feira 16:00. <span class="q">A mudança tem dispensa/execução ágil aprovada?</span></li><li>🟡 PRs abertos + CI sem checks + aprovação única.</li><li>🟡 Escopo grande (804 linhas de infra nova) para uma "fase 1 sem tráfego".</li></ol></div>
+<div class="section"><div class="section-title" style="color:var(--green)">✅ ROLLBACK</div><p><strong>Documentado:</strong> não se aplica (deploy espelho sem tráfego). <strong>Análise:</strong> resíduo de recursos criados (namespace, ECR, RBAC) pode permanecer se não for removido. <strong>Confiança: média.</strong></p></div>
 </div></div>
 
-<!-- ============ GST-49759 ============ -->
-<div class="card" data-risk="med" data-text="GST-49759 migracao url ec2 zoop-users backoffice Core Products">
+<!-- GST-49759 -->
+<div class="card" id="g49759" data-risk="low" data-text="GST-49759 migracao url ec2 zoop-users backoffice Core Products">
 <div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49759">GST-49759</a> · [Backoffice] Migração URL EC2 zoop-users</h2><div class="card-meta"><span class="badge badge-blue">Liberação</span><br>Core Products / Tooling · 16:30–18:00<br><a href="https://github.com/getzoop/zoop-backoffice-admin/pull/1966">zoop-backoffice-admin#1966</a></div></div>
 <div class="card-body">
-<div class="section"><div class="section-title" style="color:#2563eb">📌 O QUE FAZ</div><p>Migra a URL da aplicação <code>zoop-users</code> de EC2 para EKS. PR <code>#1966</code> altera <code>settings/{local,prod,staging}.py</code> (1 linha cada).</p>
-<div class="pr-stats"><span class="stat">PR mergeado (closed)</span><span class="stat">3 arquivos</span><span class="stat">+3/−3</span><span class="stat">1 aprovação (cm-ribeiro)</span></div>
+<div class="section"><div class="section-title" style="color:var(--blue)">🎯 OBJETIVO DA MUDANÇA</div><p>Migrar a URL da aplicação <code>zoop-users</code> de EC2 para EKS (ticket <code>SWTPAYM-725</code>). PR <code>#1966</code> altera <code>settings/{local,prod,staging}.py</code> (1 linha cada).</p></div>
+<div class="section"><div class="section-title" style="color:var(--purple)">🔬 SUPERFÍCIE TÉCNICA</div>
+<div class="pr-stats"><span class="stat">PR <b>mergeado (closed)</b></span><span class="stat">3 arquivos</span><span class="stat"><b>+3/−3</b></span><span class="stat">1 aprovação (cm-ribeiro)</span></div>
 </div>
-<div class="section"><div class="section-title" style="color:#7c3aed">❓ POR QUE</div><p>Manutenção — migração EC2→EKS (ticket <code>SWTPAYM-725</code>).</p></div>
-<div class="section"><div class="section-title" style="color:#d97706">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Rollback via feature flag <code>use_dashboard_proxy_access</code> (mencionado no campo rollback, mas flag não documentada no escopo).</li><li>PR mergeado desde 03/07 — gap de ~1 mês entre merge e liberação.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#dc2626">⚠️ PARA DISCUTIR NO CAB</div><ul><li>🟡 Template em branco; dependência de flag não descrita no escopo.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#059669">✅ ROLLBACK</div><p>Desativar feature_flag <code>use_dashboard_proxy_access</code>. Confiança: alta (kill-switch).</p></div>
+<div class="section"><div class="section-title" style="color:var(--yellow)">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Rollback via feature flag <code>use_dashboard_proxy_access</code> (mencionado no campo rollback, mas flag não documentada no escopo).</li><li>PR mergeado desde 03/07 — gap de ~1 mês entre merge e liberação.</li></ul></div>
+<div class="section"><div class="section-title" style="color:var(--red)">⚠️ AVALIAÇÃO DE RISCO E PONTOS PARA O CAB</div><ol><li>🔵 Template em branco; dependência de flag não descrita no escopo.</li></ol></div>
+<div class="section"><div class="section-title" style="color:var(--green)">✅ ROLLBACK</div><p><strong>Documentado:</strong> desativar feature_flag <code>use_dashboard_proxy_access</code>. <strong>Confiança: alta</strong> (kill-switch).</p></div>
 </div></div>
 
-<!-- ============ GST-49736 ============ -->
-<div class="card" data-risk="med" data-text="GST-49736 atualizacao RDS optin 8.0.46 Database Platform">
+<!-- GST-49736 -->
+<div class="card" id="g49736" data-risk="med" data-text="GST-49736 atualizacao RDS optin 8.0.46 Database Platform">
 <div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49736">GST-49736</a> · RDS optin → 8.0.46</h2><div class="card-meta"><span class="badge badge-blue">Liberação</span><br>Database Platform · 17:00–17:30<br>Console AWS (sem PR)</div></div>
 <div class="card-body">
-<div class="section"><div class="section-title" style="color:#2563eb">📌 O QUE FAZ</div><p>Upgrade minor version do RDS <code>zp-production-rds-mysql-optin</code> de 8.0.40 → 8.0.46-RDS.20260624 (orientação AWS), via console.</p></div>
-<div class="section"><div class="section-title" style="color:#7c3aed">❓ POR QUE</div><p>Manutenção / conformidade AWS.</p></div>
-<div class="section"><div class="section-title" style="color:#d97706">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>GMUD declara "sem impacto", mas o plano de rollback (<code>10948</code>) afirma que "a instância ficará indisponível e sofrerá um reboot" — <strong>impacto contraditório</strong> (campo impacto = "Sem impacto ao cliente interno ou externo").</li><li>Instância usada "apenas pelo time de Ops" (conforme rollback), mas IC é Onboarding Banking.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#dc2626">⚠️ PARA DISCUTIR NO CAB</div><ul><li>🟡 <strong>Downtime declarado vs impacto "sem impacto"</strong> — inconsistência entre campos.</li><li>🟡 Rollback "não se aplica" (upgrade com reboot é destrutivo até concluir).</li></ul></div>
-<div class="section"><div class="section-title" style="color:#059669">✅ ROLLBACK</div><p>"Não se aplica". Confiança: baixa — reboot/indisponibilidade durante a aplicação do patch.</p></div>
+<div class="section"><div class="section-title" style="color:var(--blue)">🎯 OBJETIVO DA MUDANÇA</div><p>Upgrade minor version do RDS <code>zp-production-rds-mysql-optin</code> de 8.0.40 → 8.0.46-RDS.20260624 (orientação AWS), via console.</p></div>
+<div class="section"><div class="section-title" style="color:var(--purple)">🔬 SUPERFÍCIE TÉCNICA</div><p>Sem PR — alteração via console AWS (Modify DB Instance, Apply Immediately).</p></div>
+<div class="section"><div class="section-title" style="color:var(--yellow)">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>GMUD declara "sem impacto", mas o plano de rollback (<code>10948</code>) afirma que "a instância ficará indisponível e sofrerá um reboot" — <strong>impacto contraditório</strong> (campo impacto = "Sem impacto").</li><li>Instância usada "apenas pelo time de Ops" (conforme rollback), mas IC é Onboarding Banking.</li></ul></div>
+<div class="section"><div class="section-title" style="color:var(--red)">⚠️ AVALIAÇÃO DE RISCO E PONTOS PARA O CAB</div><ol><li>🟡 <strong>Downtime declarado vs impacto "sem impacto"</strong> — inconsistência entre campos.</li><li>🟡 Rollback "não se aplica" (upgrade com reboot é destrutivo até concluir).</li></ol></div>
+<div class="section"><div class="section-title" style="color:var(--green)">✅ ROLLBACK</div><p><strong>Documentado:</strong> "não se aplica". <strong>Análise:</strong> reboot/indisponibilidade durante o patch. <strong>Confiança: baixa.</strong></p></div>
 </div></div>
 
-<!-- ============ GST-49752 ============ -->
-<div class="card" data-risk="med" data-text="GST-49752 saldo diario NPP extrato seller Dash Canais Digitais">
+<!-- GST-49752 -->
+<div class="card" id="g49752" data-risk="med" data-text="GST-49752 saldo diario NPP extrato seller Dash Canais Digitais">
 <div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49752">GST-49752</a> · [Dash] Saldo diário NPP no extrato</h2><div class="card-meta"><span class="badge badge-blue">Liberação</span><br>Canais Digitais · 19:00–23:30<br>Ticket: SWSCRCD-497</div></div>
 <div class="card-body">
-<div class="section"><div class="section-title" style="color:#2563eb">📌 O QUE FAZ</div><p>Adiciona saldo agregado NPP ao extrato do seller (Dash). Sem PR link explícito na GMUD; deploy via pipeline GHA.</p></div>
-<div class="section"><div class="section-title" style="color:#7c3aed">❓ POR QUE</div><p>Manutenção — evolução do extrato do seller.</p></div>
-<div class="section"><div class="section-title" style="color:#d97706">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Sem link de PR no ticket.</li><li>Template em branco.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#dc2626">⚠️ PARA DISCUTIR NO CAB</div><ul><li>🟡 <strong>Janela até 23:30</strong> — catálogo GSTI define Dashboard/Minha Conta entre 19h00 e <strong>23h00</strong> (30 min além).</li><li>🟡 Sem PR vinculado.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#059669">✅ ROLLBACK</div><p>Revert do PR + pipeline. Confiança: alta.</p></div>
+<div class="section"><div class="section-title" style="color:var(--blue)">🎯 OBJETIVO DA MUDANÇA</div><p>Adicionar saldo agregado NPP ao extrato do seller (Dash). Deploy via pipeline GHA.</p></div>
+<div class="section"><div class="section-title" style="color:var(--purple)">🔬 SUPERFÍCIE TÉCNICA</div><p>Sem PR link explícito na GMUD.</p></div>
+<div class="section"><div class="section-title" style="color:var(--yellow)">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Sem link de PR no ticket.</li><li>Template em branco.</li></ul></div>
+<div class="section"><div class="section-title" style="color:var(--red)">⚠️ AVALIAÇÃO DE RISCO E PONTOS PARA O CAB</div><ol><li>🟡 <strong>Janela até 23:30</strong> — catálogo GSTI define Dashboard/Minha Conta entre 19h00 e <strong>23h00</strong> (30 min além).</li><li>🟡 Sem PR vinculado.</li></ol></div>
+<div class="section"><div class="section-title" style="color:var(--green)">✅ ROLLBACK</div><p><strong>Documentado:</strong> revert do PR + pipeline. <strong>Confiança: alta.</strong></p></div>
 </div></div>
 
-<!-- ============ GST-49749 ============ -->
-<div class="card" data-risk="med" data-text="GST-49749 melhorias consumo memoria cpu BI Dash Minha Conta Canais Digitais">
+<!-- GST-49749 -->
+<div class="card" id="g49749" data-risk="med" data-text="GST-49749 melhorias consumo memoria cpu BI Dash Minha Conta Canais Digitais">
 <div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49749">GST-49749</a> · [Zoop BI] Melhorias memória/CPU</h2><div class="card-meta"><span class="badge badge-blue">Liberação</span><br>Canais Digitais · 19:00–23:30<br>Ticket: SWSCRCD-520</div></div>
 <div class="card-body">
-<div class="section"><div class="section-title" style="color:#2563eb">📌 O QUE FAZ</div><p>Melhorias no consumo de memória e CPU (instância ficando unhealthy e reiniciando com frequência). Sem PR link explícito; deploy via pipeline GHA.</p></div>
-<div class="section"><div class="section-title" style="color:#7c3aed">❓ POR QUE</div><p>Manutenção — estabilidade da aplicação.</p></div>
-<div class="section"><div class="section-title" style="color:#d97706">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Sem link de PR no ticket; sem menção do que foi alterado no código para reduzir consumo.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#dc2626">⚠️ PARA DISCUTIR NO CAB</div><ul><li>🟡 Janela até <strong>23:30</strong> vs catálogo Dashboard/Minha Conta <strong>23:00</strong>.</li><li>🟡 Sem PR vinculado + template em branco.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#059669">✅ ROLLBACK</div><p>Revert do PR + pipeline. Confiança: alta.</p></div>
+<div class="section"><div class="section-title" style="color:var(--blue)">🎯 OBJETIVO DA MUDANÇA</div><p>Melhorar consumo de memória e CPU (instância ficando unhealthy e reiniciando com frequência). Deploy via pipeline GHA.</p></div>
+<div class="section"><div class="section-title" style="color:var(--purple)">🔬 SUPERFÍCIE TÉCNICA</div><p>Sem PR link explícito na GMUD.</p></div>
+<div class="section"><div class="section-title" style="color:var(--yellow)">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Sem link de PR no ticket; sem menção do que foi alterado no código para reduzir consumo.</li></ul></div>
+<div class="section"><div class="section-title" style="color:var(--red)">⚠️ AVALIAÇÃO DE RISCO E PONTOS PARA O CAB</div><ol><li>🟡 Janela até <strong>23:30</strong> vs catálogo Dashboard/Minha Conta <strong>23:00</strong>.</li><li>🟡 Sem PR vinculado + template em branco.</li></ol></div>
+<div class="section"><div class="section-title" style="color:var(--green)">✅ ROLLBACK</div><p><strong>Documentado:</strong> revert do PR + pipeline. <strong>Confiança: alta.</strong></p></div>
 </div></div>
 
-<!-- ============ GST-49751 ============ -->
-<div class="card" data-risk="med" data-text="GST-49751 ratier security vulnerabilidades v3 Core-payments">
+<!-- GST-49751 -->
+<div class="card" id="g49751" data-risk="low" data-text="GST-49751 ratier security vulnerabilidades v3 Core-payments">
 <div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49751">GST-49751</a> · [Ratier Security] Correções de vulnerabilidades</h2><div class="card-meta"><span class="badge badge-blue">Liberação</span><br>Core-payments-zoop · 04:00–06:00 (13/08)<br><a href="https://github.com/getzoop/zoop-ratier-security/pull/306">zoop-ratier-security#306</a></div></div>
 <div class="card-body">
-<div class="section"><div class="section-title" style="color:#2563eb">📌 O QUE FAZ</div><p>Migrar para v3 e resolver vulnerabilidades Wiz/CVE. PR altera <code>build.gradle</code>, workflow <code>deploy.yml</code> e <code>CryptoPyExecutor.java</code> (+21/−13).</p>
-<div class="pr-stats"><span class="stat">PR aberto</span><span class="stat">3 arquivos</span><span class="stat">+24/−14</span><span class="stat">CI: pending (0 checks)</span><span class="stat">2 aprovações</span></div>
+<div class="section"><div class="section-title" style="color:var(--blue)">🎯 OBJETIVO DA MUDANÇA</div><p>Migrar para v3 e resolver vulnerabilidades Wiz/CVE (ticket <code>SWPAYZP-274</code>).</p></div>
+<div class="section"><div class="section-title" style="color:var(--purple)">🔬 SUPERFÍCIE TÉCNICA</div>
+<div class="pr-stats"><span class="stat">PR <b>aberto</b></span><span class="stat">3 arquivos</span><span class="stat"><b>+24/−14</b></span><span class="stat">CI: <b>pending (0 checks)</b></span><span class="stat">2 aprovações</span></div>
+<table class="file-table"><tr><th>arquivo</th><th>Δ</th></tr>
+<tr><td>src/.../CryptoPyExecutor.java</td><td class="add">+21</td><td class="del">−13</td></tr>
+<tr><td>build.gradle</td><td class="add">+2</td></tr>
+<tr><td>.github/workflows/deploy.yml</td><td class="add">+1</td><td class="del">−1</td></tr></table>
 </div>
-<div class="section"><div class="section-title" style="color:#7c3aed">❓ POR QUE</div><p>Correção de segurança (ticket <code>SWPAYZP-274</code>).</p></div>
-<div class="section"><div class="section-title" style="color:#d97706">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>"Migrar para v3" — sem detalhe do que é a v3 (dependência? runtime?) no campo da GMUD.</li><li>Alteração em <code>CryptoPyExecutor.java</code> (execução de Python para cripto) — componente sensível.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#dc2626">⚠️ PARA DISCUTIR NO CAB</div><ul><li>🟡 PR aberto + CI sem checks (mudança em componente cripto).</li></ul></div>
-<div class="section"><div class="section-title" style="color:#059669">✅ ROLLBACK</div><p>Pipeline da tag anterior. Confiança: alta (tag versionada).</p></div>
+<div class="section"><div class="section-title" style="color:var(--yellow)">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>"Migrar para v3" — sem detalhe do que é a v3 (dependência? runtime?).</li><li>Alteração em <code>CryptoPyExecutor.java</code> (execução de Python para cripto) — componente sensível.</li></ul></div>
+<div class="section"><div class="section-title" style="color:var(--red)">⚠️ AVALIAÇÃO DE RISCO E PONTOS PARA O CAB</div><ol><li>🔵 PR aberto + CI sem checks (mudança em componente cripto).</li></ol></div>
+<div class="section"><div class="section-title" style="color:var(--green)">✅ ROLLBACK</div><p><strong>Documentado:</strong> pipeline da tag anterior. <strong>Confiança: alta</strong> (tag versionada).</p></div>
 </div></div>
 
-<!-- ============ GST-49750 ============ -->
-<div class="card" data-risk="med" data-text="GST-49750 bloqueio splits boleto desconto zoop-api Core-payments">
+<!-- GST-49750 -->
+<div class="card" id="g49750" data-risk="med" data-text="GST-49750 bloqueio splits boleto desconto zoop-api Core-payments">
 <div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49750">GST-49750</a> · Bloqueio de splits &gt; valor transação − desconto boleto</h2><div class="card-meta"><span class="badge badge-blue">Liberação</span><br>Core-payments-zoop · 04:00–06:00 (13/08)<br><a href="https://github.com/getzoop/zoop-api/pull/1846">zoop-api#1846</a></div></div>
 <div class="card-body">
-<div class="section"><div class="section-title" style="color:#2563eb">📌 O QUE FAZ</div><p>Nova validação que bloqueia splits cujo total exceda o valor da transação menos o desconto do boleto. Nova classe <code>BoletoBillingInstructionsRepository</code> e ~194 linhas de lógica nova em <code>routes/split_rules.php</code>.</p>
-<div class="pr-stats"><span class="stat">PR aberto</span><span class="stat">6 arquivos</span><span class="stat">+344/−3</span><span class="stat">CI: pending (0 checks)</span><span class="stat">1 aprovação (Nekuji)</span></div>
+<div class="section"><div class="section-title" style="color:var(--blue)">🎯 OBJETIVO DA MUDANÇA</div><p>Nova validação que bloqueia splits cujo total exceda o valor da transação menos o desconto do boleto, em transações boleto/bolepix (ticket <code>SWPAYZP-121</code>).</p></div>
+<div class="section"><div class="section-title" style="color:var(--purple)">🔬 SUPERFÍCIE TÉCNICA</div>
+<div class="pr-stats"><span class="stat">PR <b>aberto</b></span><span class="stat">6 arquivos</span><span class="stat"><b>+344/−3</b></span><span class="stat">CI: <b>pending (0 checks)</b></span><span class="stat">1 aprovação (Nekuji)</span></div>
 <table class="file-table"><tr><th>arquivo</th><th>Δ</th></tr>
-<tr><td>routes/split_rules.php</td><td>+194</td></tr>
-<tr><td>tests/SplitRulesRouteTest.php</td><td>+128/−2</td></tr>
-<tr><td>BoletoBillingInstructionsRepository.php</td><td>+20 (novo)</td></tr>
-<tr><td>app.php / InvalidBalanceSplit.php</td><td>+2/−1</td></tr></table>
+<tr><td>routes/split_rules.php</td><td class="add">+194</td></tr>
+<tr><td>tests/SplitRulesRouteTest.php</td><td class="add">+128</td><td class="del">−2</td></tr>
+<tr><td>BoletoBillingInstructionsRepository.php</td><td class="add">+20 (novo)</td></tr>
+<tr><td>app.php / InvalidBalanceSplit.php</td><td class="add">+2</td><td class="del">−1</td></tr></table>
 </div>
-<div class="section"><div class="section-title" style="color:#7c3aed">❓ POR QUE</div><p>Correção — evitar split com valor líquido inconsistente em transações boleto/bolepix (ticket <code>SWPAYZP-121</code>).</p></div>
-<div class="section"><div class="section-title" style="color:#d97706">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Cálculo do "maior desconto" considera FIXED e PERCENTAGE; para percentual usa <code>floatval</code> (precisão de centavos em ponto flutuante).</li><li>Logging extenso em nível <code>warn</code> por linha de split — possível ruído em Datadog.</li><li>Validação aplicada tanto no create quanto no update de split rules.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#dc2626">⚠️ PARA DISCUTIR NO CAB</div><ul><li>🟡 <strong>Regra financeira nova</strong> (rejeita splits) em API transacional — mudança de comportamento para sellers/marketplaces.</li><li>🟡 Aprovação única + CI sem checks + PR aberto.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#059669">✅ ROLLBACK</div><p>Pipeline da tag anterior. Confiança: média — regra de negócio em endpoint crítico.</p></div>
+<div class="section"><div class="section-title" style="color:var(--yellow)">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Cálculo do "maior desconto" considera FIXED e PERCENTAGE; para percentual usa <code>floatval</code> (precisão de centavos em ponto flutuante).</li><li>Logging extenso em nível <code>warn</code> por linha de split — possível ruído em Datadog.</li><li>Validação aplicada no create e no update de split rules.</li></ul></div>
+<div class="section"><div class="section-title" style="color:var(--red)">⚠️ AVALIAÇÃO DE RISCO E PONTOS PARA O CAB</div><ol><li>🟡 <strong>Regra financeira nova</strong> (rejeita splits) em API transacional — mudança de comportamento para sellers/marketplaces.</li><li>🟡 Aprovação única + CI sem checks + PR aberto.</li></ol></div>
+<div class="section"><div class="section-title" style="color:var(--green)">✅ ROLLBACK</div><p><strong>Documentado:</strong> pipeline da tag anterior. <strong>Confiança: média</strong> — regra de negócio em endpoint crítico.</p></div>
 </div></div>
 
-<!-- ============ GST-49746 ============ -->
-<div class="card" data-risk="med" data-text="GST-49746 ips EKS private subnets zoop-qrcode Core-payments">
+<!-- GST-49746 -->
+<div class="card" id="g49746" data-risk="low" data-text="GST-49746 ips EKS private subnets zoop-qrcode Core-payments">
 <div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49746">GST-49746</a> · [zoop-qrcode] IPs EKS private subnets</h2><div class="card-meta"><span class="badge badge-blue">Liberação</span><br>Core-payments-zoop · 04:00–06:00 (13/08)<br><a href="https://github.com/getzoop/zoop-qrcode/pull/271">zoop-qrcode#271</a></div></div>
 <div class="card-body">
-<div class="section"><div class="section-title" style="color:#2563eb">📌 O QUE FAZ</div><p>Adiciona 4 novos CIDRs do EKS (<code>10.120.100.0/24</code>, <code>10.120.108.0/24</code>, <code>10.140.100.0/24</code>, <code>10.140.108.0/24</code>) ao security group <code>sg-05d09cbd2d007e048</code>.</p>
-<div class="pr-stats"><span class="stat">PR aberto</span><span class="stat">3 arquivos terraform</span><span class="stat">+21</span><span class="stat">CI: pending (0 checks)</span><span class="stat">1 aprovação (PedroSevenini)</span></div>
+<div class="section"><div class="section-title" style="color:var(--blue)">🎯 OBJETIVO DA MUDANÇA</div><p>Adicionar 4 novos CIDRs do EKS (<code>10.120.100.0/24</code>, <code>10.120.108.0/24</code>, <code>10.140.100.0/24</code>, <code>10.140.108.0/24</code>) ao security group <code>sg-05d09cbd2d007e048</code> (ticket <code>SWPAYZP-610</code>).</p></div>
+<div class="section"><div class="section-title" style="color:var(--purple)">🔬 SUPERFÍCIE TÉCNICA</div>
+<div class="pr-stats"><span class="stat">PR <b>aberto</b></span><span class="stat">3 arquivos terraform</span><span class="stat"><b>+21</b></span><span class="stat">CI: <b>pending (0 checks)</b></span><span class="stat">1 aprovação (PedroSevenini)</span></div>
+<table class="file-table"><tr><th>arquivo</th><th>Δ</th></tr>
+<tr><td>deployment/terraform/sg.tf</td><td class="add">+11</td></tr>
+<tr><td>production.tfvars / variables.tf</td><td class="add">+5</td></tr></table>
 </div>
-<div class="section"><div class="section-title" style="color:#7c3aed">❓ POR QUE</div><p>Manutenção — inclusão de IPs solicitada no security group (ticket <code>SWPAYZP-610</code>).</p></div>
-<div class="section"><div class="section-title" style="color:#d97706">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>IPs hardcoded nos tfvars/security group — se os CIDRs mudarem, precisa atualização manual.</li><li>Amplia a superfície de acesso do SG com 4 /24 inteiros.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#dc2626">⚠️ PARA DISCUTIR NO CAB</div><ul><li>🟡 Abertura de SG (segurança de rede) sem detalhamento de qual serviço consome os novos CIDRs.</li></ul></div>
-<div class="section"><div class="section-title" style="color:#059669">✅ ROLLBACK</div><p>Via GitHub Actions (reverter PR). Confiança: alta.</p></div>
+<div class="section"><div class="section-title" style="color:var(--yellow)">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>IPs hardcoded nos tfvars/security group — se os CIDRs mudarem, precisa atualização manual.</li><li>Amplia a superfície de acesso do SG com 4 /24 inteiros.</li></ul></div>
+<div class="section"><div class="section-title" style="color:var(--red)">⚠️ AVALIAÇÃO DE RISCO E PONTOS PARA O CAB</div><ol><li>🔵 Abertura de SG (segurança de rede) sem detalhamento de qual serviço consome os novos CIDRs.</li></ol></div>
+<div class="section"><div class="section-title" style="color:var(--green)">✅ ROLLBACK</div><p><strong>Documentado:</strong> via GitHub Actions (reverter PR). <strong>Confiança: alta.</strong></p></div>
 </div></div>
 
-<!-- ============ GST-49745 ============ -->
-<div class="card" data-risk="med" data-text="GST-49745 vulnerability P0 rotas nao usadas txn-pix-listener Core-payments">
+<!-- GST-49745 -->
+<div class="card" id="g49745" data-risk="med" data-text="GST-49745 vulnerability P0 rotas nao usadas txn-pix-listener Core-payments">
 <div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49745">GST-49745</a> · [txn-pix-listener] Vulnerability P0</h2><div class="card-meta"><span class="badge badge-blue">Liberação</span><br>Core-payments-zoop · 04:00–06:00 (13/08)<br><a href="https://github.com/getzoop/txn-pix-listener/pull/189">txn-pix-listener#189</a></div></div>
 <div class="card-body">
-<div class="section"><div class="section-title" style="color:#2563eb">📌 O QUE FAZ</div><p>Remove rotas REST não usadas (<code>/v1/credit</code>, <code>/v1/refund</code>, <code>/v1/med</code>) e o controller <code>ConfirmationController</code> (−45 linhas), mantendo apenas o listener SQS. Também ajusta logrotate (−7→3), EBS (8→20 GB) e README.</p>
-<div class="pr-stats"><span class="stat">PR aberto</span><span class="stat">6 arquivos</span><span class="stat">+18/−381</span><span class="stat">CI: pending (0 checks)</span><span class="stat">2 aprovações</span></div>
+<div class="section"><div class="section-title" style="color:var(--blue)">🎯 OBJETIVO DA MUDANÇA</div><p>Remover rotas REST não usadas (<code>/v1/credit</code>, <code>/v1/refund</code>, <code>/v1/med</code>) e o controller <code>ConfirmationController</code>, mantendo apenas o listener SQS — correção P0 de superfície de ataque.</p></div>
+<div class="section"><div class="section-title" style="color:var(--purple)">🔬 SUPERFÍCIE TÉCNICA</div>
+<div class="pr-stats"><span class="stat">PR <b>aberto</b></span><span class="stat">6 arquivos</span><span class="stat"><b>+18/−381</b></span><span class="stat">CI: <b>pending (0 checks)</b></span><span class="stat">2 aprovações</span></div>
+<table class="file-table"><tr><th>arquivo</th><th>Δ</th></tr>
+<tr><td>ConfirmationController.java</td><td class="del">−45 (removido)</td></tr>
+<tr><td>README.md</td><td class="add">+16</td><td class="del">−224</td></tr>
+<tr><td>deployment/terraform/variables.tf (EBS 8→20)</td><td class="add">+1</td><td class="del">−1</td></tr>
+<tr><td>deployment/playbooks/deploy.yml (logrotate 7→3)</td><td class="add">+1</td><td class="del">−1</td></tr>
+<tr><td>testes (removidos)</td><td class="del">−110</td></tr></table>
 </div>
-<div class="section"><div class="section-title" style="color:#7c3aed">❓ POR QUE</div><p>Correção P0 — remover rotas expostas não utilizadas (superfície de ataque).</p></div>
-<div class="section"><div class="section-title" style="color:#d97706">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Mudança de infra embutida: EBS de 8→20 GB e retenção de logs 7→3 dias (não relacionadas à vulnerabilidade).</li><li>Remoção de endpoints REST pode quebrar consumidores externos que ainda chamem essas rotas (não documentado se há dependentes).</li></ul></div>
-<div class="section"><div class="section-title" style="color:#dc2626">⚠️ PARA DISCUTIR NO CAB</div><ul><li>🟡 <strong>Remoção de endpoints públicos</strong> — confirmar que nenhum integrador depende de <code>/v1/credit|refund|med</code>.</li><li>🟡 Escopo misturado (segurança + infra EBS/logrotate).</li></ul></div>
-<div class="section"><div class="section-title" style="color:#059669">✅ ROLLBACK</div><p>Via GitHub Actions (reverter PR). Confiança: alta.</p></div>
+<div class="section"><div class="section-title" style="color:var(--yellow)">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Mudança de infra embutida: EBS de 8→20 GB e retenção de logs 7→3 dias (não relacionadas à vulnerabilidade).</li><li>Remoção de endpoints REST pode quebrar consumidores externos que ainda chamem essas rotas (não documentado se há dependentes).</li></ul></div>
+<div class="section"><div class="section-title" style="color:var(--red)">⚠️ AVALIAÇÃO DE RISCO E PONTOS PARA O CAB</div><ol><li>🟡 <strong>Remoção de endpoints públicos</strong> — confirmar que nenhum integrador depende de <code>/v1/credit|refund|med</code>.</li><li>🟡 Escopo misturado (segurança + infra EBS/logrotate).</li></ol></div>
+<div class="section"><div class="section-title" style="color:var(--green)">✅ ROLLBACK</div><p><strong>Documentado:</strong> via GitHub Actions (reverter PR). <strong>Confiança: alta.</strong></p></div>
 </div></div>
 
-<!-- ============ GST-49739 ============ -->
-<div class="card" data-risk="med" data-text="GST-49739 atualizacao RDS subscription 8.0.46 Database Platform">
+<!-- GST-49739 -->
+<div class="card" id="g49739" data-risk="med" data-text="GST-49739 atualizacao RDS subscription 8.0.46 Database Platform">
 <div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49739">GST-49739</a> · RDS subscription → 8.0.46</h2><div class="card-meta"><span class="badge badge-blue">Liberação</span><br>Database Platform · 04:00–04:30 (13/08)<br>Console AWS (sem PR)</div></div>
 <div class="card-body">
-<div class="section"><div class="section-title" style="color:#2563eb">📌 O QUE FAZ</div><p>Upgrade minor version do RDS <code>zp-production-rds-mysql-subscription</code> de 8.0.40 → 8.0.46-RDS.20260624 (orientação AWS), via console.</p></div>
-<div class="section"><div class="section-title" style="color:#7c3aed">❓ POR QUE</div><p>Manutenção / conformidade AWS.</p></div>
-<div class="section"><div class="section-title" style="color:#d97706">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Mesma contradição do GST-49736: impacto declarado "Sem impacto", mas rollback (<code>10948</code>) afirma indisponibilidade + reboot durante o patch.</li><li>Serviço "Pagamento Recorrente" — instância usada "apenas pelo time de Ops" segundo rollback (divergência de público).</li></ul></div>
-<div class="section"><div class="section-title" style="color:#dc2626">⚠️ PARA DISCUTIR NO CAB</div><ul><li>🟡 Downtime declarado vs impacto "sem impacto".</li><li>🟡 Rollback "não se aplica".</li></ul></div>
-<div class="section"><div class="section-title" style="color:#059669">✅ ROLLBACK</div><p>"Não se aplica". Confiança: baixa.</p></div>
+<div class="section"><div class="section-title" style="color:var(--blue)">🎯 OBJETIVO DA MUDANÇA</div><p>Upgrade minor version do RDS <code>zp-production-rds-mysql-subscription</code> de 8.0.40 → 8.0.46-RDS.20260624 (orientação AWS), via console.</p></div>
+<div class="section"><div class="section-title" style="color:var(--purple)">🔬 SUPERFÍCIE TÉCNICA</div><p>Sem PR — alteração via console AWS (Modify DB Instance, Apply Immediately).</p></div>
+<div class="section"><div class="section-title" style="color:var(--yellow)">🔍 NÃO DOCUMENTADO NA GMUD</div><ul><li>Mesma contradição do GST-49736: impacto declarado "Sem impacto", mas rollback (<code>10948</code>) afirma indisponibilidade + reboot durante o patch.</li><li>Serviço "Pagamento Recorrente" — instância usada "apenas pelo time de Ops" segundo rollback (divergência de público).</li></ul></div>
+<div class="section"><div class="section-title" style="color:var(--red)">⚠️ AVALIAÇÃO DE RISCO E PONTOS PARA O CAB</div><ol><li>🟡 Downtime declarado vs impacto "sem impacto".</li><li>🟡 Rollback "não se aplica".</li></ol></div>
+<div class="section"><div class="section-title" style="color:var(--green)">✅ ROLLBACK</div><p><strong>Documentado:</strong> "não se aplica". <strong>Confiança: baixa.</strong></p></div>
 </div></div>
 
 <div class="footer">
-ICCP — CAB Intelligence Analyst · Análise automatizada de apoio · Somente leitura · Nunca aprova, reprova ou executa mudanças
+ICCP — CAB Intelligence Analyst · Análise automatizada de apoio ao comitê · Somente leitura · Nunca aprova, reprova ou executa mudanças
 </div>
 
 </div>
@@ -370,15 +406,13 @@ ICCP — CAB Intelligence Analyst · Análise automatizada de apoio · Somente l
   var activeRisk = 'all';
   function apply(){
     var q = search.value.toLowerCase();
-    var rows = document.querySelectorAll('.summary-table tbody tr');
-    var cards = document.querySelectorAll('.card');
-    rows.forEach(function(r){
+    document.querySelectorAll('#summary tbody tr').forEach(function(r){
       var risk = r.getAttribute('data-risk');
       var matchRisk = activeRisk==='all' || risk===activeRisk;
       var matchQ = !q || r.textContent.toLowerCase().indexOf(q) >= 0;
       r.classList.toggle('hidden', !(matchRisk && matchQ));
     });
-    cards.forEach(function(c){
+    document.querySelectorAll('.card').forEach(function(c){
       var risk = c.getAttribute('data-risk');
       var txt = (c.getAttribute('data-text')||'').toLowerCase();
       var matchRisk = activeRisk==='all' || risk===activeRisk;
@@ -396,6 +430,24 @@ ICCP — CAB Intelligence Analyst · Análise automatizada de apoio · Somente l
     });
   });
   pills[0].classList.add('active');
+  var dirs = {};
+  function cellIndex(key){ return {g:0,i:1,j:2,t:3,p:4}[key]; }
+  document.querySelectorAll('#summary th[data-key]').forEach(function(th){
+    th.addEventListener('click', function(){
+      var key = th.getAttribute('data-key');
+      var tbody = document.querySelector('#summary tbody');
+      var rows = Array.prototype.slice.call(tbody.querySelectorAll('tr'));
+      dirs[key] = !dirs[key];
+      var asc = dirs[key];
+      rows.sort(function(a,b){
+        var av, bv;
+        if (key === 'j') { av = a.getAttribute('data-sort') || '0'; bv = b.getAttribute('data-sort') || '0'; }
+        else { av = a.cells[cellIndex(key)].textContent.trim(); bv = b.cells[cellIndex(key)].textContent.trim(); }
+        return av < bv ? (asc?-1:1) : av > bv ? (asc?1:-1) : 0;
+      });
+      rows.forEach(function(r){ tbody.appendChild(r); });
+    });
+  });
 })();
 </script>
 </body>
