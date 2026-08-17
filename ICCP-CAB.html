@@ -3,267 +3,65 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ICCP — CAB 14/08/2026</title>
+<title>ICCP — CAB 17/08/2026</title>
 <style>
-  :root {
-    --bg: #0f1117;
-    --card: #1a1d27;
-    --card2: #212633;
-    --border: #2d333b;
-    --text: #e2e8f0;
-    --muted: #94a3b8;
-    --heading: #f1f5f9;
-    --blue: #60a5fa;
-    --purple: #a78bfa;
-    --green: #34d399;
-    --red: #f87171;
-    --yellow: #fbbf24;
-  }
+  :root { --bg: #0f1117; --card: #1a1d27; --card2: #212633; --border: #2d333b; --text: #e2e8f0; --muted: #94a3b8; --heading: #f1f5f9; --blue: #60a5fa; --purple: #a78bfa; --green: #34d399; --red: #f87171; --yellow: #fbbf24; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    padding: 24px;
-    font-size: 14px;
-    line-height: 1.65;
-  }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); padding: 24px; font-size: 14px; line-height: 1.65; }
   .container { max-width: 1080px; margin: 0 auto; }
   h1 { font-size: 22px; margin-bottom: 4px; color: var(--heading); }
   .subtitle { color: var(--muted); font-size: 13px; margin-bottom: 20px; }
-  a { color: var(--blue); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  code {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1px 5px;
-    font-size: 12px;
-    color: #a5b4fc;
-    font-family: 'Cascadia Code', 'Fira Code', monospace;
-  }
-
-  /* Barra de filtros */
-  .filters {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 12px 14px;
-    margin-bottom: 16px;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    flex-wrap: wrap;
-    font-size: 12px;
-  }
-  .filters input {
-    flex: 1;
-    min-width: 220px;
-    padding: 8px 10px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: var(--card2);
-    color: var(--text);
-    font-size: 13px;
-  }
-  .filter-pill {
-    cursor: pointer;
-    user-select: none;
-    padding: 6px 12px;
-    border-radius: 16px;
-    border: 1px solid var(--border);
-    background: var(--card2);
-    color: var(--muted);
-  }
+  a { color: var(--blue); text-decoration: none; } a:hover { text-decoration: underline; }
+  code { background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 4px; padding: 1px 5px; font-size: 12px; color: #a5b4fc; font-family: 'Cascadia Code', 'Fira Code', monospace; }
+  .filters { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin-bottom: 16px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; font-size: 12px; }
+  .filters input { flex: 1; min-width: 220px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--card2); color: var(--text); font-size: 13px; }
+  .filter-pill { cursor: pointer; user-select: none; padding: 6px 12px; border-radius: 16px; border: 1px solid var(--border); background: var(--card2); color: var(--muted); }
   .filter-pill.active { border-color: var(--blue); color: var(--blue); font-weight: 600; }
-
-  /* Tabela-resumo */
-  .summary-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 24px;
-    font-size: 13px;
-  }
-  .summary-table th {
-    background: var(--card2);
-    color: var(--text);
-    padding: 10px 12px;
-    text-align: left;
-    font-weight: 600;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-  .summary-table td {
-    padding: 9px 12px;
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-  }
-  .summary-table tbody tr { cursor: pointer; }
-  .summary-table tbody tr:hover { background: var(--card2); }
-  .summary-table tr:last-child td { border-bottom: none; }
-
-  /* Card */
-  .card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    margin-bottom: 20px;
-    overflow: hidden;
-  }
-  .card-header {
-    padding: 16px 20px;
-    border-bottom: 1px solid var(--border);
-    background: linear-gradient(180deg, rgba(96,165,250,0.06), transparent);
-  }
-  .card-header h2 { font-size: 16px; font-weight: 700; color: var(--heading); }
-  .card-header h2 a { color: var(--heading); }
+  .summary-table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 24px; font-size: 13px; }
+  .summary-table th { background: var(--card2); color: var(--text); padding: 10px 12px; text-align: left; font-weight: 600; cursor: pointer; white-space: nowrap; }
+  .summary-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .summary-table tbody tr { cursor: pointer; } .summary-table tbody tr:hover { background: var(--card2); } .summary-table tr:last-child td { border-bottom: none; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 20px; overflow: hidden; }
+  .card-header { padding: 16px 20px; border-bottom: 1px solid var(--border); background: linear-gradient(180deg, rgba(96,165,250,0.06), transparent); }
+  .card-header h2 { font-size: 16px; font-weight: 700; color: var(--heading); } .card-header h2 a { color: var(--heading); }
   .meta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 10px; font-size: 12px; }
   .meta-item { display: flex; flex-direction: column; }
   .meta-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); font-weight: 600; }
   .meta-value { color: var(--text); font-weight: 500; }
-  .approvals { margin-top: 10px; font-size: 12px; color: var(--muted); }
-  .approvals b { color: var(--text); font-weight: 600; }
-  .approvals .ok { color: var(--green); }
+  .approvals { margin-top: 10px; font-size: 12px; color: var(--muted); } .approvals b { color: var(--text); font-weight: 600; } .approvals .ok { color: var(--green); }
   .card-body { padding: 18px 20px; }
-
-  /* Badges e pills */
   .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
-  .badge-red { background: rgba(248,113,113,0.15); color: var(--red); }
-  .badge-yellow { background: rgba(251,191,36,0.15); color: var(--yellow); }
-  .badge-green { background: rgba(52,211,153,0.15); color: var(--green); }
-  .badge-blue { background: rgba(96,165,250,0.15); color: var(--blue); }
-  .badge-gray { background: rgba(148,163,184,0.15); color: var(--muted); }
-  .pill {
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 12px;
-    font-size: 11px;
-    font-weight: 500;
-    background: var(--card2);
-    color: var(--muted);
-    margin-right: 4px;
-    margin-bottom: 2px;
-    border: 1px solid var(--border);
-  }
-  .pill.risk-high { background: rgba(248,113,113,0.15); color: var(--red); border-color: rgba(248,113,113,0.3); }
-  .pill.risk-med { background: rgba(251,191,36,0.15); color: var(--yellow); border-color: rgba(251,191,36,0.3); }
-  .pill.risk-low { background: rgba(96,165,250,0.15); color: var(--blue); border-color: rgba(96,165,250,0.3); }
-
-  /* Seções */
-  .section { margin-bottom: 18px; }
-  .section:last-child { margin-bottom: 0; }
-  .section-title {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: var(--heading);
-    margin-bottom: 8px;
-  }
-  .section p, .section li { font-size: 13px; color: #cbd5e1; }
-  .section ul, .section ol { padding-left: 20px; }
-  .section li { margin-bottom: 5px; }
-
-  /* PR cards */
-  .pr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 8px 0; }
-  @media (max-width: 640px) { .pr-grid { grid-template-columns: 1fr; } }
+  .badge-red { background: rgba(248,113,113,0.15); color: var(--red); } .badge-yellow { background: rgba(251,191,36,0.15); color: var(--yellow); } .badge-green { background: rgba(52,211,153,0.15); color: var(--green); } .badge-blue { background: rgba(96,165,250,0.15); color: var(--blue); } .badge-gray { background: rgba(148,163,184,0.15); color: var(--muted); }
+  .pill { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 500; background: var(--card2); color: var(--muted); margin-right: 4px; margin-bottom: 2px; border: 1px solid var(--border); }
+  .pill.risk-high { background: rgba(248,113,113,0.15); color: var(--red); border-color: rgba(248,113,113,0.3); } .pill.risk-med { background: rgba(251,191,36,0.15); color: var(--yellow); border-color: rgba(251,191,36,0.3); } .pill.risk-low { background: rgba(96,165,250,0.15); color: var(--blue); border-color: rgba(96,165,250,0.3); }
+  .section { margin-bottom: 18px; } .section:last-child { margin-bottom: 0; }
+  .section-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--heading); margin-bottom: 8px; }
+  .section p, .section li { font-size: 13px; color: #cbd5e1; } .section ul, .section ol { padding-left: 20px; } .section li { margin-bottom: 5px; }
+  .pr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 8px 0; } @media (max-width: 640px) { .pr-grid { grid-template-columns: 1fr; } }
   .pr-card { background: var(--card2); border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
   .pr-card-title { font-size: 13px; font-weight: 700; color: var(--heading); margin-bottom: 10px; }
-  .pr-stat { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 12px; }
-  .pr-stat-label { color: var(--muted); }
-  .pr-stat-value { color: var(--text); font-weight: 500; }
-  .pr-stat-value.green { color: var(--green); }
-  .pr-stat-value.yellow { color: var(--yellow); }
-  .pr-stat-value.red { color: var(--red); }
-
-  /* Tabelas de dados */
+  .pr-stat { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 12px; } .pr-stat-label { color: var(--muted); } .pr-stat-value { color: var(--text); font-weight: 500; } .pr-stat-value.green { color: var(--green); } .pr-stat-value.yellow { color: var(--yellow); } .pr-stat-value.red { color: var(--red); }
   table.data { width: 100%; border-collapse: collapse; font-size: 12.5px; margin: 8px 0; }
-  table.data th {
-    background: var(--card2);
-    color: var(--muted);
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-    padding: 8px 10px;
-    text-align: left;
-    border-bottom: 1px solid var(--border);
-  }
-  table.data td {
-    padding: 8px 10px;
-    border-bottom: 1px solid rgba(46,50,72,0.5);
-    vertical-align: top;
-    color: var(--text);
-  }
-  table.data tr:last-child td { border-bottom: none; }
-  table.data .ok { color: var(--green); }
-  table.data .warn { color: var(--yellow); }
-  table.data .bad { color: var(--red); }
-  .add { color: var(--green); }
-  .del { color: var(--red); }
-
-  /* Alertas */
+  table.data th { background: var(--card2); color: var(--muted); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  table.data td { padding: 8px 10px; border-bottom: 1px solid rgba(46,50,72,0.5); vertical-align: top; color: var(--text); } table.data tr:last-child td { border-bottom: none; }
+  table.data .ok { color: var(--green); } table.data .warn { color: var(--yellow); } table.data .bad { color: var(--red); } .add { color: var(--green); } .del { color: var(--red); }
   .alert-list { display: flex; flex-direction: column; gap: 10px; }
-  .alert-item {
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    padding: 11px 13px;
-    border-radius: 8px;
-    border-left: 3px solid;
-    font-size: 13px;
-  }
-  .alert-red { background: rgba(239,68,68,0.07); border-color: var(--red); }
-  .alert-yellow { background: rgba(245,158,11,0.07); border-color: var(--yellow); }
-  .alert-green { background: rgba(34,197,94,0.07); border-color: var(--green); }
-  .alert-blue { background: rgba(59,130,246,0.07); border-color: var(--blue); }
-  .alert-item strong { display: block; color: var(--heading); margin-bottom: 2px; }
-  .alert-item p { color: var(--muted); }
-
-  /* Info ausente */
-  .missing-item {
-    display: flex;
-    gap: 8px;
-    font-size: 12.5px;
-    color: var(--muted);
-    padding: 6px 10px;
-    background: rgba(255,255,255,0.02);
-    border-radius: 6px;
-  }
-  .missing-item::before { content: '☐'; color: var(--red); flex-shrink: 0; }
+  .alert-item { display: flex; gap: 10px; align-items: flex-start; padding: 11px 13px; border-radius: 8px; border-left: 3px solid; font-size: 13px; }
+  .alert-red { background: rgba(239,68,68,0.07); border-color: var(--red); } .alert-yellow { background: rgba(245,158,11,0.07); border-color: var(--yellow); } .alert-green { background: rgba(34,197,94,0.07); border-color: var(--green); } .alert-blue { background: rgba(59,130,246,0.07); border-color: var(--blue); }
+  .alert-item strong { display: block; color: var(--heading); margin-bottom: 2px; } .alert-item p { color: var(--muted); }
+  .missing-item { display: flex; gap: 8px; font-size: 12.5px; color: var(--muted); padding: 6px 10px; background: rgba(255,255,255,0.02); border-radius: 6px; } .missing-item::before { content: '☐'; color: var(--red); flex-shrink: 0; }
   .q { font-style: italic; color: var(--purple); }
-
-  /* Conclusão */
-  .conclusion {
-    background: linear-gradient(135deg, rgba(96,165,250,0.08), rgba(167,139,250,0.05));
-    border: 1px solid rgba(96,165,250,0.25);
-    border-radius: 10px;
-    padding: 14px 16px;
-    margin-top: 4px;
-    font-size: 13px;
-  }
+  .conclusion { background: linear-gradient(135deg, rgba(96,165,250,0.08), rgba(167,139,250,0.05)); border: 1px solid rgba(96,165,250,0.25); border-radius: 10px; padding: 14px 16px; margin-top: 4px; font-size: 13px; }
   .conclusion .disclaimer { font-size: 11.5px; color: var(--muted); font-style: italic; margin-top: 8px; }
-
-  .footer {
-    text-align: center;
-    color: var(--muted);
-    font-size: 11px;
-    margin-top: 30px;
-    padding-top: 18px;
-    border-top: 1px solid var(--border);
-  }
+  .footer { text-align: center; color: var(--muted); font-size: 11px; margin-top: 30px; padding-top: 18px; border-top: 1px solid var(--border); }
   .hidden { display: none; }
 </style>
 </head>
 <body>
 <div class="container">
 
-<h1>ICCP — CAB 14/08/2026</h1>
-<p class="subtitle">10 GMUDs em Liberação · Sexta-feira · JQL Fim de Semana · Análise técnica de apoio ao comitê</p>
+<h1>ICCP — CAB 17/08/2026</h1>
+<p class="subtitle">5 GMUDs em Liberação · Segunda-feira · JQL Semanal · Análise técnica de apoio ao comitê</p>
 
 <div class="filters">
   <input id="search" type="text" placeholder="Buscar por GMUD, IC, título, responsável...">
@@ -285,798 +83,481 @@
 </tr>
 </thead>
 <tbody>
-  <tr data-risk="med" data-sort="0814-2130" onclick="location.href='#card-gst-49773'">
-    <td><b>GST-49773</b></td>
-    <td>Registro de Recebíveis</td>
-    <td>14/08 21h30–23h30</td>
-    <td>Correção</td>
-    <td><a href="https://github.com/getzoop/zoop-transfers/pull/1094" onclick="event.stopPropagation()">#1094</a></td>
-    <td>🟡 remove comando de consistência de saldo; PR aberto</td>
-  </tr>
-  <tr data-risk="high" data-sort="0814-2200" onclick="location.href='#card-gst-49786'">
-    <td><b>GST-49786</b></td>
-    <td>Liquidação Payments</td>
-    <td>14/08 22h00–23h30</td>
-    <td>Manutenção</td>
-    <td><a href="https://github.com/getzoop/zoop-payment-orders/pull/886" onclick="event.stopPropagation()">#886</a></td>
-    <td>🔴 PR criado hoje, sem review e sem CI; instant Itaú</td>
-  </tr>
-  <tr data-risk="med" data-sort="0815-0100" onclick="location.href='#card-gst-49767'">
-    <td><b>GST-49767</b></td>
-    <td>Database Platform</td>
-    <td>15/08 01h00 → 16/08 06h00</td>
-    <td>Manutenção</td>
-    <td>—</td>
-    <td>🟡 upgrade RDS 3 instâncias Payments; sem plano de validação de apps</td>
-  </tr>
-  <tr data-risk="low" data-sort="0815-0800" onclick="location.href='#card-gst-49790'">
-    <td><b>GST-49790</b></td>
-    <td>Cloud Platform</td>
-    <td>15/08 08h00–09h00</td>
-    <td>Correção</td>
-    <td>—</td>
-    <td>🔵 troca certificado BACEN; sem rollback (janela BACEN)</td>
-  </tr>
-  <tr data-risk="low" data-sort="0816-0400" onclick="location.href='#card-gst-49691'">
-    <td><b>GST-49691</b></td>
-    <td>Database Platform</td>
-    <td>16/08 04h00–04h30</td>
-    <td>Manutenção</td>
-    <td>—</td>
-    <td>🔵 upgrade RDS tfa (uso Ops)</td>
-  </tr>
-  <tr data-risk="low" data-sort="0816-0400" onclick="location.href='#card-gst-49737'">
-    <td><b>GST-49737</b></td>
-    <td>Database Platform</td>
-    <td>16/08 04h00–04h30</td>
-    <td>Manutenção</td>
-    <td>—</td>
-    <td>🔵 upgrade RDS payment-orders (uso Ops)</td>
-  </tr>
-  <tr data-risk="med" data-sort="0817-0400" onclick="location.href='#card-gst-49784'">
-    <td><b>GST-49784</b></td>
+  <tr data-risk="med" data-sort="0817-1500" onclick="location.href='#card-gst-49797'">
+    <td><b>GST-49797</b></td>
     <td>Onboarding Banking</td>
-    <td>17/08 04h00–05h00</td>
-    <td>Manutenção</td>
-    <td><a href="https://github.com/getzoop/seller-api/pull/222" onclick="event.stopPropagation()">#222</a></td>
-    <td>🟡 remove bypass de ativação de seller legado</td>
-  </tr>
-  <tr data-risk="low" data-sort="0817-0400" onclick="location.href='#card-gst-49787'">
-    <td><b>GST-49787</b></td>
-    <td>Onboarding Banking</td>
-    <td>17/08 04h00–05h00</td>
-    <td>Correção</td>
-    <td><a href="https://github.com/getzoop/banking-accreditation/pull/479" onclick="event.stopPropagation()">#479</a></td>
-    <td>🔵 correção IDOR com testes; baixo risco</td>
-  </tr>
-  <tr data-risk="low" data-sort="0817-1000" onclick="location.href='#card-gst-49789'">
-    <td><b>GST-49789</b></td>
-    <td>Ferramentas de Backoffice</td>
-    <td>17/08 10h00–10h30</td>
+    <td>17/08 15h00–17h30</td>
     <td>Nova Funcionalidade</td>
-    <td><a href="https://github.com/getzoop/zoop-aws-sinergia-ifood/pull/179" onclick="event.stopPropagation()">#179</a></td>
-    <td>🔵 4 rotas proxy de export CSV para Atlas</td>
+    <td><a href="https://github.com/getzoop/banking-accreditation/pull/470" onclick="event.stopPropagation()">#470</a></td>
+    <td>🟡 PR aberto (não mergeado); janela fora do padrão Onboarding</td>
   </tr>
-  <tr data-risk="med" data-sort="0818-0730" onclick="location.href='#card-gst-49785'">
-    <td><b>GST-49785</b></td>
-    <td>Tokenização</td>
-    <td>18/08 07h30–08h30</td>
+  <tr data-risk="med" data-sort="0817-1600" onclick="location.href='#card-gst-49794'">
+    <td><b>GST-49794</b></td>
+    <td>Planos &amp; Taxas</td>
+    <td>17/08 16h00–18h00</td>
     <td>Manutenção</td>
-    <td><a href="https://github.com/getzoop/rv-tokenization-getnet/pull/122" onclick="event.stopPropagation()">#122</a></td>
-    <td>🟡 limite de 26 chars via bump de SDK + migração access-key→role</td>
+    <td><a href="https://github.com/getzoop/zoop-plans-manager/pull/240" onclick="event.stopPropagation()">#240</a> (merged)</td>
+    <td>🟡 IAM cross-account citado no plano, sem artefato no PR</td>
+  </tr>
+  <tr data-risk="high" data-sort="0817-1900" onclick="location.href='#card-gst-49795'">
+    <td><b>GST-49795</b></td>
+    <td>Dash, Minha Conta</td>
+    <td>17/08 19h00–23h00</td>
+    <td>Nova Funcionalidade</td>
+    <td>—</td>
+    <td>🔴 código ainda em code review (5 subtasks) a ~5h da janela</td>
+  </tr>
+  <tr data-risk="high" data-sort="0818-0400" onclick="location.href='#card-gst-49668'">
+    <td><b>GST-49668</b></td>
+    <td>PIX MED</td>
+    <td>18/08 04h00–06h00</td>
+    <td>Manutenção</td>
+    <td>—</td>
+    <td>🔴 migração de banco com downtime; rollback de dados ausente</td>
+  </tr>
+  <tr data-risk="med" data-sort="0818-0900" onclick="location.href='#card-gst-49791'">
+    <td><b>GST-49791</b></td>
+    <td>Onboarding Banking</td>
+    <td>18/08 09h00–10h00</td>
+    <td>Correção</td>
+    <td><a href="https://github.com/getzoop/banking-accreditation/pull/481" onclick="event.stopPropagation()">#481</a></td>
+    <td>🟡 PR sem review (0 aprovadores); janela fora do padrão Onboarding</td>
   </tr>
 </tbody>
 </table>
 
 
-<div class="card" id="card-gst-49773" data-risk="med" data-text="GST-49773 entries npp histórico saldo recebíveis zoop-transfers Fabrício Core-payments-zoop">
+<div class="card" id="card-gst-49797" data-risk="med" data-text="GST-49797 feature toggle antifraud ifp-profile banking-accreditation Allan Araujo Onboarding Banking">
   <div class="card-header">
-    <h2>GST-49773 — <a href="https://ifood-zoop.atlassian.net/browse/GST-49773">ajuste histórico de entries deve ignorar entries npp</a></h2>
+    <h2>GST-49797 — <a href="https://ifood-zoop.atlassian.net/browse/GST-49797">Adição de feature toggle para uso do novo fluxo de analise de af</a></h2>
     <div class="meta-row">
-      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Aguardando para Execução</span></div>
-      <div class="meta-item"><span class="meta-label">Janela</span><span class="meta-value">14/08 21h30–23h30 BRT</span></div>
-      <div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Correção · Tier 2 · Prob. Baixa</span></div>
+      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Liberação <span class="badge badge-yellow">pendente CAB</span></span></div>
+      <div class="meta-item"><span class="meta-label">Janela</span><span class="meta-value">17/08 15h00–17h30 BRT</span></div>
+      <div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Nova Funcionalidade · Tier 2 · Prob. Baixa</span></div>
       <div class="meta-item"><span class="meta-label">Risco</span><span class="meta-value"><span class="pill risk-med">🟡 Atenção</span></span></div>
-      <div class="meta-item"><span class="meta-label">Domínio / IC</span><span class="meta-value">Payments · Core-payments-zoop · Registro de Recebíveis</span></div>
-      <div class="meta-item"><span class="meta-label">Responsável</span><span class="meta-value">Fabricio Cavalcante Costa De Souza</span></div>
-      <div class="meta-item"><span class="meta-label">Relacionado</span><span class="meta-value"><a href="https://ifood.atlassian.net/browse/SWSYNAL-698">SWSYNAL-698</a></span></div>
+      <div class="meta-item"><span class="meta-label">Domínio / IC</span><span class="meta-value">Banking · Onboarding Banking (banking-accreditation)</span></div>
+      <div class="meta-item"><span class="meta-label">Responsável</span><span class="meta-value">Allan Araujo (allan.araujo)</span></div>
+      <div class="meta-item"><span class="meta-label">Relacionado</span><span class="meta-value"><a href="https://ifood.atlassian.net/browse/SWACCPP-856">SWACCPP-856</a></span></div>
     </div>
-    <div class="approvals">Aprovações: <b>Planejamento</b> <span class="ok">✓ Gabriel Moraes Baptista</span> · <b>Produto</b> <span class="ok">✓ Kiese Quiavauca Viana</span> · <b>Áreas Executoras</b> <span class="ok">✓ Jun Kei Silva</span> · <b>Liberação</b> <span class="ok">✓ Leonardo Freitas Dos Santos</span></div>
+    <div class="approvals">Aprovações: <b>Planejamento</b> <span class="ok">✓ Matheus Rodrigues De Oliveira</span> · <b>Produto</b> <span class="ok">✓ aprovado (não nomeado)</span> · <b>Áreas Executoras</b> <span class="ok">✓ Francisco Wandeson Da Cunha</span> · <b>Liberação</b> <span class="badge badge-yellow">⏳ pendente</span></div>
   </div>
   <div class="card-body">
     <div class="section"><div class="section-title">🎯 Objetivo da Mudança</div>
-      <p>No <code>zoop-transfers</code>, o ajuste de histórico de entries (<code>entries_history_adjustment</code>) reescreve o <code>currentBalance</code> como soma corrida via SQL sobre <b>todas</b> as entries. As entries NPP (<code>pay_receivables_npp</code> / <code>create_transfer_npp</code>) são <i>snapshots</i> de saldo que não movimentam a conta — incluí-las na soma corrida corrompia o saldo das entries subsequentes e produzia saldos negativos impossíveis. A mudança passa a <b>ignorar as entries NPP</b> no cálculo e na validação pós-update.</p>
-      <p><b>Intenção declarada:</b> "no ajuste do histórico de entries as entries npp devem ser ignoradas". <b>O que o código faz:</b> troca o cursor SQL bruto por <code>RawSQL</code> com filtro de NPP no <code>UPDATE</code> e na validação — mas <b>remove</b> o comando <code>check_balance_consistency</code> (a PR dizia "align", o diff apaga o arquivo).</p>
+      <p>Como parte da migração para a plataforma <b>ifp-profile</b>, a <code>banking-accreditation</code> ganha uma estrutura de decisão sobre qual engine de antifraude executar no fluxo de análise (AF) de um holder. A nova feature toggle <code>ENABLE_PROFILE_PLATFORM_ANTIFRAUD</code> sobe <b>desabilitada em produção</b> — quando desligada, o fluxo permanece no antifraud legado (prevention-steps); quando ligada, roteia para o novo engine <code>IFP_PROFILE</code> (profile platform).</p>
+      <p><b>Intenção declarada:</b> "Como parte da migração para a plataforma de ifp-profile foi implementado na banking-accreditation estrutura de decisão sobre qual fluxo de AF deve será executado. Inicialmente flag sobe desabilitada em produção." <b>O que o código faz:</b> exatamente isso — toggle desabilitada + roteamento condicional em <code>HolderService</code>, coluna <code>engine</code> na tabela <code>analysis</code> e idempotency key via <code>externalKey</code> da análise FULL concluída.</p>
     </div>
     <div class="section"><div class="section-title">🔬 Superfície Técnica</div>
       <div class="pr-grid"><div class="pr-card">
-        <div class="pr-card-title">PR <a href="https://github.com/getzoop/zoop-transfers/pull/1094">#1094</a> · fix(zpreceivable): exclude NPP entries <span class="badge badge-blue">open</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Autor</span><span class="pr-stat-value">fabricio-zoop</span></div>
+        <div class="pr-card-title">PR <a href="https://github.com/getzoop/banking-accreditation/pull/470">#470</a> · feat: Adapting the structure for fraud analysis via IFP-profile <span class="badge badge-blue">open</span></div>
+        <div class="pr-stat"><span class="pr-stat-label">Autor</span><span class="pr-stat-value">allanaraujoifood</span></div>
         <div class="pr-stat"><span class="pr-stat-label">Estado</span><span class="pr-stat-value yellow">open · não mergeado</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">mergeable_state</span><span class="pr-stat-value">n/d (não exposto pela API)</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Branch</span><span class="pr-stat-value">fix/npp-balance-history-adjustment → master</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Arquivos</span><span class="pr-stat-value">5 <span class="add">+179</span>/<span class="del">-234</span></span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Runtime</span><span class="pr-stat-value">Python / Django</span></div>
+        <div class="pr-stat"><span class="pr-stat-label">Branch</span><span class="pr-stat-value">SWACCPP-854 → master</span></div>
+        <div class="pr-stat"><span class="pr-stat-label">Arquivos</span><span class="pr-stat-value">24 <span class="add">+948</span>/<span class="del">-17</span></span></div>
+        <div class="pr-stat"><span class="pr-stat-label">Runtime</span><span class="pr-stat-value">Kotlin / Spring Boot</span></div>
         <div class="pr-stat"><span class="pr-stat-label">CI checks</span><span class="pr-stat-value yellow">pending · 0 checks</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Aprovadores</span><span class="pr-stat-value green">Nekuji (APPROVED, 13/08)</span></div>
+        <div class="pr-stat"><span class="pr-stat-label">Aprovadores</span><span class="pr-stat-value green">wandesoncunha-ifp ✓ · eduarduo ✓ · vitorcardoso299 ✓</span></div>
+        <div class="pr-stat"><span class="pr-stat-label">Reviewers pendentes</span><span class="pr-stat-value yellow">paulo-cella (sem review)</span></div>
       </div></div>
       <table class="data"><thead><tr><th>Arquivo</th><th>Tipo</th><th>Impacto em produção</th></tr></thead><tbody>
-        <tr><td><code>app/transfer/zpreceivable/unlock_entries.py</code></td><td>Código (cálculo de saldo)</td><td>Reescreve <code>entries_history_adjustment</code> com <code>RawSQL</code> filtrando NPP na soma corrida e na validação pós-update — altera o saldo calculado de recebíveis.</td></tr>
-        <tr><td><code>app/transfer/zptransfer/management/commands/check_balance_consistency.py</code></td><td>Código (checker)</td><td><b>Removido</b> — comando de checagem de consistência de saldo deixa de existir (a PR descrevia "align", mas o arquivo foi apagado).</td></tr>
-        <tr><td><code>app/transfer/zptransfer/tests/unit/test_commands.py</code></td><td>Teste</td><td>Removido junto com o comando (−106 linhas).</td></tr>
-        <tr><td><code>.../tests/integration/test_history_adjustment.py</code></td><td>Teste</td><td>+70 linhas cobrindo preservação de snapshot NPP e validação com a última entry não-NPP.</td></tr>
-        <tr><td><code>deployment/terraform/environments/production.tfvars</code></td><td>Infra (Terraform)</td><td>Adiciona <code>unlock_entries_container_memory = 8192</code> (8GB) para o container.</td></tr>
+        <tr><td><code>domain/service/HolderService.kt</code></td><td>Código</td><td>Roteamento do fluxo de aprovação entre <code>PREVENTION_STEPS</code> (legado, chama <code>assess</code>) e <code>IFP_PROFILE</code> (chama <code>createEligibility</code>).</td></tr>
+        <tr><td><code>domain/service/ProfilePlatformEligibilityService.kt</code></td><td>Código</td><td>Idempotency key passa a usar o <code>externalKey</code> da última análise FULL (antes era UUID aleatório).</td></tr>
+        <tr><td><code>domain/model/Analysis.kt</code> (+ app model)</td><td>Código</td><td>Nova coluna/atributo <code>engine</code> (<code>PREVENTION_STEPS</code> / <code>IFP_PROFILE</code>).</td></tr>
+        <tr><td><code>db/migration/.../202608061800__add_engine_to_analysis.sql</code></td><td>Migration</td><td><code>ALTER TABLE analysis ADD COLUMN engine</code> com default <code>'LEGACY_RISK'</code> + UPDATE/backfill.</td></tr>
+        <tr><td><code>db/migration/.../202608121000__rename_legacy_risk_to_prevention_steps.sql</code></td><td>Migration</td><td><code>UPDATE engine 'LEGACY_RISK' → 'PREVENTION_STEPS'</code> e ajusta default/comentário.</td></tr>
+        <tr><td><code>application.yml</code></td><td>Config</td><td><code>togglz.features.ENABLE_PROFILE_PLATFORM_ANTIFRAUD.enabled: false</code>.</td></tr>
+        <tr><td>Testes (HolderControllerIT, HolderServiceApprovalEngineTest, etc.)</td><td>Teste</td><td>Cobertura de roteamento, engine, idempotency key e contrato da API (maioria das +948 linhas).</td></tr>
       </tbody></table>
-      <p><b>Infra/Config:</b> aumento de memória do container <code>unlock_entries</code> para 8GB; sem mudança de secrets/env vars.</p>
+      <p><b>Infra/Config:</b> toggle Togglz desabilitada por padrão; 2 migrations de schema na tabela <code>analysis</code> (coluna aditiva + rename de valores).</p>
     </div>
     <div class="section"><div class="section-title">🔍 Consistência &amp; Evidências</div>
       <table class="data"><thead><tr><th>Verificação</th><th>Status</th><th>Observação</th></tr></thead><tbody>
-        <tr><td>Objetivo declarado × código</td><td class="ok">✅</td><td>Coerente: exclui NPP do ajuste de histórico.</td></tr>
-        <tr><td>Estado do PR</td><td class="warn">⚠️</td><td>Open (não mergeado) até a janela.</td></tr>
-        <tr><td>check_balance_consistency</td><td class="bad">❌</td><td>PR descreve "align"; o diff <b>remove</b> o comando e seus testes.</td></tr>
+        <tr><td>Objetivo declarado × código</td><td class="ok">✅</td><td>Coerente: toggle desabilitada + roteamento condicional.</td></tr>
+        <tr><td>Estado do PR</td><td class="warn">⚠️</td><td>Open (não mergeado) a ~1h da janela (15h).</td></tr>
+        <tr><td>Feature flag</td><td class="ok">✅</td><td>Desabilitada por padrão (mitiga risco funcional).</td></tr>
+        <tr><td>Rollback</td><td class="ok">✅</td><td>"Reverter merge + aplicar CD".</td></tr>
+        <tr><td>Jira ref no PR</td><td class="warn">⚠️</td><td>PR cobre SWACCPP-854 <b>e</b> SWACCPP-856; GMUD referencia só SWACCPP-856.</td></tr>
         <tr><td>CI checks</td><td class="warn">⚠️</td><td>0 checks reportados.</td></tr>
-        <tr><td>Aprovação no PR</td><td class="warn">⚠️</td><td>1 aprovador (Nekuji); autor com múltiplos comentários no próprio PR.</td></tr>
-        <tr><td>Rollback</td><td class="ok">✅</td><td>"revert do PR + Iniciar GHA".</td></tr>
       </tbody></table>
       <ol>
-        <li><b>check_balance_consistency removido, não "alinhado"</b> — fonte: diff — <span class="badge badge-yellow">média</span></li>
-        <li><b>Mudança em lógica de saldo de recebíveis com 0 CI checks</b> — fonte: GitHub — <span class="badge badge-yellow">média</span></li>
+        <li><b>PR aberto/não mergeado a ~1h da janela</b> — fonte: GitHub — <span class="badge badge-red">alta</span></li>
+        <li><b>PR cobre 2 issues, GMUD vincula 1</b> — fonte: GitHub × Jira — <span class="badge badge-yellow">média</span></li>
+        <li><b>Migration intermediária usa default 'LEGACY_RISK' e depois renomeia para PREVENTION_STEPS</b> — fonte: diff — <span class="badge badge-gray">baixa</span></li>
       </ol>
+      <div class="missing-item">Merge do PR #470 antes da janela</div>
       <div class="missing-item">CI checks no PR (0 checks)</div>
-      <div class="missing-item">Confirmação de que a validação pós-update substitui efetivamente o <code>check_balance_consistency</code> removido</div>
-      <div class="missing-item">Dashboard/alertas Datadog para acompanhar o ajuste de saldo na janela</div>
+      <div class="missing-item">Dashboard/alertas Datadog (catálogo GSTI registra "falta logs no Datadog" para Zoop Accreditation)</div>
+      <div class="missing-item">Template da GMUD preenchido (Escopo/Premissas/Critérios em branco)</div>
     </div>
     <div class="section"><div class="section-title">⚠️ Avaliação de Risco &amp; Política</div>
       <table class="data"><thead><tr><th>Fator</th><th>Avaliação</th></tr></thead><tbody>
-        <tr><td>Mudança em cálculo de saldo (fluxo financeiro de recebíveis)</td><td><span class="badge badge-yellow">eleva risco</span></td></tr>
-        <tr><td>Remoção do comando de consistência de saldo</td><td><span class="badge badge-red">eleva risco</span></td></tr>
-        <tr><td>Testes de integração ampliados (+70)</td><td><span class="badge badge-green">reduz risco</span></td></tr>
-        <tr><td>Prob. Baixa · Tier 2 · "sem impacto ao cliente" (declarado)</td><td><span class="badge badge-green">reduz risco</span></td></tr>
-        <tr><td>PR aberto, 1 aprovador, 0 CI checks</td><td><span class="badge badge-yellow">atenção</span></td></tr>
+        <tr><td>Feature flag desabilitada por padrão</td><td><span class="badge badge-green">reduz risco</span></td></tr>
+        <tr><td>Migration de schema em tabela <code>analysis</code> (ADD COLUMN + UPDATE)</td><td><span class="badge badge-yellow">eleva risco</span></td></tr>
+        <tr><td>PR aberto, não mergeado a ~1h da janela</td><td><span class="badge badge-yellow">eleva risco</span></td></tr>
+        <tr><td>3 aprovações no PR</td><td><span class="badge badge-green">reduz risco</span></td></tr>
+        <tr><td>Template da GMUD em branco</td><td><span class="badge badge-yellow">atenção</span></td></tr>
       </tbody></table>
       <table class="data"><thead><tr><th>Critério</th><th>GMUD</th><th>Política GSTI</th><th>Status</th></tr></thead><tbody>
-        <tr><td>IC "Zoop-transfers / Payment-orders" (Nubank)</td><td>21h30–23h30 sexta</td><td>Janela 21h30–23h30</td><td class="ok">✅ dentro</td></tr>
+        <tr><td>IC "Onboarding Banking"</td><td>17/08 15h00–17h30</td><td>Nubank — serviços não transacionais (Onboarding): Seg–Qui 19h00–23h00</td><td class="bad">❌ fora</td></tr>
       </tbody></table>
       <div class="alert-list">
-        <div class="alert-item alert-yellow"><div><strong>🟡 O checker de consistência de saldo foi removido, não adaptado</strong><p>A PR diz "align check_balance_consistency", mas o comando e seus testes foram apagados. <span class="q">A validação pós-update dentro do <code>unlock_entries</code> substitui de fato a checagem removida? Há outro mecanismo de detecção de saldo inconsistente em produção?</span></p></div></div>
+        <div class="alert-item alert-yellow"><div><strong>🟡 PR #470 ainda aberto (não mergeado) a ~1h da janela</strong><p>O passo 1 do plano de implantação é "Realizar merge do PR #470". No momento da análise (14h), o PR segue <code>open</code>. <span class="q">O CAB libera a GMUD sabendo que o merge ainda não ocorreu?</span></p></div></div>
+        <div class="alert-item alert-yellow"><div><strong>🟡 Janela 15h00–17h30 fora do padrão Onboarding (19h00–23h00)</strong><p>Conforme a política Nubank (seção "Serviços Não Transacionais"), Onboarding tem janela Seg–Qui 19h00–23h00. <span class="q">O serviço se enquadra como "Onboarding" na política, ou há janela específica acordada para esta GMUD?</span></p></div></div>
+        <div class="alert-item alert-yellow"><div><strong>🟡 Template da GMUD não preenchido</strong><p>Escopo/Premissas/Escopo Técnico/Critérios de Aceite estão em branco — o contexto da mudança está apenas no título + PR. <span class="q">O CAB tem visibilidade completa do que está aprovando?</span></p></div></div>
       </div>
     </div>
     <div class="section"><div class="section-title">✅ Rollback</div>
-      <p><b>Método documentado:</b> revert do PR #1094 + iniciar GHA (redeploy da versão anterior).</p>
+      <p><b>Método documentado:</b> "Reverter merge — PR #470 + aplicar pipeline de CD".</p>
       <ul>
-        <li>Reversão de código simples (redeploy da versão anterior).</li>
-        <li>Risco: saldos já reescritos durante a janela não são "desfeitos" por rollback — exige re-execução do ajuste com a lógica antiga para normalizar.</li>
-        <li>Aumento de memória (8GB) permanece após revert (inofensivo, mas deve ser revertido no tfvars).</li>
+        <li>Reversão de código via redeploy da versão anterior (rápida).</li>
+        <li>A coluna <code>engine</code> permanece no schema após rollback (migration aditiva, inofensiva).</li>
+        <li>Como a toggle sobe desabilitada, o comportamento funcional não muda até ativação — rollback de baixo impacto.</li>
       </ul>
-      <p><b>Confiança:</b> média — reversão técnica simples, mas o efeito sobre saldos já recalculados depende de re-execução corretiva.</p>
+      <p><b>Confiança:</b> alta — código reversível via redeploy e toggle desabilitada; a migration aditiva não impede o rollback.</p>
     </div>
-    <div class="conclusion">Correção legítima de um bug de saldo com NPP, mas a remoção do <code>check_balance_consistency</code> (descrito como "align") e a ausência de CI checks num fluxo financeiro são os pontos a esclarecer com o CAB.
+    <div class="conclusion">Feature toggle desabilitada por padrão torna o risco funcional baixo. Os pontos para o CAB são processuais: PR ainda aberto, janela fora do padrão Onboarding e template da GMUD em branco.
       <div class="disclaimer">Análise técnica de apoio — a decisão de aprovação é do CAB. Somente leitura; nada foi aprovado, reprovado ou executado.</div>
     </div>
   </div>
 </div>
 
 
-<div class="card" id="card-gst-49786" data-risk="high" data-text="GST-49786 Instant Itau conta PG pix payment-orders Pedro Core-payments-zoop Liquidação">
+<div class="card" id="card-gst-49794" data-risk="med" data-text="GST-49794 descricao taxa sincronizacao zoop-plans-manager Felipe Menezes Planos Taxas Payments">
   <div class="card-header">
-    <h2>GST-49786 — <a href="https://ifood-zoop.atlassian.net/browse/GST-49786">Instant Itau erro quando conta PG</a></h2>
+    <h2>GST-49794 — <a href="https://ifood-zoop.atlassian.net/browse/GST-49794">Sincronização de descrição da taxa</a></h2>
     <div class="meta-row">
-      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Aguardando para Execução</span></div>
-      <div class="meta-item"><span class="meta-label">Janela</span><span class="meta-value">14/08 22h00–23h30 BRT</span></div>
+      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Liberação <span class="badge badge-yellow">pendente CAB</span></span></div>
+      <div class="meta-item"><span class="meta-label">Janela</span><span class="meta-value">17/08 16h00–18h00 BRT</span></div>
+      <div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Manutenção · Tier 2 · Prob. Baixa</span></div>
+      <div class="meta-item"><span class="meta-label">Risco</span><span class="meta-value"><span class="pill risk-med">🟡 Atenção</span></span></div>
+      <div class="meta-item"><span class="meta-label">Domínio / IC</span><span class="meta-value">Payments · Planos &amp; Taxas (zoop-plans-manager)</span></div>
+      <div class="meta-item"><span class="meta-label">Responsável</span><span class="meta-value">Felipe Menezes De Melo</span></div>
+      <div class="meta-item"><span class="meta-label">Relacionado</span><span class="meta-value"><a href="https://ifood.atlassian.net/browse/SWSYNAL-691">SWSYNAL-691</a></span></div>
+    </div>
+    <div class="approvals">Aprovações: <b>Planejamento</b> <span class="ok">✓ Gabriel Moraes Baptista</span> · <b>Produto</b> <span class="ok">✓ Kiese Quiavauca Viana</span> · <b>Áreas Executoras</b> <span class="ok">✓ Jun Kei Silva</span> · <b>Liberação</b> <span class="badge badge-yellow">⏳ pendente</span></div>
+  </div>
+  <div class="card-body">
+    <div class="section"><div class="section-title">🎯 Objetivo da Mudança</div>
+      <p>Incluir o campo <code>description</code> (descrição da taxa) no evento de sincronização de taxas que o <code>zoop-plans-manager</code> publica (SNS/SQS) para o consumer <code>payment-process-zoop-acl</code>, propagando a descrição da taxa até a persistência/billing.</p>
+      <p><b>Intenção declarada:</b> "Inclusão do campo de descrição da taxa no evento de sincronização." <b>O que o código faz:</b> adiciona <code>description</code> aos DTOs (<code>FeeSnsDto</code>, <code>FeeSellerAclMessageDto</code>, <code>IncomingFeeDataDto</code>) e aos datamappings do evento.</p>
+    </div>
+    <div class="section"><div class="section-title">🔬 Superfície Técnica</div>
+      <div class="pr-grid"><div class="pr-card">
+        <div class="pr-card-title">PR <a href="https://github.com/getzoop/zoop-plans-manager/pull/240">#240</a> · feat: incluindo descrição da taxa no evento de sincronização <span class="badge badge-green">merged</span></div>
+        <div class="pr-stat"><span class="pr-stat-label">Autor</span><span class="pr-stat-value">FelipeMenezesDM</span></div>
+        <div class="pr-stat"><span class="pr-stat-label">Estado</span><span class="pr-stat-value green">merged · 13/08 17h21</span></div>
+        <div class="pr-stat"><span class="pr-stat-label">Branch</span><span class="pr-stat-value">feature/fee-description-sync → master</span></div>
+        <div class="pr-stat"><span class="pr-stat-label">Arquivos</span><span class="pr-stat-value">8 <span class="add">+38</span>/<span class="del">-9</span></span></div>
+        <div class="pr-stat"><span class="pr-stat-label">Runtime</span><span class="pr-stat-value">Kotlin / Gradle</span></div>
+        <div class="pr-stat"><span class="pr-stat-label">CI checks</span><span class="pr-stat-value yellow">pending · 0 checks</span></div>
+        <div class="pr-stat"><span class="pr-stat-label">Aprovadores</span><span class="pr-stat-value green">fabricio-zoop ✓ · Nekuji ✓</span></div>
+      </div></div>
+      <table class="data"><thead><tr><th>Arquivo</th><th>Tipo</th><th>Impacto em produção</th></tr></thead><tbody>
+        <tr><td><code>application/dto/FeeSnsDto.kt</code></td><td>Código</td><td>Adiciona <code>description</code> ao payload SNS do evento de taxa.</td></tr>
+        <tr><td><code>infrastructure/dto/FeeSellerAclMessageDto.kt</code></td><td>Código</td><td>Adiciona <code>description</code> ao item agrupado enviado ao ACL.</td></tr>
+        <tr><td><code>infrastructure/dto/DataNotificationDtos.kt</code></td><td>Código</td><td><code>IncomingFeeDataDto</code> ganha <code>description</code> (nullable).</td></tr>
+        <tr><td><code>datamapping/feeEvent_*.kt</code> e <code>feeSellerAcl_*.kt</code></td><td>Código</td><td>Propaga o campo nos mapeamentos Fee→SNS e Fee→ACL.</td></tr>
+        <tr><td><code>test/.../FeeSellerAclIntegrationSqsTest.kt</code></td><td>Teste</td><td>Valida payload com e sem <code>description</code> (null-safe).</td></tr>
+      </tbody></table>
+      <p><b>Infra/Config:</b> o plano cita "Permissões IAM cross-account (Zoop → iFood)" e "esteira de deploy da infraestrutura em staging/prod" — mas o PR #240 é só código, <b>sem Terraform/IAM</b>.</p>
+    </div>
+    <div class="section"><div class="section-title">🔍 Consistência &amp; Evidências</div>
+      <table class="data"><thead><tr><th>Verificação</th><th>Status</th><th>Observação</th></tr></thead><tbody>
+        <tr><td>Objetivo declarado × código</td><td class="ok">✅</td><td>Campo <code>description</code> adicionado e propagado.</td></tr>
+        <tr><td>Estado do PR</td><td class="ok">✅</td><td>Merged (13/08); GMUD descreve "Mergear PR #240" como passo já concluído.</td></tr>
+        <tr><td>Infra (IAM cross-account)</td><td class="warn">⚠️</td><td>Citada no plano, mas não evidenciada no PR.</td></tr>
+        <tr><td>Rollback</td><td class="ok">✅</td><td>"Esteira de rollback + validar eventos sem o campo".</td></tr>
+        <tr><td>CI checks</td><td class="warn">⚠️</td><td>0 checks reportados.</td></tr>
+      </tbody></table>
+      <ol>
+        <li><b>Plano cita IAM cross-account + esteira de infra, mas PR #240 é só código</b> — fonte: Jira × GitHub — <span class="badge badge-yellow">média</span></li>
+        <li><b>GMUD descreve merge como passo a executar, mas PR já foi mergeado em 13/08</b> — fonte: GitHub — <span class="badge badge-gray">baixa</span></li>
+      </ol>
+      <div class="missing-item">Evidência da infra/IAM cross-account (PR de Terraform ou confirmação)</div>
+      <div class="missing-item">CI checks no PR (0 checks)</div>
+      <div class="missing-item">Template da GMUD preenchido (Escopo/Premissas/Critérios em branco)</div>
+    </div>
+    <div class="section"><div class="section-title">⚠️ Avaliação de Risco &amp; Política</div>
+      <table class="data"><thead><tr><th>Fator</th><th>Avaliação</th></tr></thead><tbody>
+        <tr><td>Mudança aditiva (campo novo, nullable)</td><td><span class="badge badge-green">reduz risco</span></td></tr>
+        <tr><td>PR merged com 2 aprovações</td><td><span class="badge badge-green">reduz risco</span></td></tr>
+        <tr><td>IAM cross-account citado sem artefato no PR</td><td><span class="badge badge-yellow">atenção</span></td></tr>
+        <tr><td>Template da GMUD em branco</td><td><span class="badge badge-yellow">atenção</span></td></tr>
+      </tbody></table>
+      <table class="data"><thead><tr><th>Critério</th><th>GMUD</th><th>Política GSTI</th><th>Status</th></tr></thead><tbody>
+        <tr><td>IC "Planos &amp; Taxas"</td><td>17/08 16h00–18h00</td><td>Não catalogado nas tabelas de janela GSTI</td><td class="ok">✅ sem restrição formal</td></tr>
+      </tbody></table>
+      <div class="alert-list">
+        <div class="alert-item alert-yellow"><div><strong>🟡 IAM cross-account (Zoop→iFood) citado no plano sem artefato no PR</strong><p>O plano de implantação menciona permissões IAM cross-account e esteira de deploy de infra, mas o PR #240 contém apenas mudanças de código/DTO. <span class="q">Onde está a evidência da infra/IAM necessária para o evento cross-account?</span></p></div></div>
+        <div class="alert-item alert-yellow"><div><strong>🟡 Template da GMUD não preenchido</strong><p>Escopo/Premissas/Escopo Técnico/Critérios de Aceite em branco. <span class="q">O contexto da mudança está completo apenas no título + PR?</span></p></div></div>
+      </div>
+    </div>
+    <div class="section"><div class="section-title">✅ Rollback</div>
+      <p><b>Método documentado:</b> "Executar esteira de rollback da aplicação no GitHub + validar que os eventos voltam à versão anterior, sem o campo de descrição da taxa."</p>
+      <ul>
+        <li>Campo aditivo — o consumer antigo deve tolerar o campo extra (contrato retrocompatível).</li>
+        <li>Rollback via redeploy da versão anterior (rápido e simples).</li>
+      </ul>
+      <p><b>Confiança:</b> alta — mudança pequena, aditiva e já mergeada; rollback trivial.</p>
+    </div>
+    <div class="conclusion">Mudança pequena, aditiva e já mergeada com 2 aprovações. O ponto de atenção é a infra/IAM cross-account citada no plano mas sem artefato no PR, e o template da GMUD em branco.
+      <div class="disclaimer">Análise técnica de apoio — a decisão de aprovação é do CAB. Somente leitura; nada foi aprovado, reprovado ou executado.</div>
+    </div>
+  </div>
+</div>
+
+
+<div class="card" id="card-gst-49795" data-risk="high" data-text="GST-49795 Dash BFF saldo retido NPP Nubank Daniel Veiga Dash Minha Conta Payments">
+  <div class="card-header">
+    <h2>GST-49795 — <a href="https://ifood-zoop.atlassian.net/browse/GST-49795">[Dash BFF] Exibindo saldo retido NPP para Nubank</a></h2>
+    <div class="meta-row">
+      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Liberação <span class="badge badge-yellow">pendente CAB</span></span></div>
+      <div class="meta-item"><span class="meta-label">Janela</span><span class="meta-value">17/08 19h00–23h00 BRT</span></div>
+      <div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Nova Funcionalidade · Tier 2 · Prob. Baixa</span></div>
+      <div class="meta-item"><span class="meta-label">Risco</span><span class="meta-value"><span class="pill risk-high">🔴 Crítico</span></span></div>
+      <div class="meta-item"><span class="meta-label">Domínio / IC</span><span class="meta-value">Payments · Dash, Minha Conta</span></div>
+      <div class="meta-item"><span class="meta-label">Responsável</span><span class="meta-value">Daniel Da Silva Veiga</span></div>
+      <div class="meta-item"><span class="meta-label">Relacionado</span><span class="meta-value"><a href="https://ifood.atlassian.net/browse/SWSCRCD-517">SWSCRCD-517</a></span></div>
+    </div>
+    <div class="approvals">Aprovações: <b>Planejamento</b> <span class="ok">✓ Ivre Marjorie Ribeiro Machado</span> · <b>Produto</b> <span class="ok">✓ Brenda Faraco Dutra</span> · <b>Áreas Executoras</b> <span class="ok">✓ Guilherme Goncalves De Souza</span> · <b>Liberação</b> <span class="badge badge-yellow">⏳ pendente</span></div>
+  </div>
+  <div class="card-body">
+    <div class="section"><div class="section-title">🎯 Objetivo da Mudança</div>
+      <p>Exibir o <b>saldo retido NPP</b> (pending balance) do seller na visão do Dash, restrito ao marketplace <b>Nubank</b>. O BFF (<code>zoop-dash-bff</code>) passa a consultar a fonte de dados <code>payment-zoop-payout-acl-jobs-api</code> e expor uma rota <code>npp-pending</code>, consumida pelo frontend do Dash.</p>
+      <p><b>Intenção declarada:</b> "Estamos adicionando a exibição de saldo retido NPP para nubank." <b>O código:</b> 5 subtasks do SWSCRCD-517 — BFF (getNppPendingBalance, rota npp-pending, env var <code>PAYOUT_ACL_JOBS_API_HOST</code>) + frontend (componente de saldo retido) — todas em "Aguardando Code Review".</p>
+    </div>
+    <div class="section"><div class="section-title">🔬 Superfície Técnica</div>
+      <p><b>Nenhum PR identificado na GMUD</b> (o plano diz apenas "Merge do PR para main"). A história relacionada SWSCRCD-517 e as 5 subtasks estão todas em status <b>"Aguardando Code Review"</b>.</p>
+      <table class="data"><thead><tr><th>Subtarefa</th><th>Escopo</th><th>Status Jira</th></tr></thead><tbody>
+        <tr><td><code>SWSCRCD-523</code></td><td>[BFF] Adicionar <code>getNppPendingBalance</code> ao SellersService (proxy pending-balance)</td><td class="warn">Aguardando Code Review</td></tr>
+        <tr><td><code>SWSCRCD-524</code></td><td>[BFF] Expor rota <code>npp-pending</code> no SellersController</td><td class="warn">Aguardando Code Review</td></tr>
+        <tr><td><code>SWSCRCD-525</code></td><td>[BFF] Configurar <code>PAYOUT_ACL_JOBS_API_HOST</code> no deployment (staging + prod)</td><td class="warn">Aguardando Code Review</td></tr>
+        <tr><td><code>SWSCRCD-522</code></td><td>[BFF] Remover testes obsoletos da restrição Nubank no NPP balance</td><td class="warn">Aguardando Code Review</td></tr>
+        <tr><td><code>SWSCRCD-552</code></td><td>[Dash] Adicionar saldo retido no componente de saldo (frontend)</td><td class="warn">Aguardando Code Review</td></tr>
+      </tbody></table>
+      <p><b>Infra/Config:</b> nova env var <code>PAYOUT_ACL_JOBS_API_HOST</code> (host da payout-acl-jobs-api) a provisionar em staging e prod; endpoint já disponível em sandbox (<code>payment-zoop-payout-acl-jobs-api.3rd-zoop.ifood-sandbox.com.br</code>).</p>
+    </div>
+    <div class="section"><div class="section-title">🔍 Consistência &amp; Evidências</div>
+      <table class="data"><thead><tr><th>Verificação</th><th>Status</th><th>Observação</th></tr></thead><tbody>
+        <tr><td>Objetivo declarado × código</td><td class="warn">⚠️</td><td>Não verificável — código ainda em code review, sem PR mergeado.</td></tr>
+        <tr><td>Estado dos PRs</td><td class="bad">❌</td><td>5 subtasks "Aguardando Code Review" a ~5h da janela (19h).</td></tr>
+        <tr><td>Referência de PR na GMUD</td><td class="bad">❌</td><td>Plano de implantação não traz número/link de PR.</td></tr>
+        <tr><td>Env var nova</td><td class="warn">⚠️</td><td><code>PAYOUT_ACL_JOBS_API_HOST</code> a configurar em staging + prod.</td></tr>
+        <tr><td>Rollback</td><td class="ok">✅</td><td>"Revert do PR para main + pipeline".</td></tr>
+      </tbody></table>
+      <ol>
+        <li><b>GMUD em Liberação com janela hoje 19h, mas todo o trabalho em code review (não mergeado)</b> — fonte: Jira — <span class="badge badge-red">alta</span></li>
+        <li><b>GMUD não referencia PR; escopo espalhado em BFF + frontend + config (5 subtasks)</b> — fonte: Jira — <span class="badge badge-yellow">média</span></li>
+      </ol>
+      <div class="missing-item">PR mergeado / link do PR na GMUD</div>
+      <div class="missing-item">Configuração da env var <code>PAYOUT_ACL_JOBS_API_HOST</code> (evidência)</div>
+      <div class="missing-item">CI checks dos PRs</div>
+      <div class="missing-item">Smoke test no marketplace de teste ("Libera Geral") antes da janela</div>
+      <div class="missing-item">Template da GMUD preenchido (Escopo/Premissas/Critérios em branco)</div>
+    </div>
+    <div class="section"><div class="section-title">⚠️ Avaliação de Risco &amp; Política</div>
+      <table class="data"><thead><tr><th>Fator</th><th>Avaliação</th></tr></thead><tbody>
+        <tr><td>Código não mergeado a ~5h da janela</td><td><span class="badge badge-red">eleva risco</span></td></tr>
+        <tr><td>Nova env var cross-service a provisionar</td><td><span class="badge badge-yellow">atenção</span></td></tr>
+        <tr><td>Escopo multi-repo (BFF + frontend + config)</td><td><span class="badge badge-yellow">eleva risco</span></td></tr>
+        <tr><td>Exibição restrita ao marketplace Nubank</td><td><span class="badge badge-green">reduz risco</span></td></tr>
+      </tbody></table>
+      <table class="data"><thead><tr><th>Critério</th><th>GMUD</th><th>Política GSTI</th><th>Status</th></tr></thead><tbody>
+        <tr><td>IC "Dash, Minha Conta"</td><td>17/08 19h00–23h00 (segunda)</td><td>Dashboard/Minha Conta: 19h00–23h00; restrição 6ª a Domingo</td><td class="ok">✅ dentro</td></tr>
+      </tbody></table>
+      <div class="alert-list">
+        <div class="alert-item alert-red"><div><strong>🔴 Nenhum código mergeado: 5 subtasks em "Aguardando Code Review" com janela hoje 19h</strong><p>A história SWSCRCD-517 e todas as subtasks estão em code review no momento da análise (14h). <span class="q">Há PR aberto/mergeado que não está visível, ou a mudança será deployada sem conclusão do code review?</span></p></div></div>
+        <div class="alert-item alert-yellow"><div><strong>🟡 Nova env var <code>PAYOUT_ACL_JOBS_API_HOST</code> precisa estar provisionada antes do deploy</strong><p>Sem essa configuração em staging+prod, o BFF não alcança a fonte de dados de saldo retido. <span class="q">A env var já foi provisionada ou faz parte da própria mudança?</span></p></div></div>
+        <div class="alert-item alert-yellow"><div><strong>🟡 Template da GMUD não preenchido</strong><p>Escopo/Premissas/Critérios em branco. <span class="q">O CAB tem o contexto completo (restrição Nubank, fonte de dados, rollback) documentado?</span></p></div></div>
+      </div>
+    </div>
+    <div class="section"><div class="section-title">✅ Rollback</div>
+      <p><b>Método documentado:</b> "Revert do PR para main + disparar pipeline da main no GHA."</p>
+      <ul>
+        <li>Rollback multi-repo (BFF + frontend) — exige reverter ambos.</li>
+        <li>Env var <code>PAYOUT_ACL_JOBS_API_HOST</code> residual (inofensiva se não consumida).</li>
+        <li>Feature restrita ao marketplace Nubank limita o raio de impacto.</li>
+      </ul>
+      <p><b>Confiança:</b> média — rollback simples se for PR único, mas o escopo multi-repo e a ausência de PR visível reduzem a previsibilidade.</p>
+    </div>
+    <div class="conclusion">Maior ponto de atenção do lote: mudança em Liberação com janela hoje 19h, mas código ainda em code review (5 subtasks) e sem PR referenciado na GMUD. A janela está conforme a política (Dash/Minha Conta), mas a prontidão técnica não está evidenciada.
+      <div class="disclaimer">Análise técnica de apoio — a decisão de aprovação é do CAB. Somente leitura; nada foi aprovado, reprovado ou executado.</div>
+    </div>
+  </div>
+</div>
+
+
+<div class="card" id="card-gst-49668" data-risk="high" data-text="GST-49668 pix-dict-return migracao mysql postgres RDS DMS Flavio PIX MED Banking downtime">
+  <div class="card-header">
+    <h2>GST-49668 — <a href="https://ifood-zoop.atlassian.net/browse/GST-49668">[pix-dict-return] Migração do mysql para postgres na instância zp-production-rds-pg-pix</a></h2>
+    <div class="meta-row">
+      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Liberação <span class="badge badge-yellow">pendente CAB</span></span></div>
+      <div class="meta-item"><span class="meta-label">Janela</span><span class="meta-value">18/08 04h00–06h00 BRT</span></div>
       <div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Manutenção · Tier 2 · Prob. Baixa</span></div>
       <div class="meta-item"><span class="meta-label">Risco</span><span class="meta-value"><span class="pill risk-high">🔴 Crítico</span></span></div>
-      <div class="meta-item"><span class="meta-label">Domínio / IC</span><span class="meta-value">Payments · Core-payments-zoop · Liquidação Payments</span></div>
-      <div class="meta-item"><span class="meta-label">Responsável</span><span class="meta-value">Pedro Henrique Sevenini Silva</span></div>
-      <div class="meta-item"><span class="meta-label">Relacionado</span><span class="meta-value"><a href="https://ifood.atlassian.net/browse/SWPAYZP-629">SWPAYZP-629</a></span></div>
+      <div class="meta-item"><span class="meta-label">Domínio / IC</span><span class="meta-value">Banking · PIX MED (pix-dict-return)</span></div>
+      <div class="meta-item"><span class="meta-label">Responsável</span><span class="meta-value">Flavio Augusto Mota Batista</span></div>
+      <div class="meta-item"><span class="meta-label">Relacionado</span><span class="meta-value"><a href="https://ifood.atlassian.net/browse/SWPIXPB-4037">SWPIXPB-4037</a></span></div>
+      <div class="meta-item"><span class="meta-label">Impacto</span><span class="meta-value">clientes externos e internos (downtime)</span></div>
     </div>
-    <div class="approvals">Aprovações: <b>Planejamento</b> <span class="ok">✓ Adriano Brandao De Oliveira</span> · <b>Produto</b> <span class="ok">✓ Rodrigo Goncalves Goulart</span> · <b>Áreas Executoras</b> <span class="ok">✓ Wellington Santos Ferreira</span> · <b>Liberação</b> <span class="ok">✓ Leonardo Freitas Dos Santos</span></div>
+    <div class="approvals">Aprovações: <b>Planejamento</b> <span class="ok">✓ Flavio Zacharias Fagundes</span> · <b>Produto</b> <span class="ok">✓ Pablo Bizzi Mahmud</span> · <b>Áreas Executoras</b> <span class="ok">✓ Lucas Goncalves Bento · ✓ Marcelo Fontes Pedrosa</span> · <b>Liberação</b> <span class="badge badge-yellow">⏳ pendente</span></div>
   </div>
   <div class="card-body">
     <div class="section"><div class="section-title">🎯 Objetivo da Mudança</div>
-      <p>Corrigir o erro no <b>Instant (PIX) para contas de pagamento (PG) no Itaú</b> no <code>zoop-payment-orders</code>. Hoje o código envia <code>tipo_identificacao_conta</code> com o nome do enum (<code>PG</code>), mas o Itaú espera <code>CP</code> (conta pagamento). A mudança adiciona o tipo <code>Payment("PG")</code> ao enum e um <code>ItauAccountTypeMapper</code> que traduz <code>PG → CP</code> (CC→CC, PP→PP, default→CC).</p>
-      <p><b>Intenção declarada:</b> "Ajustar instant pagamento para contas PG no Itau". <b>O que o código faz:</b> exatamente isso — novo mapper + uso em <code>ItauPixRestApi.getPixEntity</code>.</p>
+      <p>Migrar o banco de dados da <code>pix-dict-return</code> de <b>MySQL para PostgreSQL</b> na instância <code>zp-production-rds-pg-pix</code>, usando AWS DMS para importar os dados, com <b>desligamento temporário da aplicação</b> para evitar novos registros e garantir integridade.</p>
+      <p><b>Intenção declarada:</b> "Estamos realizando a migracao do banco de dados da pix-dict-return de mysql para postgres." <b>Parâmetros (Modo B, sem PR):</b> passo a passo de 9 etapas documentado no ticket.</p>
+    </div>
+    <div class="section"><div class="section-title">🔬 Superfície Técnica</div>
+      <p><b>Evidência técnica indisponível (sem PR):</b> migração executada via console AWS (RDS + DMS); não há artefato de código para inspecionar.</p>
+      <table class="data"><thead><tr><th>Etapa</th><th>Ação</th><th>Impacto em produção</th></tr></thead><tbody>
+        <tr><td>1</td><td>Recriar banco na instância <code>zp-production-rds-pg-pix</code> via DMS</td><td>Importação dos dados MySQL → Postgres.</td></tr>
+        <tr><td>2</td><td><b>Desligar a app</b> para evitar novos registros</td><td class="bad">Downtime (janela 04h–06h).</td></tr>
+        <tr><td>3</td><td>Garantir integridade (ids, booleans, checksums, sequences)</td><td>Validação de dados migrados.</td></tr>
+        <tr><td>4</td><td>Validar autorizações dos usuários</td><td>Grants/permissões no novo banco.</td></tr>
+        <tr><td>5–6</td><td>Atualizar config files (mysql→postgres) + secrets (host/admin)</td><td>Apontar a app para o novo banco.</td></tr>
+        <tr><td>7–9</td><td>Religar app, validar funcionamento, desligar DMS</td><td>Retomada do serviço no Postgres.</td></tr>
+      </tbody></table>
+      <p><b>Infra/Config:</b> instância RDS PostgreSQL <code>zp-production-rds-pg-pix</code>; secrets (host + usuário admin) e config files da app atualizados.</p>
+    </div>
+    <div class="section"><div class="section-title">🔍 Consistência &amp; Evidências</div>
+      <table class="data"><thead><tr><th>Verificação</th><th>Status</th><th>Observação</th></tr></thead><tbody>
+        <tr><td>Escopo declarado × parâmetros</td><td class="ok">✅</td><td>Passo a passo detalhado e coerente.</td></tr>
+        <tr><td>Impacto declarado</td><td class="ok">✅</td><td>"Gera impacto para clientes externos e internos" (único do lote).</td></tr>
+        <tr><td>Rollback</td><td class="warn">⚠️</td><td>Reverte secret/config/deploy, mas <b>não os dados</b> migrados.</td></tr>
+        <tr><td>Janela</td><td class="ok">✅</td><td>04h00–06h00 (padrão PIX/Dict + regra de downtime).</td></tr>
+      </tbody></table>
+      <ol>
+        <li><b>Risco classificado "Baixa"/Tier 2, mas é migração de banco com downtime e impacto externo</b> — fonte: Jira — <span class="badge badge-yellow">média</span></li>
+        <li><b>Rollback documentado não endereça os dados migrados (registros novos no Postgres podem se perder ao voltar ao MySQL)</b> — fonte: Jira — <span class="badge badge-red">alta</span></li>
+      </ol>
+      <div class="missing-item">Evidência de teste/dry-run da migração em staging antes da produção</div>
+      <div class="missing-item">Dashboard/alertas Datadog para acompanhar a app no novo banco</div>
+      <div class="missing-item">Template da GMUD preenchido (Escopo/Premissas em branco)</div>
+    </div>
+    <div class="section"><div class="section-title">⚠️ Avaliação de Risco &amp; Política</div>
+      <table class="data"><thead><tr><th>Fator</th><th>Avaliação</th></tr></thead><tbody>
+        <tr><td>Migração de banco com downtime (desliga a app)</td><td><span class="badge badge-red">eleva risco</span></td></tr>
+        <tr><td>Validação de integridade documentada (ids, booleans, checksums, sequences)</td><td><span class="badge badge-green">reduz risco</span></td></tr>
+        <tr><td>Rollback de dados não endereçado</td><td><span class="badge badge-red">eleva risco</span></td></tr>
+        <tr><td>Janela padrão PIX/Dict (04h–06h)</td><td><span class="badge badge-green">reduz risco</span></td></tr>
+        <tr><td>Classificação "Baixa"/Tier 2 subestimada para o tipo de mudança</td><td><span class="badge badge-yellow">atenção</span></td></tr>
+      </tbody></table>
+      <table class="data"><thead><tr><th>Critério</th><th>GMUD</th><th>Política GSTI</th><th>Status</th></tr></thead><tbody>
+        <tr><td>IC "PIX MED" / pix-dict-return</td><td>18/08 04h00–06h00</td><td>Banking PIX/Dict: 04h00–06h00 (downtime obriga janela 04h–06h)</td><td class="ok">✅ dentro</td></tr>
+      </tbody></table>
+      <div class="alert-list">
+        <div class="alert-item alert-red"><div><strong>🔴 Migração de banco com downtime classificada como "Baixa"/Tier 2</strong><p>É a mudança de maior risco do lote (downtime + dados + impacto externo), mas está marcada como Prob. Baixa / Tier 2. <span class="q">O CAB concorda com a classificação de risco desta GMUD?</span></p></div></div>
+        <div class="alert-item alert-yellow"><div><strong>🟡 Rollback não cobre os dados migrados</strong><p>O rollback reverte secret/config/deploy, mas os registros criados no Postgres durante a janela podem se perder ao voltar ao MySQL. <span class="q">Como é tratada a perda de dados caso seja necessário reverter a migração?</span></p></div></div>
+      </div>
+    </div>
+    <div class="section"><div class="section-title">✅ Rollback</div>
+      <p><b>Método documentado:</b> "Reverter a secret; reverter os config files; deploy da aplicação para puxar as configs antigas."</p>
+      <ul>
+        <li>Reversão da conexão é rápida (voltar secret/config + redeploy).</li>
+        <li>Risco principal: <b>dados novos gravados no Postgres durante a janela não retornam ao MySQL</b>.</li>
+        <li>DMS precisa ser religado para re-sincronizar, se necessário.</li>
+        <li>Aplicação fica indisponível durante todo o processo de reversão.</li>
+      </ul>
+      <p><b>Confiança:</b> baixa/média — a reversão de conexão é simples, mas a integridade dos dados em caso de retorno ao MySQL é o ponto crítico não endereçado.</p>
+    </div>
+    <div class="conclusion">Migração de banco bem documentada e em janela correta (04h–06h), mas é a mudança de maior risco do lote (downtime + dados) com classificação "Baixa". O rollback de dados é a lacuna central.
+      <div class="disclaimer">Análise técnica de apoio — a decisão de aprovação é do CAB. Somente leitura; nada foi aprovado, reprovado ou executado.</div>
+    </div>
+  </div>
+</div>
+
+
+<div class="card" id="card-gst-49791" data-risk="med" data-text="GST-49791 protecao contas bolsao banking-accreditation Paulo Cella Onboarding Banking">
+  <div class="card-header">
+    <h2>GST-49791 — <a href="https://ifood-zoop.atlassian.net/browse/GST-49791">Proteção de contas bolsão</a></h2>
+    <div class="meta-row">
+      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Liberação <span class="badge badge-yellow">pendente CAB</span></span></div>
+      <div class="meta-item"><span class="meta-label">Janela</span><span class="meta-value">18/08 09h00–10h00 BRT</span></div>
+      <div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Correção · Tier 2 · Prob. Baixa</span></div>
+      <div class="meta-item"><span class="meta-label">Risco</span><span class="meta-value"><span class="pill risk-med">🟡 Atenção</span></span></div>
+      <div class="meta-item"><span class="meta-label">Domínio / IC</span><span class="meta-value">Banking · Onboarding Banking (banking-accreditation)</span></div>
+      <div class="meta-item"><span class="meta-label">Responsável</span><span class="meta-value">Paulo Jose Cella</span></div>
+      <div class="meta-item"><span class="meta-label">Relacionado</span><span class="meta-value"><a href="https://ifood.atlassian.net/browse/SWACCRE-1251">SWACCRE-1251</a></span></div>
+    </div>
+    <div class="approvals">Aprovações: <b>Planejamento</b> <span class="ok">✓ Matheus Rodrigues De Oliveira</span> · <b>Produto</b> <span class="ok">✓ aprovado (não nomeado)</span> · <b>Áreas Executoras</b> <span class="ok">✓ Francisco Wandeson Da Cunha</span> · <b>Liberação</b> <span class="badge badge-yellow">⏳ pendente</span></div>
+  </div>
+  <div class="card-body">
+    <div class="section"><div class="section-title">🎯 Objetivo da Mudança</div>
+      <p>Proteger contas <b>bolsão</b>/estratégicas contra encerramento/inativação acidental, bloqueando as operações <code>quit</code>, <code>deny</code>, <code>reject</code>, <code>disable</code>, <code>cancel</code> e <code>block</code> para uma lista hardcoded de 21 holder IDs.</p>
+      <p><b>Intenção declarada:</b> "Proteção contra encerramento de contas bolsão/estratégicas para o negócio." <b>O que o código faz:</b> <code>ProtectedHolderIds</code> (set de 21 UUIDs) + guard <code>assertCanInactivate</code> em <code>Holder</code>/<code>HolderService</code> + nova exception.</p>
     </div>
     <div class="section"><div class="section-title">🔬 Superfície Técnica</div>
       <div class="pr-grid"><div class="pr-card">
-        <div class="pr-card-title">PR <a href="https://github.com/getzoop/zoop-payment-orders/pull/886">#886</a> · fix pg account itau pix <span class="badge badge-blue">open</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Autor</span><span class="pr-stat-value">PedroSevenini</span></div>
+        <div class="pr-card-title">PR <a href="https://github.com/getzoop/banking-accreditation/pull/481">#481</a> · feature/holder-inactivation-lock-bolsao <span class="badge badge-blue">open</span></div>
+        <div class="pr-stat"><span class="pr-stat-label">Autor</span><span class="pr-stat-value">paulo-cella</span></div>
         <div class="pr-stat"><span class="pr-stat-label">Estado</span><span class="pr-stat-value yellow">open · não mergeado</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Criado em</span><span class="pr-stat-value red">14/08 14h11 BRT (hoje)</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Branch</span><span class="pr-stat-value">feature/fix-pg-itau-instant → master</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Arquivos</span><span class="pr-stat-value">4 <span class="add">+75</span>/<span class="del">-1</span></span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Runtime</span><span class="pr-stat-value">Java / Spring</span></div>
+        <div class="pr-stat"><span class="pr-stat-label">Branch</span><span class="pr-stat-value">feature/holder-inactivation-lock-bolsao → master</span></div>
+        <div class="pr-stat"><span class="pr-stat-label">Arquivos</span><span class="pr-stat-value">8 <span class="add">+367</span>/<span class="del">-2</span></span></div>
+        <div class="pr-stat"><span class="pr-stat-label">Runtime</span><span class="pr-stat-value">Kotlin / Spring Boot</span></div>
         <div class="pr-stat"><span class="pr-stat-label">CI checks</span><span class="pr-stat-value yellow">pending · 0 checks</span></div>
         <div class="pr-stat"><span class="pr-stat-label">Aprovadores</span><span class="pr-stat-value red">nenhum review</span></div>
+        <div class="pr-stat"><span class="pr-stat-label">Reviewers</span><span class="pr-stat-value red">nenhum solicitado</span></div>
       </div></div>
       <table class="data"><thead><tr><th>Arquivo</th><th>Tipo</th><th>Impacto em produção</th></tr></thead><tbody>
-        <tr><td><code>.../event/TransferCreatedAccountTypeEnum.java</code></td><td>Código</td><td>Adiciona <code>Payment("PG")</code> e matching de "Payment"/"Payment Account" no <code>fromValue</code>.</td></tr>
-        <tr><td><code>.../itau/ItauAccountTypeMapper.java</code></td><td>Código (novo)</td><td>Mapper <code>PG→CP</code>, <code>CC→CC</code>, <code>PP→PP</code>; default <code>CC</code>.</td></tr>
-        <tr><td><code>.../itau/ItauPixRestApi.java</code></td><td>Código</td><td>Passa a usar o mapper no campo <code>tipo_identificacao_conta</code> do PIX Itaú.</td></tr>
-        <tr><td><code>.../itau/ItauAccountTypeMapperTest.java</code></td><td>Teste</td><td>5 testes unitários cobrindo os mapeamentos e defaults.</td></tr>
+        <tr><td><code>domain/model/ProtectedHolderIds.kt</code> (novo)</td><td>Código</td><td>Lista hardcoded de 21 UUIDs de contas bolsão — inclui 1 "staging holder for tests" no mesmo set.</td></tr>
+        <tr><td><code>domain/model/Holder.kt</code></td><td>Código</td><td>Guard <code>assertCanInactivate</code> em quit/deny/reject/disable/cancel.</td></tr>
+        <tr><td><code>domain/service/HolderService.kt</code></td><td>Código</td><td>Guard adicional em disable/cancel/quit/block (camada de serviço).</td></tr>
+        <tr><td><code>domain/exception/Exceptions.kt</code></td><td>Código</td><td>Nova <code>HolderInactivationNotAllowedException</code> (HTTP 412).</td></tr>
+        <tr><td><code>messages*.properties</code></td><td>i18n</td><td>Mensagens PT/EN da nova regra.</td></tr>
+        <tr><td>Testes (HolderTest, HolderServiceTest)</td><td>Teste</td><td>Cobertura dos guards e do comportamento de não-protegidos.</td></tr>
       </tbody></table>
-      <p><b>Infra/Config:</b> sem mudança de infra; alteração restrita à camada de integração Itaú.</p>
+      <p><b>Infra/Config:</b> sem feature flag/toggle — a proteção passa a valer imediatamente após o deploy (não é configurável em runtime).</p>
     </div>
     <div class="section"><div class="section-title">🔍 Consistência &amp; Evidências</div>
       <table class="data"><thead><tr><th>Verificação</th><th>Status</th><th>Observação</th></tr></thead><tbody>
-        <tr><td>Objetivo declarado × código</td><td class="ok">✅</td><td>Consistente: mapeia PG→CP no PIX Itaú.</td></tr>
-        <tr><td>Tipo de mudança</td><td class="warn">⚠️</td><td>Classificada como "Manutenção", mas é uma <b>correção</b> de bug em pagamento instantâneo.</td></tr>
-        <tr><td>Estado do PR</td><td class="bad">❌</td><td>Criado <b>no mesmo dia</b> (14h11 BRT), open, não mergeado.</td></tr>
-        <tr><td>Review</td><td class="bad">❌</td><td>Nenhum review até o momento.</td></tr>
-        <tr><td>CI checks</td><td class="warn">⚠️</td><td>0 checks reportados.</td></tr>
-        <tr><td>Rollback</td><td class="ok">✅</td><td>"Rollback via githubActions".</td></tr>
+        <tr><td>Objetivo declarado × código</td><td class="ok">✅</td><td>Bloqueia inativação das contas listadas.</td></tr>
+        <tr><td>Estado do PR</td><td class="bad">❌</td><td>Open, 0 reviews, 0 reviewers solicitados.</td></tr>
+        <tr><td>Feature flag</td><td class="bad">❌</td><td>Sem toggle — proteção ativa imediatamente.</td></tr>
+        <tr><td>Rollback</td><td class="ok">✅</td><td>"Rollback PR #481 + run actions".</td></tr>
+        <tr><td>PR body</td><td class="bad">❌</td><td>Template vazio ("### O que precisava ser alterado - - -").</td></tr>
       </tbody></table>
       <ol>
-        <li><b>PR criado horas antes da janela, sem review e sem CI</b> — fonte: GitHub — <span class="badge badge-red">alta</span></li>
-        <li><b>Correção de bug tratada como "Manutenção"</b> — fonte: Jira — <span class="badge badge-yellow">média</span></li>
+        <li><b>PR sem nenhuma revisão e sem reviewers solicitados, com janela amanhã 09h</b> — fonte: GitHub — <span class="badge badge-red">alta</span></li>
+        <li><b>Lista hardcoded inclui holder de staging ("staging holder for tests") no mesmo set de produção</b> — fonte: diff — <span class="badge badge-yellow">média</span></li>
+        <li><b>PR body em template vazio</b> — fonte: GitHub — <span class="badge badge-yellow">média</span></li>
       </ol>
-      <div class="missing-item">Review no PR (nenhum até agora)</div>
+      <div class="missing-item">Review no PR (0 reviews)</div>
       <div class="missing-item">CI checks (0 checks)</div>
-      <div class="missing-item">Evidência de teste em sandbox do fluxo PG no Itaú (só unitários)</div>
+      <div class="missing-item">Feature flag/estratégia de configuração (lista hardcoded em código)</div>
+      <div class="missing-item">Template da GMUD preenchido</div>
     </div>
     <div class="section"><div class="section-title">⚠️ Avaliação de Risco &amp; Política</div>
       <table class="data"><thead><tr><th>Fator</th><th>Avaliação</th></tr></thead><tbody>
-        <tr><td>Mudança em pagamento instantâneo (PIX Itaú) sem review/CI</td><td><span class="badge badge-red">eleva risco</span></td></tr>
-        <tr><td>PR criado no mesmo dia da janela</td><td><span class="badge badge-red">eleva risco</span></td></tr>
-        <tr><td>Mudança pequena e cirúrgica (mapper + enum, com testes)</td><td><span class="badge badge-green">reduz risco</span></td></tr>
-        <tr><td>Prob. Baixa · "sem impacto ao cliente" (declarado)</td><td><span class="badge badge-green">reduz risco</span></td></tr>
+        <tr><td>Mudança pequena e com testes (guard + lista)</td><td><span class="badge badge-green">reduz risco</span></td></tr>
+        <tr><td>Sem review e sem CI no PR</td><td><span class="badge badge-red">eleva risco</span></td></tr>
+        <tr><td>Lista hardcoded (manutenção futura / defasagem)</td><td><span class="badge badge-yellow">atenção</span></td></tr>
+        <tr><td>Sem toggle (não dá para desligar rapidamente)</td><td><span class="badge badge-yellow">atenção</span></td></tr>
       </tbody></table>
       <table class="data"><thead><tr><th>Critério</th><th>GMUD</th><th>Política GSTI</th><th>Status</th></tr></thead><tbody>
-        <tr><td>IC "Liquidação Payments" (declarado)</td><td>22h00–23h30 sexta</td><td>Sem horário fixo; restrição "2ª à 6ª (até 13h00)"</td><td class="warn">⚠️ após 13h00</td></tr>
-        <tr><td>Serviço "Payment-orders" (Nubank)</td><td>22h00–23h30 sexta</td><td>Janela 21h30–23h30</td><td class="ok">✅ dentro</td></tr>
+        <tr><td>IC "Onboarding Banking"</td><td>18/08 09h00–10h00</td><td>Nubank — serviços não transacionais (Onboarding): Seg–Qui 19h00–23h00</td><td class="bad">❌ fora</td></tr>
       </tbody></table>
       <div class="alert-list">
-        <div class="alert-item alert-red"><div><strong>🔴 PR criado hoje, sem review e sem CI, em fluxo de pagamento instantâneo</strong><p>O PR #886 foi aberto às 14h11 BRT e a janela é 22h00 de hoje. Não há review nem CI checks. <span class="q">O CAB está confortável em liberar uma mudança em PIX Itaú (conta PG) com 0 revisões e 0 checks, criada no mesmo dia?</span></p></div></div>
-        <div class="alert-item alert-yellow"><div><strong>🟡 IC "Liquidação Payments" declarado tem restrição "até 13h00"</strong><p>A GMUD declara IC Liquidação Payments (restrição 2ª a 6ª até 13h00), mas o serviço alterado é payment-orders (janela 21h30–23h30). <span class="q">Qual IC deve reger a janela — Liquidação Payments ou Payment-orders?</span></p></div></div>
+        <div class="alert-item alert-red"><div><strong>🔴 PR #481 aberto sem nenhuma revisão e sem reviewers solicitados</strong><p>O PR tem 0 reviews e nenhum reviewer atribuído, com janela amanhã 09h. <span class="q">O CAB libera uma correção em produção sem code review?</span></p></div></div>
+        <div class="alert-item alert-yellow"><div><strong>🟡 Janela 09h00–10h00 fora do padrão Onboarding (19h00–23h00)</strong><p>Mesma divergência do GST-49797: Onboarding tem janela Seg–Qui 19h00–23h00 na política Nubank. <span class="q">Há janela específica acordada, ou o serviço não se enquadra como "Onboarding"?</span></p></div></div>
+        <div class="alert-item alert-yellow"><div><strong>🟡 Proteção hardcoded (21 UUIDs) sem feature flag</strong><p>A lista inclui um "staging holder for tests" e não tem mecanismo de configuração em runtime — rollback é só revert do PR. <span class="q">A lista está completa e atualizada? Como será mantida no futuro?</span></p></div></div>
       </div>
     </div>
     <div class="section"><div class="section-title">✅ Rollback</div>
-      <p><b>Método documentado:</b> rollback via GitHub Actions (redeploy da versão anterior).</p>
+      <p><b>Método documentado:</b> "Rollback PR #481 + run actions."</p>
       <ul>
-        <li>Reversão simples: remover o mapper e voltar a enviar o enum direto.</li>
-        <li>Risco baixo — sem schema/infra; o comportamento anterior (PG→erro no Itaú) retorna.</li>
+        <li>Sem toggle — rollback exige novo deploy (revert do PR).</li>
+        <li>Lista hardcoded pode ficar defasada (novas contas bolsão exigiriam novo deploy).</li>
+        <li>Staging holder presente no set de produção é um cheiro de manutenção.</li>
       </ul>
-      <p><b>Confiança:</b> alta — mudança pontual e facilmente revertível; o risco está no processo (sem review/CI), não na reversibilidade.</p>
+      <p><b>Confiança:</b> média — reversão de código simples, mas a ausência de flag e a lista hardcoded adicionam fricção operacional.</p>
     </div>
-    <div class="conclusion">Correção cirúrgica e coerente, mas o processo preocupa: PR criado no mesmo dia, sem review e sem CI, em fluxo de PIX Itaú. Ponto central de atenção do comitê hoje.
+    <div class="conclusion">Correção legítima e pequena (proteger contas estratégicas), mas sem nenhuma revisão de código, sem CI, com janela fora do padrão Onboarding e lista hardcoded sem toggle. Pontos a esclarecer com o CAB.
       <div class="disclaimer">Análise técnica de apoio — a decisão de aprovação é do CAB. Somente leitura; nada foi aprovado, reprovado ou executado.</div>
     </div>
   </div>
 </div>
-
-
-<div class="card" id="card-gst-49767" data-risk="med" data-text="GST-49767 RDS minor version upgrade MySQL Payments Database Platform Marcelo Fontes">
-  <div class="card-header">
-    <h2>GST-49767 — <a href="https://ifood-zoop.atlassian.net/browse/GST-49767">Minor Version Upgrade 8.0.46-RDS.20260624 nas instâncias Payments</a></h2>
-    <div class="meta-row">
-      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Liberação <span class="badge badge-yellow">pendente CAB</span></span></div>
-      <div class="meta-item"><span class="meta-label">Janela</span><span class="meta-value">15/08 01h00 → 16/08 06h00 BRT</span></div>
-      <div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Manutenção · Tier 2 · Prob. Baixa</span></div>
-      <div class="meta-item"><span class="meta-label">Risco</span><span class="meta-value"><span class="pill risk-med">🟡 Atenção</span></span></div>
-      <div class="meta-item"><span class="meta-label">Domínio / IC</span><span class="meta-value">Plataforma · Database Platform (25 ICs impactados)</span></div>
-      <div class="meta-item"><span class="meta-label">Responsável</span><span class="meta-value">Marcelo Fontes Pedrosa</span></div>
-      <div class="meta-item"><span class="meta-label">Impacto</span><span class="meta-value">clientes externos e internos</span></div>
-    </div>
-    <div class="approvals">Aprovações: <b>Planejamento</b> <span class="ok">✓ Felipe Goncalves Barbosa</span> · <b>Produto</b> <span class="ok">✓ aprovado (não nomeado)</span> · <b>Áreas Executoras</b> <span class="ok">✓ 14 aprovadores</span> · <b>Liberação</b> <span class="badge badge-yellow">⏳ pendente</span></div>
-  </div>
-  <div class="card-body">
-    <div class="section"><div class="section-title">🎯 Objetivo da Mudança</div>
-      <p>Atualização de versão minor do RDS MySQL <b>8.0.40 → 8.0.46-RDS.20260624</b> (orientação da AWS) em 3 instâncias Payments, via console AWS (conta Pagzoop): <code>zp-production-rds-mysql-payments-clearing</code> (15/08 1h), <code>...-payments-read</code> (15/08 4h) e <code>...-payments</code> (16/08 0h). Sem interrupção declarada dos serviços durante a manutenção.</p>
-      <p><b>Intenção declarada:</b> upgrade de versão para atender orientação da AWS. <b>Parâmetro técnico literal:</b> "Apply Immediately" + Modify DB Instance, com cronograma por instância.</p>
-    </div>
-    <div class="section"><div class="section-title">🔬 Superfície Técnica</div>
-      <p><b>Evidência técnica indisponível (sem PR):</b> mudança executada por console AWS, sem artefato de código. Os parâmetros são os literais do ticket.</p>
-      <table class="data"><thead><tr><th>Componente</th><th>Tipo</th><th>Impacto em produção</th></tr></thead><tbody>
-        <tr><td><code>zp-production-rds-mysql-payments-clearing</code></td><td>RDS MySQL</td><td>Upgrade 8.0.40→8.0.46 (15/08 1h) — clearing/liquidação.</td></tr>
-        <tr><td><code>zp-production-rds-mysql-payments-read</code></td><td>RDS MySQL (réplica)</td><td>Upgrade (15/08 4h).</td></tr>
-        <tr><td><code>zp-production-rds-mysql-payments</code></td><td>RDS MySQL (primário)</td><td>Upgrade (16/08 0h) — instância principal de Payments.</td></tr>
-      </tbody></table>
-      <p><b>Infra/Config:</b> "Apply Immediately" = aplicação sem janela de manutenção da AWS; reboot pode ocorrer por instância.</p>
-    </div>
-    <div class="section"><div class="section-title">🔍 Consistência &amp; Evidências</div>
-      <table class="data"><thead><tr><th>Verificação</th><th>Status</th><th>Observação</th></tr></thead><tbody>
-        <tr><td>Escopo declarado × parâmetros</td><td class="ok">✅</td><td>Consistente (3 instâncias, versões e horários descritos).</td></tr>
-        <tr><td>Plano de validação das aplicações</td><td class="bad">❌</td><td>Ticket afirma: <b>"Não existe plano de validação das aplicações"</b>.</td></tr>
-        <tr><td>Rollback</td><td class="warn">⚠️</td><td>"Não se aplica para essa manutenção" — não há rollback documentado.</td></tr>
-        <tr><td>Aprovação Liberação</td><td class="warn">⚠️</td><td>Pendente no CAB.</td></tr>
-      </tbody></table>
-      <div class="missing-item">Plano de validação das aplicações pós-upgrade (declaradamente inexistente)</div>
-      <div class="missing-item">Rollback (declarado "não se aplica")</div>
-      <div class="missing-item">Dashboard/alertas para acompanhar as instâncias durante o fim de semana</div>
-    </div>
-    <div class="section"><div class="section-title">⚠️ Avaliação de Risco &amp; Política</div>
-      <table class="data"><thead><tr><th>Fator</th><th>Avaliação</th></tr></thead><tbody>
-        <tr><td>Upgrade do primário de Payments com "Apply Immediately" (reboot)</td><td><span class="badge badge-red">eleva risco</span></td></tr>
-        <tr><td>Janela em fim de semana (sáb→dom)</td><td><span class="badge badge-yellow">atenção</span></td></tr>
-        <tr><td>Sem plano de validação das aplicações</td><td><span class="badge badge-red">eleva risco</span></td></tr>
-        <tr><td>War room de acompanhamento (15 e 16/08)</td><td><span class="badge badge-green">reduz risco</span></td></tr>
-        <tr><td>Minor version (não major) — risco de regressão limitado</td><td><span class="badge badge-green">reduz risco</span></td></tr>
-      </tbody></table>
-      <table class="data"><thead><tr><th>Critério</th><th>GMUD</th><th>Política GSTI</th><th>Status</th></tr></thead><tbody>
-        <tr><td>IC "Database Platform" (upgrade de versão)</td><td>sáb 01h → dom 06h</td><td>Não catalogado para upgrade de versão (só "Redimensionamento Storage RDS" pré-aprovado)</td><td class="warn">⚠️ sem restrição formal</td></tr>
-      </tbody></table>
-      <div class="alert-list">
-        <div class="alert-item alert-yellow"><div><strong>🟡 Upgrade do primário de Payments sem plano de validação das aplicações</strong><p>O próprio ticket registra que "não existe plano de validação das aplicações". <span class="q">A war room cobre a validação funcional pós-upgrade, ou apenas a infraestrutura do RDS?</span></p></div></div>
-        <div class="alert-item alert-yellow"><div><strong>🟡 Rollback "não se aplica"</strong><p>Para upgrade de minor version com "Apply Immediately", o rollback seria um downgrade/point-in-time. <span class="q">Há snapshot/backup recente e RTO definido caso o upgrade introduza regressão?</span></p></div></div>
-      </div>
-    </div>
-    <div class="section"><div class="section-title">✅ Rollback</div>
-      <p><b>Método documentado:</b> "Não se aplica para essa manutenção."</p>
-      <ul>
-        <li>Downgrade de versão RDS não é trivial (pode exigir point-in-time recovery).</li>
-        <li>Instâncias com reboot durante o patch — indisponibilidade pontual.</li>
-        <li>Risco de regressão de compatibilidade (collation/planner) em minor upgrade é baixo, mas não nulo.</li>
-      </ul>
-      <p><b>Confiança:</b> baixa — não há rollback documentado nem plano de validação das aplicações.</p>
-    </div>
-    <div class="conclusion">Manutenção de infra ampla e de baixa complexidade técnica, mas com duas lacunas relevantes: ausência de plano de validação das aplicações e rollback "não se aplica" sobre o primário de Payments, em fim de semana.
-      <div class="disclaimer">Análise técnica de apoio — a decisão de aprovação é do CAB. Somente leitura; nada foi aprovado, reprovado ou executado.</div>
-    </div>
-  </div>
-</div>
-
-
-<div class="card" id="card-gst-49790" data-risk="low" data-text="GST-49790 certificado SPB BACEN cabine cripto Edipo Cloud Platform">
-  <div class="card-header">
-    <h2>GST-49790 — <a href="https://ifood-zoop.atlassian.net/browse/GST-49790">Troca de Certificado SPB BACEN para o Ambiente Production</a></h2>
-    <div class="meta-row">
-      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Liberação <span class="badge badge-yellow">pendente CAB</span></span></div>
-      <div class="meta-item"><span class="meta-label">Janela</span><span class="meta-value">15/08 08h00–09h00 BRT</span></div>
-      <div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Correção · Tier 2 · Prob. Baixa</span></div>
-      <div class="meta-item"><span class="meta-label">Risco</span><span class="meta-value"><span class="pill risk-low">🔵 Leve</span></span></div>
-      <div class="meta-item"><span class="meta-label">Domínio / IC</span><span class="meta-value">Plataforma · Cloud Platform · Ferramentas de Apoio</span></div>
-      <div class="meta-item"><span class="meta-label">Responsável</span><span class="meta-value">Edipo Dos Santos Bela</span></div>
-      <div class="meta-item"><span class="meta-label">Relacionado</span><span class="meta-value">SWPJSRE-1739</span></div>
-    </div>
-    <div class="approvals">Aprovações: <b>Planejamento</b> <span class="ok">✓ Rafael Aparecido Da Conceicao Toledo</span> · <b>Produto</b> <span class="ok">✓ aprovado (não nomeado)</span> · <b>Áreas Executoras</b> <span class="ok">✓ Leonardo De Souza Franca</span> · <b>Liberação</b> <span class="badge badge-yellow">⏳ pendente</span></div>
-  </div>
-  <div class="card-body">
-    <div class="section"><div class="section-title">🎯 Objetivo da Mudança</div>
-      <p>Troca do certificado SPB do BACEN na aplicação JD, acessando a Cabine Cripto. Atividade executada obrigatoriamente dentro da <b>janela do BACEN</b> (determinada pelo órgão).</p>
-      <p><b>Intenção declarada:</b> "Alteração do Certificado SPB do BACEN na cabine de Cripto." <b>Parâmetro literal:</b> "Acessar Cabine Cripto. Alterar o Certificado BACEN na aplicação JD."</p>
-    </div>
-    <div class="section"><div class="section-title">🔬 Superfície Técnica</div>
-      <p><b>Evidência técnica indisponível (sem PR):</b> operação manual em cabine criptográfica; não há artefato de código para inspecionar.</p>
-      <table class="data"><thead><tr><th>Componente</th><th>Tipo</th><th>Impacto em produção</th></tr></thead><tbody>
-        <tr><td>Certificado SPB BACEN (aplicação JD)</td><td>Certificado criptográfico</td><td>Troca do certificado usado na integração SPB/BACEN.</td></tr>
-      </tbody></table>
-    </div>
-    <div class="section"><div class="section-title">🔍 Consistência &amp; Evidências</div>
-      <table class="data"><thead><tr><th>Verificação</th><th>Status</th><th>Observação</th></tr></thead><tbody>
-        <tr><td>Escopo declarado × parâmetros</td><td class="ok">✅</td><td>Consistente.</td></tr>
-        <tr><td>Rollback</td><td class="warn">⚠️</td><td>"Não existe rollback, se trata de uma atividade na Janela do BACEN."</td></tr>
-        <tr><td>Critério de aceite</td><td class="ok">✅</td><td>"Validar com Tesouraria."</td></tr>
-      </tbody></table>
-      <div class="missing-item">Validação técnica pós-troca além da Tesouraria (ex.: handshake SPB bem-sucedido)</div>
-    </div>
-    <div class="section"><div class="section-title">⚠️ Avaliação de Risco &amp; Política</div>
-      <table class="data"><thead><tr><th>Fator</th><th>Avaliação</th></tr></thead><tbody>
-        <tr><td>Certificado SPB — janela obrigatória do BACEN</td><td><span class="badge badge-blue">neutro (imposto)</span></td></tr>
-        <tr><td>Sem rollback (atividade regulatória)</td><td><span class="badge badge-yellow">atenção</span></td></tr>
-        <tr><td>Sem impacto ao cliente (declarado)</td><td><span class="badge badge-green">reduz risco</span></td></tr>
-      </tbody></table>
-      <table class="data"><thead><tr><th>Critério</th><th>GMUD</th><th>Política GSTI</th><th>Status</th></tr></thead><tbody>
-        <tr><td>IC "Cloud Platform / Ferramentas de Apoio"</td><td>15/08 08h00–09h00</td><td>Não catalogado</td><td class="ok">✅ sem restrição formal</td></tr>
-      </tbody></table>
-      <div class="alert-list">
-        <div class="alert-item alert-yellow"><div><strong>🟡 Sem rollback (janela BACEN)</strong><p>Se a troca falhar ou o novo certificado não for reconhecido, não há reversão imediata. <span class="q">Há certificado anterior preservado para reativação emergencial caso a troca falhe?</span></p></div></div>
-      </div>
-    </div>
-    <div class="section"><div class="section-title">✅ Rollback</div>
-      <p><b>Método documentado:</b> "Não existe rollback."</p>
-      <ul>
-        <li>Atividade imposta pela janela do BACEN — sem flexibilidade de data/hora.</li>
-        <li>Risco: se o novo certificado não autenticar no SPB, a comunicação com o BACEN pode ser impactada até nova troca.</li>
-      </ul>
-      <p><b>Confiança:</b> baixa — sem rollback; depende de validação imediata com a Tesouraria.</p>
-    </div>
-    <div class="conclusion">Atividade regulatória simples, mas sem rollback. O ponto de atenção é a garantia de reativação do certificado anterior em caso de falha.
-      <div class="disclaimer">Análise técnica de apoio — a decisão de aprovação é do CAB. Somente leitura; nada foi aprovado, reprovado ou executado.</div>
-    </div>
-  </div>
-</div>
-
-
-<div class="card" id="card-gst-49691" data-risk="low" data-text="GST-49691 RDS tfa minor version MySQL Database Platform Arthur">
-  <div class="card-header">
-    <h2>GST-49691 — <a href="https://ifood-zoop.atlassian.net/browse/GST-49691">Atualização RDS zp-production-rds-mysql-tfa — 8.0.46</a></h2>
-    <div class="meta-row">
-      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Liberação <span class="badge badge-yellow">pendente CAB</span></span></div>
-      <div class="meta-item"><span class="meta-label">Janela</span><span class="meta-value">16/08 04h00–04h30 BRT</span></div>
-      <div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Manutenção · Tier 2 · Prob. Baixa</span></div>
-      <div class="meta-item"><span class="meta-label">Risco</span><span class="meta-value"><span class="pill risk-low">🔵 Leve</span></span></div>
-      <div class="meta-item"><span class="meta-label">Domínio / IC</span><span class="meta-value">Plataforma · Database Platform · TFA</span></div>
-      <div class="meta-item"><span class="meta-label">Responsável</span><span class="meta-value">Arthur Coutinho Dos Santos</span></div>
-    </div>
-    <div class="approvals">Aprovações: <b>Planejamento</b> <span class="ok">✓ Felipe Goncalves Barbosa</span> · <b>Produto</b> <span class="ok">✓ Francelli Marion De Castro</span> · <b>Áreas Executoras</b> <span class="ok">✓ Filipe Rodrigues Pinto Niya</span> · <b>Liberação</b> <span class="badge badge-yellow">⏳ pendente</span></div>
-  </div>
-  <div class="card-body">
-    <div class="section"><div class="section-title">🎯 Objetivo da Mudança</div>
-      <p>Upgrade minor do RDS <code>zp-production-rds-mysql-tfa</code> de 8.0.40 para 8.0.46-RDS.20260624 (orientação AWS), via console, "Apply Immediately". A instância sofre reboot e é utilizada <b>apenas pelo time de Ops</b>.</p>
-    </div>
-    <div class="section"><div class="section-title">🔬 Superfície Técnica</div>
-      <p><b>Evidência técnica indisponível (sem PR):</b> operação via console AWS.</p>
-      <table class="data"><thead><tr><th>Componente</th><th>Tipo</th><th>Impacto em produção</th></tr></thead><tbody>
-        <tr><td><code>zp-production-rds-mysql-tfa</code></td><td>RDS MySQL</td><td>Upgrade 8.0.40→8.0.46 com reboot; instância de uso exclusivo de Ops (TFA).</td></tr>
-      </tbody></table>
-    </div>
-    <div class="section"><div class="section-title">🔍 Consistência &amp; Evidências</div>
-      <table class="data"><thead><tr><th>Verificação</th><th>Status</th><th>Observação</th></tr></thead><tbody>
-        <tr><td>Escopo × parâmetros</td><td class="ok">✅</td><td>Consistente.</td></tr>
-        <tr><td>Rollback</td><td class="warn">⚠️</td><td>"Não se aplica para essa manutenção."</td></tr>
-        <tr><td>Validação</td><td class="ok">✅</td><td>Checar versão na console + conexões/queries.</td></tr>
-      </tbody></table>
-    </div>
-    <div class="section"><div class="section-title">⚠️ Avaliação de Risco &amp; Política</div>
-      <table class="data"><thead><tr><th>Fator</th><th>Avaliação</th></tr></thead><tbody>
-        <tr><td>Instância exclusiva de Ops (sem app consumindo)</td><td><span class="badge badge-green">reduz risco</span></td></tr>
-        <tr><td>Reboot durante o patch</td><td><span class="badge badge-yellow">atenção</span></td></tr>
-        <tr><td>Minor version upgrade</td><td><span class="badge badge-green">reduz risco</span></td></tr>
-      </tbody></table>
-      <table class="data"><thead><tr><th>Critério</th><th>GMUD</th><th>Política GSTI</th><th>Status</th></tr></thead><tbody>
-        <tr><td>IC "Database Platform"</td><td>16/08 04h00–04h30</td><td>Não catalogado para upgrade de versão</td><td class="ok">✅ sem restrição formal</td></tr>
-      </tbody></table>
-    </div>
-    <div class="section"><div class="section-title">✅ Rollback</div>
-      <p><b>Método documentado:</b> "Não se aplica." Baixo risco pela natureza Ops-only da instância.</p>
-      <p><b>Confiança:</b> média — sem rollback formal, mas impacto restrito a Ops.</p>
-    </div>
-    <div class="conclusion">Upgrade rotineiro de instância de uso exclusivo de Ops, baixo risco. Sem pontos críticos.
-      <div class="disclaimer">Análise técnica de apoio — a decisão de aprovação é do CAB. Somente leitura; nada foi aprovado, reprovado ou executado.</div>
-    </div>
-  </div>
-</div>
-
-
-<div class="card" id="card-gst-49737" data-risk="low" data-text="GST-49737 RDS payment-orders minor version MySQL Database Platform Arthur">
-  <div class="card-header">
-    <h2>GST-49737 — <a href="https://ifood-zoop.atlassian.net/browse/GST-49737">Atualização RDS zp-production-rds-mysql-payment-orders — 8.0.46</a></h2>
-    <div class="meta-row">
-      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Liberação <span class="badge badge-yellow">pendente CAB</span></span></div>
-      <div class="meta-item"><span class="meta-label">Janela</span><span class="meta-value">16/08 04h00–04h30 BRT</span></div>
-      <div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Manutenção · Tier 2 · Prob. Baixa</span></div>
-      <div class="meta-item"><span class="meta-label">Risco</span><span class="meta-value"><span class="pill risk-low">🔵 Leve</span></span></div>
-      <div class="meta-item"><span class="meta-label">Domínio / IC</span><span class="meta-value">Plataforma · Database Platform · Liquidação Payments</span></div>
-      <div class="meta-item"><span class="meta-label">Responsável</span><span class="meta-value">Arthur Coutinho Dos Santos</span></div>
-    </div>
-    <div class="approvals">Aprovações: <b>Planejamento</b> <span class="ok">✓ Felipe Goncalves Barbosa</span> · <b>Produto</b> <span class="ok">✓ Francelli Marion De Castro</span> · <b>Áreas Executoras</b> <span class="ok">✓ Filipe Rodrigues Pinto Niya</span> · <b>Liberação</b> <span class="badge badge-yellow">⏳ pendente</span></div>
-  </div>
-  <div class="card-body">
-    <div class="section"><div class="section-title">🎯 Objetivo da Mudança</div>
-      <p>Upgrade minor do RDS <code>zp-production-rds-mysql-payment-orders</code> de 8.0.40 para 8.0.46-RDS.20260624 (orientação AWS), via console, "Apply Immediately". Reboot durante o patch; instância utilizada <b>apenas pelo time de Ops</b>.</p>
-    </div>
-    <div class="section"><div class="section-title">🔬 Superfície Técnica</div>
-      <p><b>Evidência técnica indisponível (sem PR):</b> operação via console AWS.</p>
-      <table class="data"><thead><tr><th>Componente</th><th>Tipo</th><th>Impacto em produção</th></tr></thead><tbody>
-        <tr><td><code>zp-production-rds-mysql-payment-orders</code></td><td>RDS MySQL</td><td>Upgrade 8.0.40→8.0.46 com reboot; uso exclusivo de Ops.</td></tr>
-      </tbody></table>
-    </div>
-    <div class="section"><div class="section-title">🔍 Consistência &amp; Evidências</div>
-      <table class="data"><thead><tr><th>Verificação</th><th>Status</th><th>Observação</th></tr></thead><tbody>
-        <tr><td>Escopo × parâmetros</td><td class="ok">✅</td><td>Consistente.</td></tr>
-        <tr><td>Rollback</td><td class="warn">⚠️</td><td>"Não se aplica para essa manutenção."</td></tr>
-      </tbody></table>
-    </div>
-    <div class="section"><div class="section-title">⚠️ Avaliação de Risco &amp; Política</div>
-      <table class="data"><thead><tr><th>Fator</th><th>Avaliação</th></tr></thead><tbody>
-        <tr><td>Instância exclusiva de Ops</td><td><span class="badge badge-green">reduz risco</span></td></tr>
-        <tr><td>Reboot durante o patch</td><td><span class="badge badge-yellow">atenção</span></td></tr>
-        <tr><td>Minor version upgrade</td><td><span class="badge badge-green">reduz risco</span></td></tr>
-      </tbody></table>
-      <table class="data"><thead><tr><th>Critério</th><th>GMUD</th><th>Política GSTI</th><th>Status</th></tr></thead><tbody>
-        <tr><td>IC "Database Platform"</td><td>16/08 04h00–04h30</td><td>Não catalogado para upgrade de versão</td><td class="ok">✅ sem restrição formal</td></tr>
-      </tbody></table>
-    </div>
-    <div class="section"><div class="section-title">✅ Rollback</div>
-      <p><b>Método documentado:</b> "Não se aplica." Baixo risco pela natureza Ops-only da instância.</p>
-      <p><b>Confiança:</b> média.</p>
-    </div>
-    <div class="conclusion">Upgrade rotineiro de instância de uso exclusivo de Ops, baixo risco. Sem pontos críticos.
-      <div class="disclaimer">Análise técnica de apoio — a decisão de aprovação é do CAB. Somente leitura; nada foi aprovado, reprovado ou executado.</div>
-    </div>
-  </div>
-</div>
-
-
-<div class="card" id="card-gst-49784" data-risk="med" data-text="GST-49784 remoção bypass onboarding legada seller seller-api Francisco Wandeson">
-  <div class="card-header">
-    <h2>GST-49784 — <a href="https://ifood-zoop.atlassian.net/browse/GST-49784">Remoção de bypass para esteira de onboarding legada de seller</a></h2>
-    <div class="meta-row">
-      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Liberação <span class="badge badge-yellow">pendente CAB</span></span></div>
-      <div class="meta-item"><span class="meta-label">Janela</span><span class="meta-value">17/08 04h00–05h00 BRT</span></div>
-      <div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Manutenção · Tier 2 · Prob. Baixa</span></div>
-      <div class="meta-item"><span class="meta-label">Risco</span><span class="meta-value"><span class="pill risk-med">🟡 Atenção</span></span></div>
-      <div class="meta-item"><span class="meta-label">Domínio / IC</span><span class="meta-value">Banking · Onboarding · Onboarding Banking</span></div>
-      <div class="meta-item"><span class="meta-label">Responsável</span><span class="meta-value">Francisco Wandeson Da Cunha</span></div>
-      <div class="meta-item"><span class="meta-label">Relacionado</span><span class="meta-value">SWACCRE-1231</span></div>
-    </div>
-    <div class="approvals">Aprovações: <b>Planejamento</b> <span class="ok">✓ Matheus Rodrigues De Oliveira</span> · <b>Produto</b> <span class="ok">✓ Danielle Cristina Da Silva Cruz</span> · <b>Áreas Executoras</b> <span class="ok">✓ Paulo Jose Cella</span> · <b>Liberação</b> <span class="badge badge-yellow">⏳ pendente</span></div>
-  </div>
-  <div class="card-body">
-    <div class="section"><div class="section-title">🎯 Objetivo da Mudança</div>
-      <p>Remover o <b>bypass de compatibilidade retroativa</b> na ativação de seller: hoje, quando um seller não tem steps de onboarding, o <code>SellerActivationService</code> permitia a ativação ("backward compatibility"). A mudança remove essa exceção e também apaga o <code>MccRuleChecker</code> (obsoleto), endurecendo a esteira.</p>
-      <p><b>Intenção declarada:</b> "Remoção de bypass para esteira de onboarding legada de seller". <b>O que o código faz:</b> remove o bloco <code>if (steps.isEmpty()) return true</code> e o checker MCC deprecated.</p>
-    </div>
-    <div class="section"><div class="section-title">🔬 Superfície Técnica</div>
-      <div class="pr-grid"><div class="pr-card">
-        <div class="pr-card-title">PR <a href="https://github.com/getzoop/seller-api/pull/222">#222</a> · fix[SWACCRE-1231, SEC-700651]: remove deprecated rule <span class="badge badge-blue">open</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Autor</span><span class="pr-stat-value">wandesoncunha-ifp</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Estado</span><span class="pr-stat-value yellow">open · não mergeado</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Branch</span><span class="pr-stat-value">fix/SWACCRE-1231 → main</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Arquivos</span><span class="pr-stat-value">2 <span class="del">-26</span> (0 add)</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Runtime</span><span class="pr-stat-value">Kotlin / Spring</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">CI checks</span><span class="pr-stat-value yellow">pending · 0 checks</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Aprovadores</span><span class="pr-stat-value green">eduarduo (APPROVED, 13/08)</span></div>
-      </div></div>
-      <table class="data"><thead><tr><th>Arquivo</th><th>Tipo</th><th>Impacto em produção</th></tr></thead><tbody>
-        <tr><td><code>.../onboarding/SellerActivationService.kt</code></td><td>Código</td><td>Remove o bypass "sem steps → permite ativar". Sellers legados sem steps passarão a ser <b>bloqueados</b> na ativação.</td></tr>
-        <tr><td><code>.../rules/checker/MccRuleChecker.kt</code></td><td>Código (removido)</td><td>Remove checker MCC obsoleto (@Deprecated) que validava MCC 104.</td></tr>
-      </tbody></table>
-    </div>
-    <div class="section"><div class="section-title">🔍 Consistência &amp; Evidências</div>
-      <table class="data"><thead><tr><th>Verificação</th><th>Status</th><th>Observação</th></tr></thead><tbody>
-        <tr><td>Objetivo × código</td><td class="ok">✅</td><td>Consistente (remove o bypass e o checker obsoleto).</td></tr>
-        <tr><td>Estado do PR</td><td class="warn">⚠️</td><td>Open (não mergeado).</td></tr>
-        <tr><td>Impacto colateral</td><td class="warn">⚠️</td><td>Sellers legados sem steps de onboarding podem deixar de ativar (sem flag/rollout).</td></tr>
-        <tr><td>CI checks</td><td class="warn">⚠️</td><td>0 checks reportados.</td></tr>
-      </tbody></table>
-      <div class="missing-item">Levantamento de quantos sellers legados dependem do bypass (sem steps)</div>
-      <div class="missing-item">CI checks (0 checks)</div>
-    </div>
-    <div class="section"><div class="section-title">⚠️ Avaliação de Risco &amp; Política</div>
-      <table class="data"><thead><tr><th>Fator</th><th>Avaliação</th></tr></thead><tbody>
-        <tr><td>Remoção de bypass pode bloquear sellers legados sem steps</td><td><span class="badge badge-yellow">eleva risco</span></td></tr>
-        <tr><td>Endurecimento de segurança (SEC-700651)</td><td><span class="badge badge-green">reduz risco</span></td></tr>
-        <tr><td>Mudança pequena (−26 linhas, só remoções)</td><td><span class="badge badge-green">reduz risco</span></td></tr>
-      </tbody></table>
-      <table class="data"><thead><tr><th>Critério</th><th>GMUD</th><th>Política GSTI</th><th>Status</th></tr></thead><tbody>
-        <tr><td>IC "Onboarding Banking"</td><td>17/08 04h00–05h00</td><td>Não catalogado com janela fixa (catálogo low-risk cita Zoop Accreditation)</td><td class="ok">✅ sem restrição formal</td></tr>
-      </tbody></table>
-      <div class="alert-list">
-        <div class="alert-item alert-yellow"><div><strong>🟡 Remoção do bypass sem evidência de que sellers legados não dependem dele</strong><p>Ao remover o "backward compatibility", sellers sem steps passam a ser bloqueados. <span class="q">Foi mapeada a base de sellers legados sem steps que seriam afetados? Há fallback/manual para esses casos?</span></p></div></div>
-      </div>
-    </div>
-    <div class="section"><div class="section-title">✅ Rollback</div>
-      <p><b>Método documentado:</b> rollback do PR #222 + deploy.</p>
-      <ul>
-        <li>Reversão simples (restaurar o bloco removido).</li>
-        <li>Risco baixo — sem schema/infra.</li>
-      </ul>
-      <p><b>Confiança:</b> alta — reversível; o risco é operacional (sellers bloqueados até o rollback).</p>
-    </div>
-    <div class="conclusion">Endurecimento legítimo da esteira, mas a remoção do bypass pode afetar sellers legados. O CAB deve confirmar o mapeamento de impacto.
-      <div class="disclaimer">Análise técnica de apoio — a decisão de aprovação é do CAB. Somente leitura; nada foi aprovado, reprovado ou executado.</div>
-    </div>
-  </div>
-</div>
-
-
-<div class="card" id="card-gst-49787" data-risk="low" data-text="GST-49787 IDOR marketplaceId holder banking-accreditation Francisco Wandeson">
-  <div class="card-header">
-    <h2>GST-49787 — <a href="https://ifood-zoop.atlassian.net/browse/GST-49787">[IDOR] Adição do marketplaceId na busca de análises em esteiras de holder</a></h2>
-    <div class="meta-row">
-      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Liberação <span class="badge badge-yellow">pendente CAB</span></span></div>
-      <div class="meta-item"><span class="meta-label">Janela</span><span class="meta-value">17/08 04h00–05h00 BRT</span></div>
-      <div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Correção · Tier 2 · Prob. Baixa</span></div>
-      <div class="meta-item"><span class="meta-label">Risco</span><span class="meta-value"><span class="pill risk-low">🔵 Leve</span></span></div>
-      <div class="meta-item"><span class="meta-label">Domínio / IC</span><span class="meta-value">Banking · Onboarding · Onboarding Banking</span></div>
-      <div class="meta-item"><span class="meta-label">Responsável</span><span class="meta-value">Francisco Wandeson Da Cunha</span></div>
-      <div class="meta-item"><span class="meta-label">Relacionado</span><span class="meta-value">SWACCRE-1232</span></div>
-    </div>
-    <div class="approvals">Aprovações: <b>Planejamento</b> <span class="ok">✓ Matheus Rodrigues De Oliveira</span> · <b>Produto</b> <span class="ok">✓ aprovado (não nomeado)</span> · <b>Áreas Executoras</b> <span class="ok">✓ Paulo Jose Cella</span> · <b>Liberação</b> <span class="badge badge-yellow">⏳ pendente</span></div>
-  </div>
-  <div class="card-body">
-    <div class="section"><div class="section-title">🎯 Objetivo da Mudança</div>
-      <p>Correção de <b>IDOR</b> no <code>banking-accreditation</code>: as buscas de análises e problemas de holder eram feitas só por <code>holderId</code>/<code>analysisId</code>, permitindo acessar dados de outro marketplace. A mudança propaga o <code>marketplaceId</code> pela camada (controller → facade → service → repository) e inclui <code>analysis.holder.marketplace.externalKey</code> no WHERE.</p>
-      <p><b>Intenção declarada:</b> adicionar marketplaceId na busca. <b>O que o código faz:</b> propaga o marketplaceId e valida pertencimento, retornando 404 se for de outro marketplace.</p>
-    </div>
-    <div class="section"><div class="section-title">🔬 Superfície Técnica</div>
-      <div class="pr-grid"><div class="pr-card">
-        <div class="pr-card-title">PR <a href="https://github.com/getzoop/banking-accreditation/pull/479">#479</a> · feat[SWACCRE-1232]: add marketplaceId <span class="badge badge-blue">open</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Autor</span><span class="pr-stat-value">wandesoncunha-ifp</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Estado</span><span class="pr-stat-value yellow">open · não mergeado</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Branch</span><span class="pr-stat-value">feat/SWACCRE-1232 → master</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Arquivos</span><span class="pr-stat-value">9 <span class="add">+74</span>/<span class="del">-8</span></span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Runtime</span><span class="pr-stat-value">Kotlin / Spring</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">CI checks</span><span class="pr-stat-value yellow">pending · 0 checks</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Aprovadores</span><span class="pr-stat-value green">paulo-cella (APPROVED, 14/08)</span></div>
-      </div></div>
-      <table class="data"><thead><tr><th>Arquivo</th><th>Tipo</th><th>Impacto em produção</th></tr></thead><tbody>
-        <tr><td><code>AnalysisController.kt</code> / <code>HolderController.kt</code></td><td>Controller</td><td>Propaga marketplaceId nas rotas de analysis/problems.</td></tr>
-        <tr><td><code>HolderFacade.kt</code> / <code>HolderService.kt</code> / <code>CorrectionService.kt</code></td><td>Camada de aplicação</td><td>Propaga marketplaceId e valida pertencimento do holder.</td></tr>
-        <tr><td><code>AnalysisRepository.kt</code> / <code>AnalysisRepositoryImpl.kt</code></td><td>Repository</td><td>Adiciona <code>marketplace.externalKey.eq(marketplaceId)</code> no WHERE — fecha o IDOR.</td></tr>
-        <tr><td><code>AnalysisControllerIT.kt</code> / <code>HolderControllerIT.kt</code></td><td>Testes</td><td>+43 linhas: teste de "outro marketplace → 404".</td></tr>
-      </tbody></table>
-    </div>
-    <div class="section"><div class="section-title">🔍 Consistência &amp; Evidências</div>
-      <table class="data"><thead><tr><th>Verificação</th><th>Status</th><th>Observação</th></tr></thead><tbody>
-        <tr><td>Objetivo × código</td><td class="ok">✅</td><td>Consistente (fecha o IDOR via marketplaceId).</td></tr>
-        <tr><td>Estado do PR</td><td class="warn">⚠️</td><td>Open (não mergeado).</td></tr>
-        <tr><td>Corpo do PR</td><td class="warn">⚠️</td><td>Template não preenchido (placeholders vazios).</td></tr>
-        <tr><td>CI checks</td><td class="warn">⚠️</td><td>0 checks reportados.</td></tr>
-      </tbody></table>
-      <div class="missing-item">CI checks (0 checks)</div>
-      <div class="missing-item">Preenchimento do template do PR (descrição vazia)</div>
-    </div>
-    <div class="section"><div class="section-title">⚠️ Avaliação de Risco &amp; Política</div>
-      <table class="data"><thead><tr><th>Fator</th><th>Avaliação</th></tr></thead><tbody>
-        <tr><td>Correção de segurança (IDOR) — fecha vazamento entre marketplaces</td><td><span class="badge badge-green">reduz risco</span></td></tr>
-        <tr><td>Testes de integração cobrindo o cenário de IDOR</td><td><span class="badge badge-green">reduz risco</span></td></tr>
-        <tr><td>Mudança pequena e localizada</td><td><span class="badge badge-green">reduz risco</span></td></tr>
-        <tr><td>PR aberto, 1 aprovador, 0 CI</td><td><span class="badge badge-yellow">atenção</span></td></tr>
-      </tbody></table>
-      <table class="data"><thead><tr><th>Critério</th><th>GMUD</th><th>Política GSTI</th><th>Status</th></tr></thead><tbody>
-        <tr><td>IC "Onboarding Banking" / Zoop Accreditation (low-risk)</td><td>17/08 04h00–05h00</td><td>Catálogo low-risk: débito "falta logs Datadog / testes de performance"</td><td class="warn">⚠️ débito em aberto</td></tr>
-      </tbody></table>
-    </div>
-    <div class="section"><div class="section-title">✅ Rollback</div>
-      <p><b>Método documentado:</b> revert do PR #479 + deploy.</p>
-      <ul>
-        <li>Reversão simples.</li>
-        <li>Risco baixo — sem schema/infra.</li>
-      </ul>
-      <p><b>Confiança:</b> alta.</p>
-    </div>
-    <div class="conclusion">Correção de segurança bem delimitada e com testes. Sem achados críticos; apenas o débito de observabilidade do catálogo low-risk permanece.
-      <div class="disclaimer">Análise técnica de apoio — a decisão de aprovação é do CAB. Somente leitura; nada foi aprovado, reprovado ou executado.</div>
-    </div>
-  </div>
-</div>
-
-
-<div class="card" id="card-gst-49789" data-risk="low" data-text="GST-49789 rotas relatorios transfers sinergia atlas Laisa Tooling Payments">
-  <div class="card-header">
-    <h2>GST-49789 — <a href="https://ifood-zoop.atlassian.net/browse/GST-49789">Inclusão de rotas para relatórios de transfers no sinergia para atlas</a></h2>
-    <div class="meta-row">
-      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Liberação <span class="badge badge-yellow">pendente CAB</span></span></div>
-      <div class="meta-item"><span class="meta-label">Janela</span><span class="meta-value">17/08 10h00–10h30 BRT</span></div>
-      <div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Nova Funcionalidade · Tier 2 · Prob. Baixa</span></div>
-      <div class="meta-item"><span class="meta-label">Risco</span><span class="meta-value"><span class="pill risk-low">🔵 Leve</span></span></div>
-      <div class="meta-item"><span class="meta-label">Domínio / IC</span><span class="meta-value">Plataforma · Tooling Payments · Ferramentas de Backoffice</span></div>
-      <div class="meta-item"><span class="meta-label">Responsável</span><span class="meta-value">Laisa Cianca Gomes</span></div>
-      <div class="meta-item"><span class="meta-label">Relacionado</span><span class="meta-value"><a href="https://ifood-fintech-b2b.atlassian.net/browse/SWTPAYM-902">SWTPAYM-902</a></span></div>
-    </div>
-    <div class="approvals">Aprovações: <b>Planejamento</b> <span class="ok">✓ Vinicius Dos Santos Garbim</span> · <b>Produto</b> <span class="ok">✓ Francelli Marion De Castro</span> · <b>Áreas Executoras</b> <span class="ok">✓ Cicero Miranda Ribeiro</span> · <b>Liberação</b> <span class="badge badge-yellow">⏳ pendente</span></div>
-  </div>
-  <div class="card-body">
-    <div class="section"><div class="section-title">🎯 Objetivo da Mudança</div>
-      <p>Expor no Sinergia (API Gateway do backoffice) 4 novas rotas proxy para o Atlas (BFF), todas sob <code>painel-conciliation-api-v3</code>: listagem de bancos e exportações CSV de recebíveis caixa, competência e tax-receipt-ominee.</p>
-      <p><b>Intenção declarada:</b> "Inclusão de rotas para relatórios de transfers no sinergia para atlas". <b>O que o código faz:</b> adiciona 4 endpoints GET no <code>swagger-auth.yaml</code> (proxy http via VPC_LINK).</p>
-    </div>
-    <div class="section"><div class="section-title">🔬 Superfície Técnica</div>
-      <div class="pr-grid"><div class="pr-card">
-        <div class="pr-card-title">PR <a href="https://github.com/getzoop/zoop-aws-sinergia-ifood/pull/179">#179</a> · feat(sinergia): proxy transfers CSV export <span class="badge badge-blue">open</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Autor</span><span class="pr-stat-value">laisacgomes</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Estado</span><span class="pr-stat-value yellow">open · não mergeado</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Branch</span><span class="pr-stat-value">feat/transfers-export-routes → main</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Arquivos</span><span class="pr-stat-value">1 <span class="add">+136</span>/<span class="del">-0</span></span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Runtime</span><span class="pr-stat-value">API Gateway (Swagger)</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">CI checks</span><span class="pr-stat-value yellow">pending · 0 checks</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Aprovadores</span><span class="pr-stat-value green">cm-ribeiro (APPROVED, 13/08)</span></div>
-      </div></div>
-      <table class="data"><thead><tr><th>Arquivo</th><th>Tipo</th><th>Impacto em produção</th></tr></thead><tbody>
-        <tr><td><code>terraform/templates/swagger-auth.yaml</code></td><td>Config API Gateway</td><td>4 rotas GET: <code>/transfers/banks</code>, <code>/transfers/exports/receivables-caixa</code>, <code>/transfers/exports/receivables-competencia</code>, <code>/transfers/exports/tax-receipt-ominee</code> — proxy http via VPC_LINK com header <code>x-Ifood-requester-token</code> obrigatório e security <code>api_key</code>.</td></tr>
-      </tbody></table>
-      <p><b>Infra/Config:</b> rotas expostas com autenticação (api_key + token de requester); sem mudança de secrets.</p>
-    </div>
-    <div class="section"><div class="section-title">🔍 Consistência &amp; Evidências</div>
-      <table class="data"><thead><tr><th>Verificação</th><th>Status</th><th>Observação</th></tr></thead><tbody>
-        <tr><td>Objetivo × código</td><td class="ok">✅</td><td>Consistente (4 rotas novas).</td></tr>
-        <tr><td>Estado do PR</td><td class="warn">⚠️</td><td>Open (não mergeado).</td></tr>
-        <tr><td>Exposição de dados</td><td class="warn">⚠️</td><td>Exportação de recebíveis (dado financeiro) acessível via token de requester.</td></tr>
-        <tr><td>CI checks</td><td class="warn">⚠️</td><td>0 checks reportados.</td></tr>
-      </tbody></table>
-      <div class="missing-item">Validação de que o consumo das rotas é restrito ao BFF Atlas autorizado</div>
-    </div>
-    <div class="section"><div class="section-title">⚠️ Avaliação de Risco &amp; Política</div>
-      <table class="data"><thead><tr><th>Fator</th><th>Avaliação</th></tr></thead><tbody>
-        <tr><td>Novas rotas de exportação de dados financeiros</td><td><span class="badge badge-yellow">atenção</span></td></tr>
-        <tr><td>Autenticação por api_key + token</td><td><span class="badge badge-green">reduz risco</span></td></tr>
-        <tr><td>Mudança aditiva (sem alterar rotas existentes)</td><td><span class="badge badge-green">reduz risco</span></td></tr>
-      </tbody></table>
-      <table class="data"><thead><tr><th>Critério</th><th>GMUD</th><th>Política GSTI</th><th>Status</th></tr></thead><tbody>
-        <tr><td>IC "Tooling Payments / Ferramentas de Backoffice"</td><td>17/08 10h00–10h30</td><td>Não catalogado</td><td class="ok">✅ sem restrição formal</td></tr>
-      </tbody></table>
-    </div>
-    <div class="section"><div class="section-title">✅ Rollback</div>
-      <p><b>Método documentado:</b> reverter o deploy do MR #179 e validar rotas.</p>
-      <ul>
-        <li>Reversão simples (remover as rotas do swagger + redeploy do gateway).</li>
-        <li>Risco baixo — aditivo e autenticado.</li>
-      </ul>
-      <p><b>Confiança:</b> alta.</p>
-    </div>
-    <div class="conclusion">Mudança aditiva e autenticada, baixo risco. Sem achados críticos.
-      <div class="disclaimer">Análise técnica de apoio — a decisão de aprovação é do CAB. Somente leitura; nada foi aprovado, reprovado ou executado.</div>
-    </div>
-  </div>
-</div>
-
-
-<div class="card" id="card-gst-49785" data-risk="med" data-text="GST-49785 RV limitação tamanho nome Getnet tokenização rv-tokenization Felipe role deploy">
-  <div class="card-header">
-    <h2>GST-49785 — <a href="https://ifood-zoop.atlassian.net/browse/GST-49785">[RV] Limitação de tamanho do nome para Getnet</a></h2>
-    <div class="meta-row">
-      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Liberação <span class="badge badge-yellow">pendente CAB</span></span></div>
-      <div class="meta-item"><span class="meta-label">Janela</span><span class="meta-value">18/08 07h30–08h30 BRT</span></div>
-      <div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Manutenção · Tier 2 · Prob. Baixa</span></div>
-      <div class="meta-item"><span class="meta-label">Risco</span><span class="meta-value"><span class="pill risk-med">🟡 Atenção</span></span></div>
-      <div class="meta-item"><span class="meta-label">Domínio / IC</span><span class="meta-value">Payments · Core-payments-zoop · Tokenização</span></div>
-      <div class="meta-item"><span class="meta-label">Responsável</span><span class="meta-value">Felipe Gomes Ferreira Queres</span></div>
-      <div class="meta-item"><span class="meta-label">Relacionado</span><span class="meta-value"><a href="https://ifood.atlassian.net/browse/SWPPLBU-593">SWPPLBU-593</a> · SWPPLBU-584</span></div>
-    </div>
-    <div class="approvals">Aprovações: <b>Planejamento</b> <span class="ok">✓ Cleiton Nelo Da Silva</span> · <b>Produto</b> <span class="ok">✓ Kiese Quiavauca Viana</span> · <b>Áreas Executoras</b> <span class="ok">✓ Leonardo Stibich Lobao</span> · <b>Liberação</b> <span class="badge badge-yellow">⏳ pendente</span></div>
-  </div>
-  <div class="card-body">
-    <div class="section"><div class="section-title">🎯 Objetivo da Mudança</div>
-      <p>Limitar o <code>holder_name</code> a <b>26 caracteres</b> na tokenização para a Getnet e, em paralelo, trocar a permissão de deploy de access-key para role (OIDC). <b>Atenção:</b> o limite de 26 caracteres não está no diff deste repositório — ele entra via bump do SDK <code>rv-acquirers-sdk</code> v1.20.0 → v1.22.0.</p>
-      <p><b>Intenção declarada:</b> "limitar em 26 caracteres o holder_name para Getnet; trocando permissão de deploy de access-key para role". <b>O que o código faz:</b> bump de dependência + migração de credencial de deploy (access-key → role) em 3 workflows e 4 tfvars.</p>
-    </div>
-    <div class="section"><div class="section-title">🔬 Superfície Técnica</div>
-      <div class="pr-grid"><div class="pr-card">
-        <div class="pr-card-title">PR <a href="https://github.com/getzoop/rv-tokenization-getnet/pull/122">#122</a> · Feat/limit holdername and update role <span class="badge badge-blue">open</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Autor</span><span class="pr-stat-value">feliqueres</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Estado</span><span class="pr-stat-value yellow">open · não mergeado</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Branch</span><span class="pr-stat-value">feat/limit-holdername-and-update-role → master</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Arquivos</span><span class="pr-stat-value">12 <span class="add">+190</span>/<span class="del">-11</span></span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Runtime</span><span class="pr-stat-value">Go / Lambda + Terraform</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">CI checks</span><span class="pr-stat-value yellow">pending · 0 checks</span></div>
-        <div class="pr-stat"><span class="pr-stat-label">Aprovadores</span><span class="pr-stat-value green">lobaostibich (APPROVED, 14/08)</span></div>
-      </div></div>
-      <table class="data"><thead><tr><th>Arquivo</th><th>Tipo</th><th>Impacto em produção</th></tr></thead><tbody>
-        <tr><td><code>go.mod</code> / <code>go.sum</code></td><td>Dependência</td><td>Bump <code>rv-acquirers-sdk</code> v1.20.0 → v1.22.0 — <b>é aqui que o limite de 26 chars provavelmente entra</b> (fora do diff visível).</td></tr>
-        <tr><td><code>.github/workflows/CI.yml</code>, <code>plan.yml</code>, <code>terraform_deploy.yml</code></td><td>CI/CD</td><td>Troca de AWS access-key por OIDC (role <code>gha-rv-tokenization</code>).</td></tr>
-        <tr><td><code>deployment/terraform/environments/*.tfvars</code> (4)</td><td>Infra (Terraform)</td><td><code>provider_role_arn</code> muda de <code>CrossAccountAccess-*-Admin</code> para <code>gha-rv-tokenization</code>.</td></tr>
-        <tr><td><code>.claude/commands/*.md</code> (3)</td><td>Docs</td><td>Comandos de deploy adicionados (documentação).</td></tr>
-      </tbody></table>
-      <p><b>Infra/Config:</b> migração de credencial de deploy (access-key → role OIDC) em produção e demais ambientes — risco de quebra de deploy se a role não tiver as permissões adequadas.</p>
-    </div>
-    <div class="section"><div class="section-title">🔍 Consistência &amp; Evidências</div>
-      <table class="data"><thead><tr><th>Verificação</th><th>Status</th><th>Observação</th></tr></thead><tbody>
-        <tr><td>Objetivo × código</td><td class="warn">⚠️</td><td>Limite de 26 chars <b>não está no diff</b> — entra via bump de SDK (opaco).</td></tr>
-        <tr><td>Mudança de deploy (access-key→role) embutida</td><td class="warn">⚠️</td><td>Mudança de infra/CI bundlada em "Manutenção".</td></tr>
-        <tr><td>Estado do PR</td><td class="warn">⚠️</td><td>Open (não mergeado).</td></tr>
-        <tr><td>CI checks</td><td class="warn">⚠️</td><td>0 checks reportados.</td></tr>
-      </tbody></table>
-      <ol>
-        <li><b>Comportamento de produção (26 chars) entregue via bump de SDK, não visível no diff</b> — fonte: diff — <span class="badge badge-yellow">média</span></li>
-        <li><b>Duas mudanças não relacionadas no mesmo PR</b> (limite de nome + migração de credencial) — fonte: diff — <span class="badge badge-yellow">média</span></li>
-      </ol>
-      <div class="missing-item">Evidência do changelog do SDK v1.22.0 confirmando o limite de 26 caracteres</div>
-      <div class="missing-item">Validação de que a role <code>gha-rv-tokenization</code> tem permissões para deploy em produção</div>
-      <div class="missing-item">CI checks (0 checks)</div>
-    </div>
-    <div class="section"><div class="section-title">⚠️ Avaliação de Risco &amp; Política</div>
-      <table class="data"><thead><tr><th>Fator</th><th>Avaliação</th></tr></thead><tbody>
-        <tr><td>Mudança de comportamento (26 chars) opaca via bump de SDK</td><td><span class="badge badge-yellow">eleva risco</span></td></tr>
-        <tr><td>Migração de credencial de deploy em produção</td><td><span class="badge badge-yellow">eleva risco</span></td></tr>
-        <tr><td>Mudança pequena no repo (sem lógica de código nova)</td><td><span class="badge badge-green">reduz risco</span></td></tr>
-      </tbody></table>
-      <table class="data"><thead><tr><th>Critério</th><th>GMUD</th><th>Política GSTI</th><th>Status</th></tr></thead><tbody>
-        <tr><td>IC "Tokenização" (Ratier Vault)</td><td>18/08 07h30–08h30</td><td>"Ratier Security" = 04h00–06h00 (6ª a domingo)</td><td class="warn">⚠️ fora de 04h–06h — confirmar enquadramento</td></tr>
-      </tbody></table>
-      <div class="alert-list">
-        <div class="alert-item alert-yellow"><div><strong>🟡 Limite de 26 caracteres entregue via bump de SDK (não visível no diff)</strong><p>O objetivo principal da GMUD não aparece no diff do repositório — entra pela dependência <code>rv-acquirers-sdk</code> v1.22.0. <span class="q">O CAB tem visibilidade do que muda entre v1.20.0 e v1.22.0 do SDK? Há changelog/testes que comprovem o limite de 26 chars?</span></p></div></div>
-        <div class="alert-item alert-yellow"><div><strong>🟡 Migração access-key → role embutida na mesma GMUD</strong><p>A troca de credencial de deploy (role <code>gha-rv-tokenization</code>) é uma mudança de infra que, se a role não estiver correta, quebra o pipeline de deploy. <span class="q">A role foi validada em staging antes de produção?</span></p></div></div>
-      </div>
-    </div>
-    <div class="section"><div class="section-title">✅ Rollback</div>
-      <p><b>Método documentado:</b> "Subir versão 1.2.1 como production no github actions" (redeploy da versão anterior).</p>
-      <ul>
-        <li>Reversão de código simples (versão anterior do Lambda).</li>
-        <li>Risco: se a role OIDC estiver quebrada, o próprio rollback pode falhar (depende do deploy).</li>
-        <li>Bump de SDK reversível via downgrade no go.mod.</li>
-      </ul>
-      <p><b>Confiança:</b> média — reversível, mas o rollback depende do pipeline de deploy (afetado pela migração de credencial).</p>
-    </div>
-    <div class="conclusion">Dois riscos de transparência: o limite de 26 caracteres chega via bump de SDK (invisível no diff) e a migração de credencial de deploy está bundlada na mesma mudança.
-      <div class="disclaimer">Análise técnica de apoio — a decisão de aprovação é do CAB. Somente leitura; nada foi aprovado, reprovado ou executado.</div>
-    </div>
-  </div>
-</div>
-
 
 <div class="footer">
-ICCP — CAB Intelligence Analyst · Análise técnica de apoio ao comitê · Somente leitura · Nunca aprova, reprova ou executa mudanças · 14/08/2026
+ICCP — CAB Intelligence Analyst · Análise técnica de apoio ao comitê · Somente leitura · Nunca aprova, reprova ou executa mudanças · 17/08/2026
 </div>
 
 </div>
