@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ICCP — CAB 20/08/2026</title>
+<title>ICCP — CAB 21/08/2026</title>
 <style>
   :root {
     --bg: #0f1117;
@@ -262,8 +262,8 @@
 <body>
 <div class="container">
 
-<h1>ICCP — CAB 20/08/2026</h1>
-<p class="subtitle">Análise de <b>5 GMUDs</b> em Liberação para a janela de 20/08/2026 · Somente leitura · apoio ao comitê CAB</p>
+<h1>ICCP — CAB 21/08/2026</h1>
+<p class="subtitle">Análise de apoio ao CAB · 4 GMUDs em Liberação · JQL Fim de Semana (sexta-feira) · gerado em 21/08/2026 14:00 BRT</p>
 
 <div class="filters">
   <input id="search" type="text" placeholder="Buscar por GMUD, IC, título, responsável...">
@@ -273,409 +273,197 @@
   <span class="filter-pill" data-risk="low">🔵 Leve</span>
 </div>
 
-<table class="summary-table" id="summary"><thead><tr><th data-key="g">GMUD</th><th data-key="i">IC / Domínio</th><th data-key="j">Janela</th><th data-key="t">Tipo</th><th>PR</th><th>Achados</th></tr></thead><tbody>
-<tr data-risk="med" data-sort="2026-08-20T15:30" onclick="document.getElementById('card-GST-49838').scrollIntoView({behavior:'smooth'})"><td><b>GST-49838</b></td><td>[Plataforma] Tooling Payments</td><td>20/08 15:30–16:00</td><td>Nova Funcionalidade</td><td>backoffice-admin#1983 (open)</td><td>🟡 ticket 744×957 + PR aberto</td></tr>
-<tr data-risk="med" data-sort="2026-08-20T15:30" onclick="document.getElementById('card-GST-49833').scrollIntoView({behavior:'smooth'})"><td><b>GST-49833</b></td><td>[Plataforma] Cloud Platform</td><td>20/08 15:30–17:30</td><td>Manutenção</td><td>rtm-ccs#13 (open)</td><td>🟡 rewrite IaC major, PR sem review</td></tr>
-<tr data-risk="med" data-sort="2026-08-20T16:00" onclick="document.getElementById('card-GST-49835').scrollIntoView({behavior:'smooth'})"><td><b>GST-49835</b></td><td>[Data &amp; analytics] Data Engineering</td><td>20/08 16:00–16:30</td><td>Nova Funcionalidade</td><td>Sem PR (console AWS)</td><td>🟡 reboot RDS prod (~10min)</td></tr>
-<tr data-risk="low" data-sort="2026-08-20T16:00" onclick="document.getElementById('card-GST-49840').scrollIntoView({behavior:'smooth'})"><td><b>GST-49840</b></td><td>[Plataforma] Cloud Platform</td><td>20/08 16:00–17:00</td><td>Manutenção</td><td>Sem PR (terraform destroy)</td><td>🔵 remoção de serviço ocioso</td></tr>
-<tr data-risk="med" data-sort="2026-08-20T22:00" onclick="document.getElementById('card-GST-49839').scrollIntoView({behavior:'smooth'})"><td><b>GST-49839</b></td><td>[Payments] Core-payments-zoop</td><td>20/08 22:00–23:30</td><td>Manutenção</td><td>payment-orders#888 (open)</td><td>🟡 descarte silencioso de "not found"</td></tr>
-</tbody></table>
+
+<table class="summary-table" id="summary">
+<thead>
+<tr>
+  <th data-key="g">GMUD</th>
+  <th data-key="i">IC</th>
+  <th data-key="j">Janela</th>
+  <th data-key="t">Tipo</th>
+  <th>PR</th>
+  <th>Achados</th>
+</tr>
+</thead>
+<tbody>
+<tr data-risk="med" data-sort="2026-08-21T16:00" onclick="location.href='#card-GST-49847'"><td><a href="#card-GST-49847">GST-49847</a></td><td>[Payments] Core-payments-zoop</td><td>21/08 16:00–18:00</td><td>Nova Funcionalidade</td><td><a href="https://github.com/getzoop/proxy-omnichannel/pull/107" target="_blank">107</a> <span class="badge badge-yellow">open</span></td><td>Janela em dia proibido (sex) · PR aberto sem CI · staging × prod divergem</td></tr><tr data-risk="med" data-sort="2026-08-24T09:00" onclick="location.href='#card-GST-49843'"><td><a href="#card-GST-49843">GST-49843</a></td><td>[Plataforma] Cloud Platform</td><td>24/08 09:00–10:00</td><td>Manutenção</td><td><a href="https://github.com/getzoop/zoop-edi-rtm-core-payments/pull/16" target="_blank">16</a> <span class="badge badge-green">merged</span></td><td>Rollback aponta PR/repo errado · "validar em staging" desmarcado</td></tr><tr data-risk="low" data-sort="2026-08-24T09:30" onclick="location.href='#card-GST-49842'"><td><a href="#card-GST-49842">GST-49842</a></td><td>[Plataforma] Cloud Platform</td><td>24/08 09:30–10:30</td><td>Manutenção</td><td><a href="https://github.com/getzoop/zoop-edi-rtm-banking/pull/17" target="_blank">17</a> <span class="badge badge-green">merged</span></td><td>Bump de dependência simples · rollback correto</td></tr><tr data-risk="med" data-sort="2026-08-25T04:00" onclick="location.href='#card-GST-49851'"><td><a href="#card-GST-49851">GST-49851</a></td><td>[Payments] Core-payments-zoop</td><td>25/08 04:00–06:00</td><td>Nova Funcionalidade</td><td><a href="https://github.com/getzoop/zoop-payments-api/pull/2341" target="_blank">2341</a> <span class="badge badge-yellow">open</span></td><td>PR aberto sem reviews/CI · hook capture.pending é no-op</td></tr>
+</tbody>
+</table>
 
 
-<div class="card" id="card-GST-49838" data-risk="med" data-text="GST-49838 Inclusão de featureflag para desabilitar o menu de estabelecimentos no bko zoop legado [Plataforma] Tooling Payments Laisa Cianca Gomes SWTPAYM-957">
-  <div class="card-header">
-    <h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49838" target="_blank">GST-49838</a> — Inclusão de featureflag para desabilitar o menu de estabelecimentos no bko zoop legado</h2>
-    <div class="meta-row">
-      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value"><span class="badge badge-gray">Liberação</span></span></div>
-      <div class="meta-item"><span class="meta-label">Janela</span><span class="meta-value">20/08 15:30–16:00</span></div>
-      <div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Nova Funcionalidade</span></div>
-      <div class="meta-item"><span class="meta-label">Risco (análise)</span><span class="meta-value"><span class="pill risk-med">🟡 Atenção</span></span></div>
-      <div class="meta-item"><span class="meta-label">IC / Domínio</span><span class="meta-value">[Plataforma] Tooling Payments</span></div>
-      <div class="meta-item"><span class="meta-label">Responsável</span><span class="meta-value">Laisa Cianca Gomes</span></div>
-      <div class="meta-item"><span class="meta-label">Ticket relacionado</span><span class="meta-value">SWTPAYM-957</span></div>
-      <div class="meta-item"><span class="meta-label">Risco declarado</span><span class="meta-value">Baixa · Tier 2</span></div>
-    </div>
-    <div class="approvals">Planejamento ✓ Vinicius Dos Santos Garbim · Produto ✓ Francelli Marion De Castro · Áreas Executoras ✓ Cicero Miranda Ribeiro · Liberação ⏳ pendente</div>
-  </div>
-  <div class="card-body">
-<div class="section"><div class="section-title">🎯 Objetivo da Mudança</div>
-<p>Incluir a feature flag <code>customers_estabelecimentos</code> no backoffice Zoope legado (<code>zoop-backoffice-admin</code>) para <b>desabilitar o menu de Estabelecimentos</b> (model <code>Customers</code>) — fluxo que será migrado para o Atlas. Com a flag em <code>disabled</code>, o model sai do menu lateral, as rotas de changelist/changeform/detail retornam 403 (<code>FeatureDisabled</code>) e o <code>CustomersMonitored</code> (monitoramento) permanece visível.</p>
-<p><b>Intenção declarada</b>: "Inclusão de featureflag para desabilitar o menu de estabelecimentos no bko zoop legado pois vai para o atlas" — <b>coincide</b> com o diff (flag + guards). Porém o PR referenciado no plano é o <code>#1983</code> (branch <code>featuer/SWTPAYM-744-featureflag</code>), enquanto a GMUD aponta o ticket <code>SWTPAYM-957</code>.</p></div>
-<div class="section"><div class="section-title">🔬 Superfície Técnica</div>
-<div class="pr-card">
-  <div class="pr-card-title"><a href="https://github.com/getzoop/zoop-backoffice-admin/pull/1983" target="_blank">PR #1983</a> — Featuer/swtpaym 744 featureflag</div>
-  <div class="pr-stat"><span class="pr-stat-label">Autor</span><span class="pr-stat-value">laisacgomes</span></div>
-  <div class="pr-stat"><span class="pr-stat-label">Estado</span><span class="pr-stat-value yellow">open (não mergeado)</span></div>
-  <div class="pr-stat"><span class="pr-stat-label">Branch</span><span class="pr-stat-value">featuer/SWTPAYM-744-featureflag → master</span></div>
-  <div class="pr-stat"><span class="pr-stat-label">Arquivos / diff</span><span class="pr-stat-value">10 · <span class="add">+343</span> <span class="del">-8</span></span></div>
-  <div class="pr-stat"><span class="pr-stat-label">Aprovadores</span><span class="pr-stat-value">cm-ribeiro (APPROVED)</span></div>
-  <div class="pr-stat"><span class="pr-stat-label">CI checks</span><span class="pr-stat-value yellow">pending · 0 checks reportados</span></div>
+<div class="card" id="card-GST-49847" data-risk="med" data-text="GST-49847 Proxy Omnichannel payment-zoop-proxy-pci Eric Matheus Rocha Payments Core-payments-zoop"><div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49847" target="_blank">[Proxy Omnichannel] Habilitar roteamento de marketplaces para payment-zoop-proxy-pci</a></h2><div class="meta-row"><div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Liberação</span></div><div class="meta-item"><span class="meta-label">Janela</span><span class="meta-value">21/08/2026 16:00–18:00 (sexta-feira)</span></div><div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Nova Funcionalidade</span></div><div class="meta-item"><span class="meta-label">Risco (Jira)</span><span class="meta-value">Baixa</span></div><div class="meta-item"><span class="meta-label">IC</span><span class="meta-value">[Payments] Core-payments-zoop · Domínio: Payments</span></div><div class="meta-item"><span class="meta-label">Responsável</span><span class="meta-value">Eric Matheus Rocha (cpl.erocha@ifood3rd.com)</span></div><div class="meta-item"><span class="meta-label">Relacionado</span><span class="meta-value">SWPIPMA-2669 · SWPIPMA-2684</span></div></div><div class="approvals">Aprovações: <span class="ok">Planejamento ✓ Adriano Brandao De Oliveira (Ontem 16:51)</span> · <span class="ok">Aprovação Produto ✓ Jeverson Marcon (Hoje 9:55)</span> · <span class="ok">Áreas Executoras ✓ Leonardo Stibich Lobao (Hoje 10:27)</span> · <b>Liberação ⏳ pendente</b></div></div><div class="card-body"><div class="section"><div class="section-title">🎯 Objetivo da Mudança</div>
+<p>Habilitar o roteamento das rotas <code>credit</code>/<code>debit</code> de marketplaces selecionados para o serviço PCI
+(<code>payment-zoop-proxy-pci</code>, em produção <code>tap-to-pay-zoop.ifood-pci-production.dc-ifood.com</code>) via
+<code>proxy-omnichannel</code>. Na prática, adiciona IDs de marketplace à lista <code>pci_marketplaces</code> nos
+<code>group_vars</code> do Ansible (produção e staging) — a partir daí esses marketplaces deixam de rotear para o
+backend padrão <code>payments-internal.zoop.tech</code> e passam a ser despachados para o serviço PCI.</p>
+<p><b>Intenção declarada</b> (descrição estendida): "Habilitar os marketplace para rotear rotas de
+<code>credit</code>/<code>debit</code> para o servico <code>payments-zoop-proxy-pci</code>" + ID
+<code>04c463e5a7594d058949a049e70a5782</code>.</p>
+<p><b>O que o código faz:</b> altera 4 arquivos de <code>group_vars</code>; em <b>produção</b> adiciona apenas
+<code>04c463e5a7594d058949a049e70a5782</code>; em <b>staging</b> adiciona <code>fac013cea2584971aa2a4e54cde8cf74</code>
+e <code>34f74f9486ca4b2b9422b990e819be28</code>. A GMUD cita somente 1 ID, e o título do PR diz "ao staging" embora altere produção.</p>
+</div><div class="section"><div class="section-title">🔬 Superfície Técnica</div>
+<div class="pr-grid">
+<div class="pr-card"><div class="pr-card-title">PR #107 · feat: adicionar marketplace PCI ao staging</div><div class="pr-stat"><span class="pr-stat-label">Estado</span><span class="pr-stat-value "><span class="badge badge-yellow">open</span></span></div><div class="pr-stat"><span class="pr-stat-label">Branch</span><span class="pr-stat-value ">feat/proxy-pci-mktp → main</span></div><div class="pr-stat"><span class="pr-stat-label">Autor</span><span class="pr-stat-value ">ericrocha-invillia</span></div><div class="pr-stat"><span class="pr-stat-label">Arquivos</span><span class="pr-stat-value ">4 (4 modificados) · +4 / -4</span></div><div class="pr-stat"><span class="pr-stat-label">CI checks</span><span class="pr-stat-value yellow">0 statuses (sem CI)</span></div><div class="pr-stat"><span class="pr-stat-label">Aprovadores</span><span class="pr-stat-value green">leandro-lms-marques · APPROVED</span></div><div class="pr-stat"><span class="pr-stat-label">Link</span><span class="pr-stat-value "><a href="https://github.com/getzoop/proxy-omnichannel/pull/107" target="_blank">github.com/getzoop/proxy-omnichannel/pull/107</a></span></div></div>
 </div>
-<p><b>Componentes afetados</b> (PR #1983, 10 arquivos):</p>
-<table class="data"><thead><tr><th>Arquivo</th><th>Tipo</th><th>Impacto em produção</th></tr></thead><tbody>
-<tr><td><code>core/flags.py</code></td><td>Feature flag</td><td>+2: nova flag <code>CUSTOMERS_ESTABELECIMENTOS_FEATURE_FLAG = "customers_estabelecimentos"</code> + mapeamento do model <code>Customers</code></td></tr>
-<tr><td><code>core/admin.py</code></td><td>Admin</td><td>+1/-1: filtra apps sem models (esconde app vazio do menu)</td></tr>
-<tr><td><code>core/decorators.py</code></td><td>Decorator</td><td>+5/-4: guard <code>resolver_match</code> None-safe</td></tr>
-<tr><td><code>core/templatetags/flags.py</code></td><td>Template</td><td>+2: registra flag <code>detail_customers</code></td></tr>
-<tr><td><code>customers/admin.py</code></td><td>Admin</td><td>+17/-1: <code>_ensure_feature_enabled()</code> → <code>FeatureDisabled</code> (403) em changelist/changeform/check_payout/toggle_tef/fraudster/disable/enable</td></tr>
-<tr><td><code>customers/views.py</code></td><td>View</td><td>+2: <code>@feature_flag_enabled('detail_customers')</code></td></tr>
-<tr><td><code>backoffice/backoffice/urls.py</code></td><td>Rota</td><td>+1/-1: exclui env <code>test</code> do jumpcloud SSO</td></tr>
-<tr><td><code>core/tests/test_flags.py</code> · <code>customers/tests/test_feature_flags.py</code></td><td>Testes</td><td>+311/-2: cobertura das flags (menu, 403, monitorado visível)</td></tr>
-<tr><td><code>receivablefees/tests/test_admin.py</code></td><td>Teste</td><td>+2: imports</td></tr>
-</tbody></table>
-<p><b>Infra/Config</b>: Django (monolito backoffice). Sem Terraform/Helm/DB no diff. Flag controlada por <code>FeatureFlagService</code> / tabela <code>FeatureFlag</code> (<code>detail_customers</code>). Mecanismo nativo: flag inexistente ou <code>enabled</code> mantém o menu visível.</p></div>
-<div class="section"><div class="section-title">🔍 Consistência &amp; Evidências</div>
-<table class="data"><thead><tr><th>Verificação</th><th>Status</th><th>Observação</th></tr></thead><tbody>
-<tr><td>Objetivo declarado × código</td><td>✅</td><td>Flag <code>customers_estabelecimentos</code> + guards presentes no diff</td></tr>
-<tr><td>Tipo de mudança</td><td>✅</td><td>Nova Funcionalidade (flag aditiva e reversível)</td></tr>
-<tr><td>Estado do PR</td><td>⚠️</td><td>PR #1983 <b>open</b> (não mergeado) na análise (janela 15:30 do mesmo dia)</td></tr>
-<tr><td>Jira ref no PR</td><td>❌</td><td>Branch/título apontam <b>SWTPAYM-744</b>; GMUD referencia <b>SWTPAYM-957</b></td></tr>
-<tr><td>Feature flag</td><td>✅</td><td>Default mantém menu visível (reversível por toggle)</td></tr>
-<tr><td>Rollback</td><td>✅</td><td>"reverter o deploy PR #1983 e validar a tela"</td></tr>
-<tr><td>CI checks</td><td>⚠️</td><td>0 checks reportados via API</td></tr>
-</tbody></table>
-<div class="alert-list">
-<div class="alert-item alert-yellow"><div><strong>Divergência #1 — ticket divergente</strong><p>PR #1983 é <code>SWTPAYM-744</code>, mas a GMUD referencia <code>SWTPAYM-957</code> (customfield_10867/11149). Fonte: branch/título do PR × campos da GMUD. Relevância: média.</p></div></div>
-<div class="alert-item alert-yellow"><div><strong>Divergência #2 — PR aberto no momento da análise</strong><p>O PR não está mergeado e a janela de deploy é 15:30. Fonte: github_get_pull_request (state=open). Relevância: média.</p></div></div>
-</div>
+<table class="data"><thead><tr><th>Arquivo</th><th>Tipo</th><th>Impacto em produção</th></tr></thead><tbody><tr><td><code>deployment/ansible/group_vars/production.yml</code></td><td>Ansible group_vars</td><td>Adiciona <code>04c463e5a7594d058949a049e70a5782</code> a <code>pci_marketplaces</code> → ativa roteamento credit/debit desse marketplace para <code>route_pci</code> (tap-to-pay-zoop.ifood-pci-production.dc-ifood.com)</td></tr><tr><td><code>deployment/ansible/group_vars/production-v2.yml</code></td><td>Ansible group_vars</td><td>Mesma alteração (variante v2 do ambiente de produção)</td></tr><tr><td><code>deployment/ansible/group_vars/staging.yml</code> / <code>staging-v2.yml</code></td><td>Ansible group_vars</td><td>Adiciona <code>fac013cea2584971aa2a4e54cde8cf74</code> e <code>34f74f9486ca4b2b9422b990e819be28</code> → roteamento no sandbox (payment-zoop-proxy-pci-api.3rd-zoop.ifood-sandbox.com.br)</td></tr></tbody></table>
+<p style="margin-top:8px"><b>Infra/Config:</b> mudança 100% de configuração via Ansible <code>group_vars</code>. Sem Terraform, Helm,
+migração de schema ou novos recursos. <code>route_pci</code> já existia; a mudança apenas amplia a lista de marketplaces que usam essa rota.</p>
+</div><div class="section"><div class="section-title">🔍 Consistência & Evidências</div>
+<table class="data"><thead><tr><th>Verificação</th><th>Resultado</th><th>Observação</th></tr></thead><tbody><tr><td>Objetivo × código</td><td><span class="warn">⚠️</span></td><td>Código altera produção E staging com IDs diferentes; GMUD cita só 1 ID</td></tr><tr><td>Tipo de mudança</td><td><span class="ok">✅</span></td><td>Nova Funcionalidade coerente (novo roteamento)</td></tr><tr><td>Rollback documentado</td><td><span class="warn">⚠️</span></td><td>"reverter as alterações" — genérico, sem passo a passo</td></tr><tr><td>Plano de implantação</td><td><span class="ok">✅</span></td><td>Merge da PR + execução da pipeline (descrito no campo)</td></tr><tr><td>Feature flag</td><td><span class="bad">❌</span></td><td>Sem toggle — o roteamento é ativado assim que o group_vars é aplicado</td></tr><tr><td>Jira ref no PR</td><td><span class="bad">❌</span></td><td>PR #107 não referencia GST-49847</td></tr><tr><td>Estado do PR</td><td><span class="warn">⚠️</span></td><td>open (não mergeado), 0 CI checks</td></tr><tr><td>Env vars / secrets</td><td><span class="ok">✅</span></td><td>Sem novos secrets; apenas IDs de marketplace</td></tr><tr><td>Infra</td><td><span class="ok">✅</span></td><td>Sem recursos novos de infra</td></tr></tbody></table>
+<p style="margin-top:10px"><b>Divergências:</b></p>
+<ol>
+<li><b>#1</b> — Escopo declarado (1 marketplace) × diff real (produção adiciona 1 ID e staging adiciona 2 IDs diferentes) — <b>fonte:</b> diff vs <code>customfield_10827</code> — relevância <span class="badge badge-red">alta</span></li>
+<li><b>#2</b> — PR ainda <i>open</i>, sem CI checks e com a GMUD já em Liberação — <b>fonte:</b> GitHub — relevância <span class="badge badge-yellow">média</span></li>
+<li><b>#3</b> — Título do PR ("ao staging") embora altere também produção — <b>fonte:</b> GitHub — relevância <span class="badge badge-gray">baixa</span></li>
+<li><b>#4</b> — Template da GMUD em branco (Escopo/Premissas/Critérios) — <b>fonte:</b> <code>customfield_11254</code> — relevância <span class="badge badge-yellow">média</span></li>
+</ol>
 <p style="margin-top:10px"><b>Informações ausentes:</b></p>
-<div class="missing-item">O PR #1983 será mergeado antes da janela (15:30)?</div>
-<div class="missing-item">A flag <code>customers_estabelecimentos</code> já está provisionada no serviço de feature flags?</div>
-<div class="missing-item">Smoke test da tela pós-deploy (o plano diz "validar a tela")?</div></div>
-<div class="section"><div class="section-title">⚠️ Avaliação de Risco &amp; Política</div>
-<table class="data"><thead><tr><th>Fator</th><th>Avaliação</th></tr></thead><tbody>
-<tr><td>PR aberto no momento da análise</td><td><span class='warn'>eleva risco</span></td></tr>
-<tr><td>Bloqueio de rotas <code>Customers</code> via 403</td><td><span class='warn'>atenção</span> (pode impactar operação CS/CX que usa o menu Estabelecimentos)</td></tr>
-<tr><td>Feature flag aditiva com default visível</td><td><span class='ok'>reduz risco</span> (reversível sem deploy)</td></tr>
-<tr><td>Sem infra/DB/schema</td><td><span class='ok'>reduz risco</span></td></tr>
-</tbody></table>
-<p style="margin-top:8px"><b>Conformidade de janela</b> — IC "[Plataforma] Tooling Payments" <b>não catalogado</b> na política GSTI (4497944154) → sem restrição formal; janela 15:30–16:00 válida.</p>
-<div class="alert-list">
-<div class="alert-item alert-yellow"><div><strong>🟡 Template da GMUD não preenchido</strong><p>Escopo/Premissas/Critérios de Aceite em branco (customfield_11254); description nulo. Contexto da mudança está apenas no título + PR.</p></div></div>
-<div class="alert-item alert-yellow"><div><strong>🟡 Pergunta direta ao CAB</strong><p>O PR #1983 (branch <code>SWTPAYM-744</code>) é mesmo o diff desta GMUD (<code>SWTPAYM-957</code>)? E ele será mergeado antes das 15:30?</p></div></div>
-</div></div>
-<div class="section"><div class="section-title">✅ Rollback</div>
-<p><b>Método documentado</b>: "reverter o deploy <code>PR #1983</code> e validar a tela" (customfield_10832).</p>
-<p><b>Riscos do rollback</b>:</p><ul>
-<li>Rollback por re-deploy, não por toggle — exige novo pipeline se o merge/deploy já ocorreu.</li>
-<li>Se a flag já estiver <code>disabled</code> em prod, "reverter o deploy" não re-habilita o menu sozinho (depende de reverter também o valor da flag).</li>
-<li>Sem schema/migration → sem risco de perda de dados.</li>
+<div><div class="missing-item">CI checks (0 statuses no PR)</div><div class="missing-item">Feature flag / toggle para o roteamento</div><div class="missing-item">Critérios de aceite e comunicação prévia (template em branco)</div><div class="missing-item">Referência da GMUD no PR (rastreabilidade)</div></div>
+</div><div class="section"><div class="section-title">⚠️ Avaliação de Risco & Política</div>
+<table class="data"><thead><tr><th>Fator</th><th>Avaliação</th></tr></thead><tbody><tr><td>Mudança de roteamento de pagamentos em produção</td><td><span class="badge badge-red">eleva risco</span></td></tr><tr><td>Ausência de feature flag (ativação imediata)</td><td><span class="badge badge-red">eleva risco</span></td></tr><tr><td>Sem CI checks no PR</td><td><span class="badge badge-red">eleva risco</span></td></tr><tr><td>Config-only, reversível via group_vars</td><td><span class="badge badge-green">reduz risco</span></td></tr><tr><td>1 aprovador no PR (leandro-lms-marques)</td><td><span class="badge badge-blue">neutro</span></td></tr></tbody></table>
+<p style="margin-top:10px"><b>Conformidade de janela (catálogo GSTI — Confluence 4497944154):</b></p>
+<table class="data"><thead><tr><th>Critério</th><th>GMUD</th><th>Política GSTI</th><th>Status</th></tr></thead><tbody><tr><td>Dia da implantação</td><td>sexta-feira 21/08 16:00–18:00</td><td>Proxy Omnichannel: restrição de dias "4ª feira, 6ª feira à Domingo" (quarta, sexta, sábado e domingo proibidos)</td><td><span class="bad">❌ fora</span></td></tr><tr><td>Horário</td><td>16:00–18:00</td><td>Proxy Omnichannel: "Sem horário definido"</td><td><span class="ok">✅</span></td></tr><tr><td>Flag automática do Jira</td><td>"Dentro"</td><td>Só valida o range cadastrado na GMUD, não o padrão de risco do domínio</td><td><span class="warn">⚠️</span></td></tr></tbody></table>
+<div class="alert-list" style="margin-top:12px">
+<div class="alert-item alert-red"><div><strong>🔴 Janela em dia restrito do catálogo</strong><p>Sexta-feira é dia proibido para Proxy Omnichannel no catálogo GSTI. <span class="q">Pergunta ao CAB: existe autorização de exceção para implantar em 6ª feira, ou a janela deve ser remarcada?</span></p></div></div>
+<div class="alert-item alert-yellow"><div><strong>🟡 Roteamento sem toggle e PR ainda aberto/sem CI</strong><p>A ativação é imediata ao aplicar o group_vars e o PR não tem checks de CI. <span class="q">Pergunta ao CAB: o merge e a pipeline serão concluídos antes da janela? Houve validação do roteamento em sandbox primeiro?</span></p></div></div>
+</div>
+</div><div class="section"><div class="section-title">✅ Rollback</div>
+<p><b>Método documentado:</b> "reverter as alteracoes, executar novamente a pipeline" (campo <code>customfield_10832</code>).</p>
+<ul>
+<li><b>Sem toggle</b> — o rollback exige novo commit revertendo o <code>group_vars</code> + re-deploy via pipeline (não é instantâneo).</li>
+<li><b>Produção e staging simultâneos</b> — é preciso reverter ambos os ambientes.</li>
+<li><b>Dependência de acesso</b> ao repositório/Ansible para reverter os <code>group_vars</code>.</li>
+<li><b>Janela curta (2h)</b> — pode não comportar rollback + re-deploy em caso de problema.</li>
 </ul>
-<p><b>Confiança</b>: <b>alta</b> — flag aditiva, reversível por toggle sem tocar dados.</p></div>
-<div class="conclusion"><b>📌 Conclusão</b><br>Flag bem delimitada e reversível; os pontos a confirmar são a divergência de ticket (744×957) e o PR ainda aberto. A decisão é do CAB.<div class="disclaimer">Análise técnica de apoio — a decisão de aprovar/reprovar é exclusivamente do CAB.</div></div></div>
+<p><b>Confiança: média</b> — a reversão é simples (remover o ID da lista), mas não é imediata por não haver toggle.</p>
+</div><div class="section"><div class="conclusion">Mudança pequena (config de roteamento via Ansible), porém programada em <b>sexta-feira — dia proibido</b> para Proxy Omnichannel no catálogo GSTI — e com PR ainda aberto, sem CI e sem feature flag. O risco operacional concentra-se no <b>timing</b> e na <b>ausência de toggle</b>, não no tamanho do diff.<div class="disclaimer">Análise técnica de apoio — a decisão de aprovação/reprovação é exclusiva do CAB.</div></div></div></div></div><div class="card" id="card-GST-49843" data-risk="med" data-text="GST-49843 zoop-edi-rtm-core-payments cryptography Jeverson Marcon Plataforma Cloud Platform"><div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49843" target="_blank">Vulnerabilidade do lambda zoop-edi-rtm-core-payments (cryptography)</a></h2><div class="meta-row"><div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Liberação</span></div><div class="meta-item"><span class="meta-label">Janela</span><span class="meta-value">24/08/2026 09:00–10:00 (segunda-feira)</span></div><div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Manutenção</span></div><div class="meta-item"><span class="meta-label">Risco (Jira)</span><span class="meta-value">Baixa</span></div><div class="meta-item"><span class="meta-label">IC</span><span class="meta-value">[Plataforma] Cloud Platform · Domínio: Payments</span></div><div class="meta-item"><span class="meta-label">Responsável</span><span class="meta-value">Jeverson Marcon</span></div><div class="meta-item"><span class="meta-label">Relacionado</span><span class="meta-value">SWPJSRE-1860</span></div></div><div class="approvals">Aprovações: <span class="ok">Planejamento ✓ Custodio Ferreira Botelho Cerqueira (Ontem 14:24)</span> · <span class="ok">Aprovação Produto ✓ Fernanda Luisa Martins Vasconcelos Filiu (Ontem 14:26)</span> · <span class="ok">Áreas Executoras ✓ Edipo Dos Santos Bela (Ontem 14:54)</span> · <b>Liberação ⏳ pendente</b></div></div><div class="card-body"><div class="section"><div class="section-title">🎯 Objetivo da Mudança</div>
+<p>Remediação de vulnerabilidade: atualizar a dependência <code>cryptography</code> de <code>49.0.0</code> para
+<code>50.0.0</code> no lambda de EDI/RTM de core-payments (Python 3.12 + paramiko para SFTP), além de remover um
+workflow de segurança obsoleto (<code>tfsec</code>).</p>
+<p><b>Intenção declarada:</b> "Update da versão da dependência cryptography".</p>
+<p><b>O que o código faz:</b> bump de versão no <code>deployment/requirements.txt</code> e remoção de
+<code>.github/workflows/run_security_check.yml</code> (workflow tfsec, 15 linhas). A remoção do workflow não é citada na intenção declarada.</p>
+</div><div class="section"><div class="section-title">🔬 Superfície Técnica</div>
+<div class="pr-grid">
+<div class="pr-card"><div class="pr-card-title">PR #16 · fix: update cryptography para 50.0.0</div><div class="pr-stat"><span class="pr-stat-label">Estado</span><span class="pr-stat-value "><span class="badge badge-green">merged</span> (20/08 16:38)</span></div><div class="pr-stat"><span class="pr-stat-label">Branch</span><span class="pr-stat-value ">fix/update-cryptography-50 → main</span></div><div class="pr-stat"><span class="pr-stat-label">Autor</span><span class="pr-stat-value ">Jever</span></div><div class="pr-stat"><span class="pr-stat-label">Arquivos</span><span class="pr-stat-value ">2 · +1 / -16</span></div><div class="pr-stat"><span class="pr-stat-label">CI checks</span><span class="pr-stat-value yellow">0 statuses (sem CI)</span></div><div class="pr-stat"><span class="pr-stat-label">Aprovadores</span><span class="pr-stat-value green">michaellouredo-ifood · APPROVED · Katllyn72 · APPROVED</span></div><div class="pr-stat"><span class="pr-stat-label">Link</span><span class="pr-stat-value "><a href="https://github.com/getzoop/zoop-edi-rtm-core-payments/pull/16" target="_blank">github.com/getzoop/zoop-edi-rtm-core-payments/pull/16</a></span></div></div>
 </div>
-
-<div class="card" id="card-GST-49833" data-risk="med" data-text="GST-49833 Modernização rtm-ccs [Plataforma] Cloud Platform Jeverson Marcon SWPJSRE-1673">
-  <div class="card-header">
-    <h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49833" target="_blank">GST-49833</a> — Modernização rtm-ccs</h2>
-    <div class="meta-row">
-      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value"><span class="badge badge-gray">Liberação</span></span></div>
-      <div class="meta-item"><span class="meta-label">Janela</span><span class="meta-value">20/08 15:30–17:30</span></div>
-      <div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Manutenção</span></div>
-      <div class="meta-item"><span class="meta-label">Risco (análise)</span><span class="meta-value"><span class="pill risk-med">🟡 Atenção</span></span></div>
-      <div class="meta-item"><span class="meta-label">IC / Domínio</span><span class="meta-value">[Plataforma] Cloud Platform (Banking)</span></div>
-      <div class="meta-item"><span class="meta-label">Responsável</span><span class="meta-value">Jeverson Marcon</span></div>
-      <div class="meta-item"><span class="meta-label">Ticket relacionado</span><span class="meta-value">SWPJSRE-1673</span></div>
-      <div class="meta-item"><span class="meta-label">Risco declarado</span><span class="meta-value">Baixa · Tier 2</span></div>
-    </div>
-    <div class="approvals">Planejamento ✓ Custodio Ferreira Botelho Cerqueira · Produto ✓ · Áreas Executoras ✓ Edipo Dos Santos Bela · Liberação ⏳ pendente</div>
-  </div>
-  <div class="card-body">
-<div class="section"><div class="section-title">🎯 Objetivo da Mudança</div>
-<p>Modernização da Lambda <code>zoop-files-rtm-ccs</code> (deposita arquivos CCS no S3 e envia via SFTP para a Receita Federal): atualiza o runtime <b>Python 3.9 → 3.12</b>, instrumenta <b>Datadog</b> (condicional via <code>dd_enabled</code>), centraliza monitores, atualiza dependências (boto3/paramiko/cryptography), corrige vulnerabilidades e equaliza o código/IaC defasado com o estado real de produção.</p>
-<p><b>Intenção declarada × código</b>: a descrição diz que "originalmente era apenas para migrar o DD", mas o diff é uma <b>reescrita ampla de IaC + runtime</b>: provider AWS 3.76.1→6.56.0 (major), módulo lambda v1.0.0→v2.1.1, troca de role/VPC/subnets em <code>production.tfvars</code> e expansão de permissões S3 para roles Fintech/Glue.</p></div>
-<div class="section"><div class="section-title">🔬 Superfície Técnica</div>
-<div class="pr-card">
-  <div class="pr-card-title"><a href="https://github.com/getzoop/zoop-files-rtm-ccs/pull/13" target="_blank">PR #13</a> — feat: modernização com Datadog, Python 3.12 e logging estruturado</div>
-  <div class="pr-stat"><span class="pr-stat-label">Autor</span><span class="pr-stat-value">Jever</span></div>
-  <div class="pr-stat"><span class="pr-stat-label">Estado</span><span class="pr-stat-value yellow">open (não mergeado)</span></div>
-  <div class="pr-stat"><span class="pr-stat-label">Branch</span><span class="pr-stat-value">feat/modernizacao-datadog-python312 → main</span></div>
-  <div class="pr-stat"><span class="pr-stat-label">Arquivos / diff</span><span class="pr-stat-value">30 · <span class="add">+1127</span> <span class="del">-314</span></span></div>
-  <div class="pr-stat"><span class="pr-stat-label">Aprovadores</span><span class="pr-stat-value red">nenhum (0 reviews)</span></div>
-  <div class="pr-stat"><span class="pr-stat-label">CI checks</span><span class="pr-stat-value yellow">pending · 0 checks reportados</span></div>
-</div>
-<p><b>Componentes afetados</b> (PR #13, destaques dos 30 arquivos):</p>
-<table class="data"><thead><tr><th>Arquivo</th><th>Tipo</th><th>Impacto em produção</th></tr></thead><tbody>
-<tr><td><code>lambda_function.py</code></td><td>Código Lambda</td><td>+59/-17: logging estruturado, <code>SECRET_NAME</code>/<code>AWS_REGION</code> via env, retorno JSON, tratamento de erro</td></tr>
-<tr><td><code>terraform/lambda.tf</code></td><td>Terraform</td><td>+39/-23: runtime python3.12, handler Datadog condicional, layers, env <code>DD_*</code>, memória/timeout variáveis</td></tr>
-<tr><td><code>terraform/variables.tf</code></td><td>Terraform</td><td>+119/-2: novas variáveis Datadog + parâmetros operacionais da Lambda</td></tr>
-<tr><td><code>terraform/iam.tf</code></td><td>IAM</td><td>+52/-62: jsonencode; secrets_manager passa a incluir o secret do Datadog</td></tr>
-<tr><td><code>terraform/data.tf</code></td><td>IAM/S3 policy</td><td>+38/-4: adiciona <code>glue_role_arn</code> e <code>fintech_role_arns</code> (Databricks) com <code>s3:PutObject</code> no bucket</td></tr>
-<tr><td><code>terraform/environments/production.tfvars</code></td><td>Config</td><td>+37/-6: <code>role_arn</code> CrossAccount-Banking_Prod → <code>gha-zoop-files-rtm-ccs</code>; VPC/subnets trocados; memória 128→256, timeout 180→360</td></tr>
-<tr><td><code>terraform/.terraform.lock.hcl</code></td><td>Lock</td><td>aws 3.76.1→<b>6.56.0</b>, archive 2.4.0→2.8.0</td></tr>
-<tr><td><code>.github/workflows/cd.yml</code> / <code>plan.yml</code></td><td>CI/CD</td><td>+62: novos workflows <code>terraform-lambda.yml@v9</code> (workflow_dispatch)</td></tr>
-<tr><td><code>.github/workflows/run_security_check.yml</code></td><td>CI</td><td>-12: removido tfsec (Snyk v9 assume)</td></tr>
-<tr><td><code>terraform/sm.tf</code></td><td>Secrets Manager</td><td>+10/-8: <code>recovery_window_in_days</code> condicional (prod 30 / staging 0)</td></tr>
-<tr><td><code>terraform/s3.tf</code> / <code>sg.tf</code></td><td>Infra</td><td>+73/-13: ajustes de bucket e security group</td></tr>
-</tbody></table>
-<p><b>Infra/Config</b>: Terraform backend S3 (<code>zoop-accounts-tfstates</code>) + DynamoDB lock; provider aws 6.56.0; deploy via GitHub Actions (staging/production). Contas: staging <code>865665859436</code> (us-east-1), produção <code>922811865917</code> (sa-east-1). Datadog layers + secret (<code>dd_api_key_secret_arn</code>) em produção.</p></div>
-<div class="section"><div class="section-title">🔍 Consistência &amp; Evidências</div>
-<table class="data"><thead><tr><th>Verificação</th><th>Status</th><th>Observação</th></tr></thead><tbody>
-<tr><td>Objetivo × código</td><td>✅</td><td>Instrumentação DD + Python 3.12 + logging presentes</td></tr>
-<tr><td>Tipo de mudança</td><td>⚠️</td><td>"Manutenção" subestima escopo (runtime + IaC major + IAM)</td></tr>
-<tr><td>Estado do PR</td><td>⚠️</td><td><b>open</b>; plano manda "merge + pipeline cd.yml"</td></tr>
-<tr><td>Aprovação</td><td>❌</td><td>0 reviews/approvals no PR</td></tr>
-<tr><td>CI checks</td><td>⚠️</td><td>0 checks reportados</td></tr>
-<tr><td>Rollback</td><td>✅</td><td>"revert do PR + pipeline cd.yml"</td></tr>
-<tr><td>Infra (Terraform)</td><td>⚠️</td><td>provider major 3→6 pode causar destroy/recreate</td></tr>
-</tbody></table>
-<div class="alert-list">
-<div class="alert-item alert-red"><div><strong>Divergência #1 — escopo declarado × diff real</strong><p>"migrar o DD" × rewrite de IaC (provider major, troca de role/VPC/subnets, IAM expandida). Fonte: descrição estendida × diff do PR #13. Relevância: alta.</p></div></div>
-<div class="alert-item alert-red"><div><strong>Divergência #2 — risco declarado "Baixa" × mudança major</strong><p>Upgrade de provider AWS 3→6 + re-provisionamento de rede/IAM em produção marcado como Baixa/Manutenção. Relevância: alta.</p></div></div>
-<div class="alert-item alert-yellow"><div><strong>Divergência #3 — PR aberto sem reviews</strong><p>PR #13 open, 0 aprovadores, 0 CI checks no momento da análise. Relevância: média.</p></div></div>
-</div>
+<table class="data"><thead><tr><th>Arquivo</th><th>Tipo</th><th>Impacto em produção</th></tr></thead><tbody><tr><td><code>deployment/requirements.txt</code></td><td>requirements</td><td><code>cryptography==49.0.0</code> → <code>cryptography==50.0.0</code> (lambda de SFTP/EDI)</td></tr><tr><td><code>.github/workflows/run_security_check.yml</code></td><td>workflow (removed)</td><td>Remove o workflow tfsec (scan de segurança estática do Terraform) — deixa de rodar</td></tr></tbody></table>
+<p style="margin-top:8px"><b>Infra/Config:</b> análise de compatibilidade no PR: paramiko 3.5.1 requer
+<code>cryptography&gt;=3.3</code> (sem teto), Python 3.12 compatível, build do lambda OK. Sem migração de schema.</p>
+</div><div class="section"><div class="section-title">🔍 Consistência & Evidências</div>
+<table class="data"><thead><tr><th>Verificação</th><th>Resultado</th><th>Observação</th></tr></thead><tbody><tr><td>Objetivo × código</td><td><span class="ok">✅</span></td><td>Bump de versão corresponde à intenção</td></tr><tr><td>Tipo de mudança</td><td><span class="ok">✅</span></td><td>Manutenção coerente</td></tr><tr><td>Rollback documentado</td><td><span class="bad">❌</span></td><td>Referencia PR #17 de <code>zoop-edi-rtm-banking</code> (repo errado)</td></tr><tr><td>Plano de implantação</td><td><span class="ok">✅</span></td><td>Executar pipeline <code>cd.yml</code></td></tr><tr><td>Feature flag</td><td><span class="ok">✅</span></td><td>N/A (dependência)</td></tr><tr><td>Jira ref no PR</td><td><span class="bad">❌</span></td><td>PR #16 não referencia GST-49843</td></tr><tr><td>Estado do PR</td><td><span class="ok">✅</span></td><td>merged (20/08)</td></tr><tr><td>Env vars / secrets</td><td><span class="ok">✅</span></td><td>Sem alteração</td></tr></tbody></table>
+<p style="margin-top:10px"><b>Divergências:</b></p>
+<ol>
+<li><b>#1</b> — Rollback aponta PR #17 de <code>zoop-edi-rtm-banking</code> em vez de PR #16 de core-payments — <b>fonte:</b> <code>customfield_10832</code> — relevância <span class="badge badge-red">alta</span></li>
+<li><b>#2</b> — Checklist do PR: "Validar em staging antes de produção" <b>desmarcado</b> — <b>fonte:</b> corpo do PR — relevância <span class="badge badge-yellow">média</span></li>
+<li><b>#3</b> — Remoção do workflow tfsec não citada no objetivo — <b>fonte:</b> diff vs <code>customfield_10827</code> — relevância <span class="badge badge-gray">baixa</span></li>
+</ol>
 <p style="margin-top:10px"><b>Informações ausentes:</b></p>
-<div class="missing-item">O PR #13 será mergeado antes das 15:30?</div>
-<div class="missing-item">terraform plan de produção foi revisado (provider 3→6)?</div>
-<div class="missing-item">A role <code>gha-zoop-files-rtm-ccs</code> está provisionada com permissões mínimas?</div>
-<div class="missing-item">Backup do state S3 para rollback do provider major?</div></div>
-<div class="section"><div class="section-title">⚠️ Avaliação de Risco &amp; Política</div>
-<table class="data"><thead><tr><th>Fator</th><th>Avaliação</th></tr></thead><tbody>
-<tr><td>Provider AWS 3.76.1→6.56.0 (major)</td><td><span class='bad'>eleva risco</span></td></tr>
-<tr><td>Troca de role_arn/VPC/subnets em produção</td><td><span class='bad'>eleva risco</span></td></tr>
-<tr><td>Expansão S3 (roles Fintech/Databricks com PutObject)</td><td><span class='warn'>atenção</span></td></tr>
-<tr><td>Lambda de baixo tráfego (arquivos CCS)</td><td><span class='ok'>reduz risco</span> (blast radius pequeno)</td></tr>
-<tr><td>Datadog condicional (toggle <code>dd_enabled</code>)</td><td><span class='ok'>reduz risco</span></td></tr>
-</tbody></table>
-<p style="margin-top:8px"><b>Conformidade de janela</b> — IC "[Plataforma] Cloud Platform" <b>não catalogado</b> na política GSTI → sem restrição formal. (Domínio Banking, mas o serviço <code>rtm-ccs</code> não consta nas janelas Banking do catálogo.)</p>
-<div class="alert-list">
-<div class="alert-item alert-yellow"><div><strong>🟡 Template da GMUD não preenchido</strong><p>Escopo/Premissas/Critérios em branco; description nulo. Contexto apenas no título + PR.</p></div></div>
-<div class="alert-item alert-red"><div><strong>🔴 Pergunta direta ao CAB</strong><p>O CAB está ciente de que o PR #13 é um rewrite de IaC (provider AWS 3→6, troca de role/VPC/subnets, IAM expandida) marcado como Manutenção/Baixa? Há terraform plan de produção revisado e o PR será mergeado antes da janela?</p></div></div>
-</div></div>
-<div class="section"><div class="section-title">✅ Rollback</div>
-<p><b>Método documentado</b>: "Realizar o revert do PR #13 e então executar a pipeline <code>cd.yml</code>" (customfield_10832).</p>
-<p><b>Riscos do rollback</b>:</p><ul>
-<li>Provider major (3→6): reverter o código não garante reversão idempotente do state se o apply anterior já migrou recursos.</li>
-<li>Troca de role/VPC/subnets: reverter exige reaplicar os tfvars anteriores com o lock/provider compatível.</li>
-<li>Permissões S3 concedidas a Fintech/Glue não são revogadas automaticamente por revert (depende de reaplicar o estado anterior).</li>
-<li>Tempo estimado não declarado.</li>
+<div><div class="missing-item">CI checks (0 statuses no PR)</div><div class="missing-item">Evidência de validação em staging (checklist desmarcado no PR)</div></div>
+</div><div class="section"><div class="section-title">⚠️ Avaliação de Risco & Política</div>
+<table class="data"><thead><tr><th>Fator</th><th>Avaliação</th></tr></thead><tbody><tr><td>Análise de compatibilidade detalhada no PR</td><td><span class="badge badge-green">reduz risco</span></td></tr><tr><td>2 aprovadores no PR</td><td><span class="badge badge-green">reduz risco</span></td></tr><tr><td>Sem CI checks</td><td><span class="badge badge-red">eleva risco</span></td></tr><tr><td>Remoção do scan tfsec (perda de cobertura de segurança)</td><td><span class="badge badge-red">eleva risco</span></td></tr><tr><td>Rollback com referência de repo errada</td><td><span class="badge badge-red">eleva risco</span></td></tr></tbody></table>
+<p style="margin-top:10px"><b>Conformidade de janela:</b> o serviço <code>zoop-edi-rtm-core-payments</code> não está catalogado
+na política GSTI → <b>sem restrição formal</b>; a janela (segunda 09:00–10:00) é válida — nada a reportar.</p>
+<div class="alert-list" style="margin-top:12px">
+<div class="alert-item alert-yellow"><div><strong>🟡 Rollback documentado aponta o repo/PR errado</strong><p>O campo de rollback referencia <code>zoop-edi-rtm-banking/pull/17</code> em vez de core-payments. <span class="q">Pergunta ao CAB: o executor sabe qual PR reverter em caso de falha?</span></p></div></div>
+<div class="alert-item alert-yellow"><div><strong>🟡 Validação em staging não evidenciada</strong><p>Checklist do PR deixou "Validar em staging antes de produção" desmarcado. <span class="q">Pergunta ao CAB: houve validação em staging do lambda antes da janela de produção?</span></p></div></div>
+</div>
+</div><div class="section"><div class="section-title">✅ Rollback</div>
+<p><b>Método documentado (transcrição):</b> "Reverter o PR https://github.com/getzoop/zoop-edi-rtm-banking/pull/17/changes e executar a pipeline: https://github.com/getzoop/zoop-edi-rtm-core-payments/actions/workflows/cd.yml".</p>
+<ul>
+<li><b>Referência incorreta</b> — aponta o PR do repo <i>banking</i>, não o PR #16 de <i>core-payments</i>; pode atrasar a reversão.</li>
+<li><b>Rollback = reverter o bump</b> de dependência + re-executar a pipeline do lambda.</li>
+<li><b>Workflow tfsec removido</b> também precisa ser restaurado na reversão.</li>
+<li><b>Tempo</b> de redeploy do lambda deve ser considerado.</li>
 </ul>
-<p><b>Confiança</b>: <b>média</b> — IaC com mudança major de provider e re-provisionamento de rede/IAM.</p></div>
-<div class="conclusion"><b>📌 Conclusão</b><br>O escopo real (IaC + runtime + IAM) é bem maior que o título "Modernização rtm-ccs" classificado como Manutenção/Baixa, e o PR segue aberto sem reviews. O CAB deve validar o plano e o merge. A decisão é do CAB.<div class="disclaimer">Análise técnica de apoio — a decisão de aprovar/reprovar é exclusivamente do CAB.</div></div></div>
+<p><b>Confiança: média</b> — mecanismo simples (reverter PR + pipeline), mas a documentação aponta o repo errado.</p>
+</div><div class="section"><div class="conclusion">Bump de dependência de baixo risco, já mergeado e aprovado por 2 revisores. Pontos de atenção: <b>rollback com referência de repo incorreta</b> e <b>validação em staging não evidenciada</b>. Serviço não catalogado — sem restrição formal de janela.<div class="disclaimer">Análise técnica de apoio — a decisão de aprovação/reprovação é exclusiva do CAB.</div></div></div></div></div><div class="card" id="card-GST-49842" data-risk="low" data-text="GST-49842 zoop-edi-rtm-banking cryptography Jeverson Marcon Plataforma Cloud Platform"><div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49842" target="_blank">Vulnerabilidade do lambda zoop-edi-rtm-banking (cryptography)</a></h2><div class="meta-row"><div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Liberação</span></div><div class="meta-item"><span class="meta-label">Janela</span><span class="meta-value">24/08/2026 09:30–10:30 (segunda-feira)</span></div><div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Manutenção</span></div><div class="meta-item"><span class="meta-label">Risco (Jira)</span><span class="meta-value">Baixa</span></div><div class="meta-item"><span class="meta-label">IC</span><span class="meta-value">[Plataforma] Cloud Platform · Domínio: Banking</span></div><div class="meta-item"><span class="meta-label">Responsável</span><span class="meta-value">Jeverson Marcon</span></div><div class="meta-item"><span class="meta-label">Relacionado</span><span class="meta-value">SWPJSRE-1859</span></div></div><div class="approvals">Aprovações: <span class="ok">Planejamento ✓ Custodio Ferreira Botelho Cerqueira (Ontem 14:24)</span> · <span class="ok">Aprovação Produto ✓ Kassia Dorigon Perin Batista (Ontem 15:13)</span> · <span class="ok">Áreas Executoras ✓ Jhenifer Da Silva Santos (Ontem 15:17)</span> · <b>Liberação ⏳ pendente</b></div></div><div class="card-body"><div class="section"><div class="section-title">🎯 Objetivo da Mudança</div>
+<p>Remediação de vulnerabilidade: atualizar <code>cryptography</code> de <code>49.0.0</code> para <code>50.0.0</code> no
+lambda de EDI/RTM de banking (Python 3.12 + paramiko/SFTP), removendo o workflow obsoleto <code>tfsec</code>.</p>
+<p><b>Intenção declarada:</b> "Update da versão da dependência cryptography".</p>
+<p><b>O que o código faz:</b> bump no <code>deployment/requirements.txt</code> + remoção de
+<code>.github/workflows/run_security_check.yml</code> (15 linhas).</p>
+</div><div class="section"><div class="section-title">🔬 Superfície Técnica</div>
+<div class="pr-grid">
+<div class="pr-card"><div class="pr-card-title">PR #17 · fix: update cryptography para 50.0.0</div><div class="pr-stat"><span class="pr-stat-label">Estado</span><span class="pr-stat-value "><span class="badge badge-green">merged</span> (20/08 16:39)</span></div><div class="pr-stat"><span class="pr-stat-label">Branch</span><span class="pr-stat-value ">fix/update-cryptography-50 → main</span></div><div class="pr-stat"><span class="pr-stat-label">Autor</span><span class="pr-stat-value ">Jever</span></div><div class="pr-stat"><span class="pr-stat-label">Arquivos</span><span class="pr-stat-value ">2 · +1 / -16</span></div><div class="pr-stat"><span class="pr-stat-label">CI checks</span><span class="pr-stat-value yellow">0 statuses (sem CI)</span></div><div class="pr-stat"><span class="pr-stat-label">Aprovadores</span><span class="pr-stat-value green">michaellouredo-ifood · APPROVED</span></div><div class="pr-stat"><span class="pr-stat-label">Link</span><span class="pr-stat-value "><a href="https://github.com/getzoop/zoop-edi-rtm-banking/pull/17" target="_blank">github.com/getzoop/zoop-edi-rtm-banking/pull/17</a></span></div></div>
 </div>
-
-<div class="card" id="card-GST-49835" data-risk="med" data-text="GST-49835 Ativação DMS Database Migration Service Ambiente Risk [Data & analytics] Data Engineering Filipe Rodrigues Pinto Niya">
-  <div class="card-header">
-    <h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49835" target="_blank">GST-49835</a> — Ativação DMS Database Migration Service - Ambiente Risk</h2>
-    <div class="meta-row">
-      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value"><span class="badge badge-gray">Liberação</span></span></div>
-      <div class="meta-item"><span class="meta-label">Janela</span><span class="meta-value">20/08 16:00–16:30</span></div>
-      <div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Nova Funcionalidade</span></div>
-      <div class="meta-item"><span class="meta-label">Risco (análise)</span><span class="meta-value"><span class="pill risk-med">🟡 Atenção</span></span></div>
-      <div class="meta-item"><span class="meta-label">IC / Domínio</span><span class="meta-value">[Data &amp; analytics] Data Engineering (Plataforma)</span></div>
-      <div class="meta-item"><span class="meta-label">Responsável</span><span class="meta-value">Filipe Rodrigues Pinto Niya</span></div>
-      <div class="meta-item"><span class="meta-label">Ticket relacionado</span><span class="meta-value">—</span></div>
-      <div class="meta-item"><span class="meta-label">Risco declarado</span><span class="meta-value">Baixa · Tier 2</span></div>
-    </div>
-    <div class="approvals">Planejamento ✓ Felipe Goncalves Barbosa · Produto ✓ Danielle Cristina Da Silva Cruz · Áreas Executoras ✓ Nilson Akio Nishiyama · Liberação ⏳ pendente</div>
-  </div>
-  <div class="card-body">
-<div class="section"><div class="section-title">🎯 Objetivo da Mudança</div>
-<p>Habilitar o AWS DMS (Database Migration Service) na instância MySQL de produção do ambiente de Risco (<code>zp-production-rds-mysql-risk.ctmifndsu2pe.sa-east-1.rds.amazonaws.com</code>). Requer alterar o parameter group <code>zp-production-rds-mysql-risk80</code> (<code>binlog_format=ROW</code>, <code>binlog_row_image=FULL</code>, <code>binlog_checksum=NONE</code>) e <b>reiniciar (reboot)</b> a instância para persistir. Também foi criado o usuário <code>usr_dms</code> com permissão de leitura.</p>
-<p><b>Intenção declarada × parâmetros</b> (Modo B — sem PR): parâmetros técnicos literais coerentes com a intenção (habilitar CDC via binlog ROW/FULL para replicação DMS). Reboot declarado como necessário (RDS exige reboot para persistir parâmetros dinâmicos). Sem evidência de código (execução via console AWS).</p></div>
-<div class="section"><div class="section-title">🔬 Superfície Técnica</div>
-<p><b>Sem PR</b> — mudança executada no console AWS (parameter group + reboot). Parâmetros técnicos extraídos do ticket:</p>
-<table class="data"><thead><tr><th>Parâmetro</th><th>Valor</th><th>Impacto</th></tr></thead><tbody>
-<tr><td>Parameter group</td><td><code>zp-production-rds-mysql-risk80</code></td><td>Group da instância prod de Risco</td></tr>
-<tr><td><code>binlog_format</code></td><td>MIXED → <b>ROW</b></td><td>Habilita CDC (linha completa) para replicação DMS</td></tr>
-<tr><td><code>binlog_row_image</code></td><td>default → <b>FULL</b></td><td>Registra todas as colunas no binlog</td></tr>
-<tr><td><code>binlog_checksum</code></td><td>default → <b>NONE</b></td><td>Remove checksum do binlog (compatibilidade DMS)</td></tr>
-<tr><td>Instância</td><td><code>zp-production-rds-mysql-risk</code> (sa-east-1)</td><td>Reboot (~10 min de indisponibilidade)</td></tr>
-<tr><td>Usuário</td><td><code>usr_dms</code> (read-only)</td><td>Conta de replicação criada no banco</td></tr>
-</tbody></table>
-<p><b>Infra/Config</b>: RDS MySQL de produção (ambiente Risk). Ação de <code>Actions → Reboot</code> após salvar o parameter group. Validação pelo time de Data Analytics (Luan Martins / Nilson Nishiyama).</p></div>
-<div class="section"><div class="section-title">🔍 Consistência &amp; Evidências</div>
-<table class="data"><thead><tr><th>Verificação</th><th>Status</th><th>Observação</th></tr></thead><tbody>
-<tr><td>Objetivo × parâmetros</td><td>✅</td><td>binlog ROW/FULL é o pré-requisito de CDC do DMS</td></tr>
-<tr><td>Tipo de mudança</td><td>⚠️</td><td>"Nova Funcionalidade" para mudança de infra/DBA (ativação de serviço)</td></tr>
-<tr><td>Rollback</td><td>✅</td><td>Reverter parâmetros (MIXED / default / default) + reboot</td></tr>
-<tr><td>Plano de implantação</td><td>✅</td><td>Passos detalhados no console AWS</td></tr>
-<tr><td>Evidência de código</td><td>⚠️</td><td>Sem PR (console AWS) — evidência técnica indisponível</td></tr>
-</tbody></table>
-<div class="alert-list">
-<div class="alert-item alert-blue"><div><strong>Sem divergências materiais</strong><p>Intenção declarada e parâmetros técnicos são consistentes entre si.</p></div></div>
-</div>
+<table class="data"><thead><tr><th>Arquivo</th><th>Tipo</th><th>Impacto em produção</th></tr></thead><tbody><tr><td><code>deployment/requirements.txt</code></td><td>requirements</td><td><code>cryptography==49.0.0</code> → <code>cryptography==50.0.0</code></td></tr><tr><td><code>.github/workflows/run_security_check.yml</code></td><td>workflow (removed)</td><td>Remove o workflow tfsec (scan de segurança do Terraform)</td></tr></tbody></table>
+<p style="margin-top:8px"><b>Infra/Config:</b> análise de compatibilidade no PR (paramiko 3.5.1, Python 3.12, build OK).
+Checklist "Validar em staging antes de produção" <b>marcado</b> neste PR.</p>
+</div><div class="section"><div class="section-title">🔍 Consistência & Evidências</div>
+<table class="data"><thead><tr><th>Verificação</th><th>Resultado</th><th>Observação</th></tr></thead><tbody><tr><td>Objetivo × código</td><td><span class="ok">✅</span></td><td>Bump corresponde</td></tr><tr><td>Tipo de mudança</td><td><span class="ok">✅</span></td><td>Manutenção</td></tr><tr><td>Rollback documentado</td><td><span class="ok">✅</span></td><td>Referencia PR #17 do repo banking (correto)</td></tr><tr><td>Plano de implantação</td><td><span class="ok">✅</span></td><td>Pipeline cd.yml</td></tr><tr><td>Jira ref no PR</td><td><span class="bad">❌</span></td><td>Não referencia GST-49842</td></tr><tr><td>Estado do PR</td><td><span class="ok">✅</span></td><td>merged (20/08)</td></tr><tr><td>Env vars / secrets</td><td><span class="ok">✅</span></td><td>Sem alteração</td></tr></tbody></table>
+<p style="margin-top:10px"><b>Divergências:</b></p>
+<ol>
+<li><b>#1</b> — Remoção do workflow tfsec não citada no objetivo ("Update da versão") — <b>fonte:</b> diff vs <code>customfield_10827</code> — relevância <span class="badge badge-gray">baixa</span></li>
+</ol>
 <p style="margin-top:10px"><b>Informações ausentes:</b></p>
-<div class="missing-item">Downtime de ~10 min (reboot às 16:00) comunicado aos consumidores do banco Risk?</div>
-<div class="missing-item">Backup/snapshot pré-reboot confirmado?</div>
-<div class="missing-item">Monitoramento (CloudWatch/Datadog) do banco durante o reboot?</div></div>
-<div class="section"><div class="section-title">⚠️ Avaliação de Risco &amp; Política</div>
-<table class="data"><thead><tr><th>Fator</th><th>Avaliação</th></tr></thead><tbody>
-<tr><td>Reboot de RDS de produção (~10 min downtime) às 16h</td><td><span class='warn'>eleva risco</span></td></tr>
-<tr><td>Parâmetros binlog (CDC)</td><td><span class='warn'>atenção</span> (mudança de comportamento de replicação)</td></tr>
-<tr><td><code>binlog_checksum=NONE</code></td><td><span class='warn'>atenção</span> (remove integridade de checksum do binlog)</td></tr>
-<tr><td>Usuário <code>usr_dms</code> read-only</td><td><span class='ok'>reduz risco</span></td></tr>
-<tr><td>Rollback claro (reverter parâmetros)</td><td><span class='ok'>reduz risco</span></td></tr>
-</tbody></table>
-<p style="margin-top:8px"><b>Conformidade de janela</b> — IC "[Data &amp; analytics] Data Engineering" <b>não catalogado</b> na política GSTI → sem restrição formal. (O catálogo lista "Redimensionamento Storage RDS" como Pré-Aprovada — não é o caso; isto é ativação de DMS com reboot.)</p>
-<div class="alert-list">
-<div class="alert-item alert-yellow"><div><strong>🟡 Template da GMUD não preenchido</strong><p>Escopo/Premissas/Critérios em branco; description nulo.</p></div></div>
-<div class="alert-item alert-yellow"><div><strong>🟡 Pergunta direta ao CAB</strong><p>O downtime de ~10 min do reboot às 16:00 está comunicado aos times consumidores do banco Risk? Há snapshot pré-reboot e monitoramento ativo durante a janela?</p></div></div>
-</div></div>
-<div class="section"><div class="section-title">✅ Rollback</div>
-<p><b>Método documentado</b>: reverter parameter group (<code>binlog_format=MIXED</code>, <code>binlog_row_image</code> e <code>binlog_checksum</code> para default), salvar e reboot da instância. "Reboot ~10 min, alinhado com app (Kassio Paiva) e produto (Franciele Calegari)."</p>
-<p><b>Riscos do rollback</b>:</p><ul>
-<li>Reverter parâmetros exige novo reboot (mais ~10 min de downtime).</li>
-<li><code>binlog_checksum</code> alterado pode afetar réplicas/consumidores existentes do binlog.</li>
-<li><code>usr_dms</code> não é removido explicitamente no rollback.</li>
-<li>Sem snapshot citado no plano.</li>
+<div><div class="missing-item">CI checks (0 statuses no PR)</div><div class="missing-item">Referência da GMUD no PR</div></div>
+</div><div class="section"><div class="section-title">⚠️ Avaliação de Risco & Política</div>
+<table class="data"><thead><tr><th>Fator</th><th>Avaliação</th></tr></thead><tbody><tr><td>Análise de compatibilidade no PR + staging validado (checklist marcado)</td><td><span class="badge badge-green">reduz risco</span></td></tr><tr><td>Rollback com referência correta</td><td><span class="badge badge-green">reduz risco</span></td></tr><tr><td>Remoção do scan tfsec</td><td><span class="badge badge-red">eleva risco</span></td></tr><tr><td>Sem CI checks</td><td><span class="badge badge-red">eleva risco</span></td></tr></tbody></table>
+<p style="margin-top:10px"><b>Conformidade de janela:</b> serviço <code>zoop-edi-rtm-banking</code> não catalogado na política
+GSTI → <b>sem restrição formal</b>; janela (segunda 09:30–10:30) válida — nada a reportar.</p>
+<div class="alert-list" style="margin-top:12px">
+<div class="alert-item alert-yellow"><div><strong>🟡 Remoção de cobertura de segurança (tfsec)</strong><p>O workflow tfsec é removido sem menção no objetivo da GMUD. <span class="q">Pergunta ao CAB: a perda do scan estática de Terraform é intencional e aceita?</span></p></div></div>
+</div>
+</div><div class="section"><div class="section-title">✅ Rollback</div>
+<p><b>Método documentado:</b> "Reverter o PR https://github.com/getzoop/zoop-edi-rtm-banking/pull/17/changes e executar a pipeline: https://github.com/getzoop/zoop-edi-rtm-banking/actions/workflows/cd.yml".</p>
+<ul>
+<li><b>Referência correta</b> ao PR #17 do repo banking.</li>
+<li><b>Rollback = reverter o bump</b> + re-executar a pipeline.</li>
+<li><b>Workflow tfsec</b> também deve ser restaurado na reversão.</li>
 </ul>
-<p><b>Confiança</b>: <b>alta</b> para reverter parâmetros (documentado); <b>média</b> para o reboot (depende de janela).</p></div>
-<div class="conclusion"><b>📌 Conclusão</b><br>Mudança de DBA bem parametrizada, mas é um reboot de RDS prod com downtime (~10 min) às 16h — confirmar comunicação prévia e snapshot. A decisão é do CAB.<div class="disclaimer">Análise técnica de apoio — a decisão de aprovar/reprovar é exclusivamente do CAB.</div></div></div>
+<p><b>Confiança: alta</b> — mecanismo simples e documentação coerente.</p>
+</div><div class="section"><div class="conclusion">Bump de dependência simples e de baixo risco, mergeado, com rollback correto e staging validado. Único ponto de atenção é a <b>remoção do workflow tfsec</b> sem menção no objetivo. Serviço não catalogado — sem restrição formal de janela.<div class="disclaimer">Análise técnica de apoio — a decisão de aprovação/reprovação é exclusiva do CAB.</div></div></div></div></div><div class="card" id="card-GST-49851" data-risk="med" data-text="GST-49851 zoop-payments-api payment-zoop-proxy-pci Eric Matheus Rocha Payments Core-payments-zoop"><div class="card-header"><h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49851" target="_blank">[Payments] roteamento de transações de captura e cancelamento para payment-zoop-proxy-pci</a></h2><div class="meta-row"><div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Liberação</span></div><div class="meta-item"><span class="meta-label">Janela</span><span class="meta-value">25/08/2026 04:00–06:00 (terça-feira)</span></div><div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Nova Funcionalidade</span></div><div class="meta-item"><span class="meta-label">Risco (Jira)</span><span class="meta-value">Baixa</span></div><div class="meta-item"><span class="meta-label">IC</span><span class="meta-value">[Payments] Core-payments-zoop · Domínio: Payments</span></div><div class="meta-item"><span class="meta-label">Responsável</span><span class="meta-value">Eric Matheus Rocha (cpl.erocha@ifood3rd.com)</span></div><div class="meta-item"><span class="meta-label">Relacionado</span><span class="meta-value">SWPIPMA-2671</span></div></div><div class="approvals">Aprovações: <span class="ok">Planejamento ✓ Adriano Brandao De Oliveira (Hoje 10:27)</span> · <span class="ok">Aprovação Produto ✓ Rodrigo Goncalves Goulart (Hoje 12:24)</span> · <span class="ok">Áreas Executoras ✓ Leonardo Stibich Lobao (Hoje 12:25)</span> · <b>Liberação ⏳ pendente</b></div></div><div class="card-body"><div class="section"><div class="section-title">🎯 Objetivo da Mudança</div>
+<p>Roteia cancelamento (<code>/void</code>, <code>/cancel</code>) e captura (<code>/capture</code>) de transações CNP
+(cartão não presente) com <code>gateway_switch = npp.rede_pdv</code> para a NPP via <code>payment-process-proxy</code>,
+na <code>zoop-payments-api</code>. Fluxos CP/TAP (cartão presente) permanecem intactos. Tudo atrás do feature toggle
+<code>ENABLE_NPP_CNP_ROUTING</code> (secret manager/env, default <b>desligado</b>).</p>
+<p><b>Intenção declarada</b> (descrição estendida): rica e detalhada, descreve exatamente as rotas, os novos services
+(<code>NppCnpCancelService</code>, <code>NppCnpCaptureService</code>) e o comportamento do toggle.</p>
+<p><b>O que o código faz:</b> confirma a descrição — com o toggle OFF, <code>blockNppRedePdvWhenCnpRoutingDisabled</code>
+preserva o comportamento anterior (rejeição controlada); com ON, o dispatch NPP é feito via
+<code>NppApiClient::voidInvoice()</code>/<code>concludeInvoice()</code> (<code>POST /invoices/&#123;id&#125;:cancel</code> e <code>:conclude</code>).</p>
+</div><div class="section"><div class="section-title">🔬 Superfície Técnica</div>
+<div class="pr-grid">
+<div class="pr-card"><div class="pr-card-title">PR #2341 · feat: Route CNP void/cancel/capture to NPP via payment-process-proxy</div><div class="pr-stat"><span class="pr-stat-label">Estado</span><span class="pr-stat-value "><span class="badge badge-yellow">open</span></span></div><div class="pr-stat"><span class="pr-stat-label">Branch</span><span class="pr-stat-value ">feature/npp-cnp-routing → master</span></div><div class="pr-stat"><span class="pr-stat-label">Autor</span><span class="pr-stat-value ">ericrocha-invillia</span></div><div class="pr-stat"><span class="pr-stat-label">Arquivos</span><span class="pr-stat-value ">26 (8 adicionados, 18 modificados) · +1450 / -31</span></div><div class="pr-stat"><span class="pr-stat-label">CI checks</span><span class="pr-stat-value yellow">0 statuses (sem CI)</span></div><div class="pr-stat"><span class="pr-stat-label">Aprovadores</span><span class="pr-stat-value red">nenhum (0 reviews)</span></div><div class="pr-stat"><span class="pr-stat-label">Link</span><span class="pr-stat-value "><a href="https://github.com/getzoop/zoop-payments-api/pull/2341" target="_blank">github.com/getzoop/zoop-payments-api/pull/2341</a></span></div></div>
 </div>
-
-<div class="card" id="card-GST-49840" data-risk="low" data-text="GST-49840 Remoção de serviço de API GATEWAY voiter-webhook-api-production da conta Pagzoop [Plataforma] Cloud Platform Jhenifer Da Silva Santos SWPJSRE-1870">
-  <div class="card-header">
-    <h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49840" target="_blank">GST-49840</a> — Remoção de serviço de API GATEWAY voiter-webhook-api-production da conta Pagzoop</h2>
-    <div class="meta-row">
-      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value"><span class="badge badge-gray">Liberação</span></span></div>
-      <div class="meta-item"><span class="meta-label">Janela</span><span class="meta-value">20/08 16:00–17:00</span></div>
-      <div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Manutenção</span></div>
-      <div class="meta-item"><span class="meta-label">Risco (análise)</span><span class="meta-value"><span class="pill risk-low">🔵 Leve</span></span></div>
-      <div class="meta-item"><span class="meta-label">IC / Domínio</span><span class="meta-value">[Plataforma] Cloud Platform</span></div>
-      <div class="meta-item"><span class="meta-label">Responsável</span><span class="meta-value">Jhenifer Da Silva Santos</span></div>
-      <div class="meta-item"><span class="meta-label">Ticket relacionado</span><span class="meta-value">SWPJSRE-1870</span></div>
-      <div class="meta-item"><span class="meta-label">Risco declarado</span><span class="meta-value">Baixa · Tier 2</span></div>
-    </div>
-    <div class="approvals">Planejamento ✓ Custodio Ferreira Botelho Cerqueira · Produto ✓ · Áreas Executoras ✓ Jeverson Marcon · Liberação ⏳ pendente</div>
-  </div>
-  <div class="card-body">
-<div class="section"><div class="section-title">🎯 Objetivo da Mudança</div>
-<p>Remover (destroy) o serviço de API Gateway <code>voiter-webhook-api-production</code> da conta Pagzoop — resquício do fluxo antigo de TED. O serviço está <b>sem utilização desde 18/02/2026</b> e o desligamento foi validado com os times de Banking e Cards. Execução via Terraform (repo <code>getzoop/gsf-apigw-voiter-webhook</code>, workspace production) + remoção manual do tópico SNS.</p>
-<p><b>Intenção declarada × evidência</b> (Modo B): a descrição detalha os recursos a remover (API GW <code>cykoopypo3</code>, WAF, IAM, SNS, CloudWatch log group, base path <code>/voiter</code>) e a pós-checagem via AWS CLI. Coerente; sem diff de código (destroy de IaC existente).</p></div>
-<div class="section"><div class="section-title">🔬 Superfície Técnica</div>
-<p><b>Sem PR</b> — execução de <code>terraform destroy</code> de IaC existente (repo <code>gsf-apigw-voiter-webhook</code>, Terraform v0.12.31). Recursos afetados:</p>
-<table class="data"><thead><tr><th>Recurso</th><th>Tipo</th><th>Impacto</th></tr></thead><tbody>
-<tr><td>API Gateway REST <code>cykoopypo3</code> + stage + api key + usage plan</td><td>API GW</td><td>Remoção total do endpoint voiter</td></tr>
-<tr><td>WAF (<code>WebACL_Voiter_production</code> + IP set <code>Allow_List_Voiter_production</code>)</td><td>WAF</td><td>Remoção de regras/ACL</td></tr>
-<tr><td>IAM role <code>voiter-webhook-iam-production</code> + 2 policies</td><td>IAM</td><td>Remoção de role/policies</td></tr>
-<tr><td>CloudWatch log group</td><td>Logs</td><td>Remoção do log group</td></tr>
-<tr><td>base path <code>/voiter</code> do domínio <code>api.settlement.zoop.ws</code></td><td>Domínio</td><td>Somente o /voiter é removido (domínio compartilhado permanece)</td></tr>
-<tr><td>SNS <code>voiter-webhook-sns-production</code> + 2 assinaturas (1 cross-account <code>251894224173</code>)</td><td>SNS</td><td>Removido manualmente (<code>prevent_destroy=true</code>)</td></tr>
-</tbody></table>
-<p><b>Infra/Config</b>: conta Pagzoop produção (role <code>AWSReservedSSO_Pagzoop_Prod_SRE</code>), região sa-east-1; backend S3 <code>zoop-terraform-tfstates</code> (versioning habilitado). Pós-mudança: monitorar CloudWatch/Datadog confirmando ausência de tráfego/erros.</p></div>
-<div class="section"><div class="section-title">🔍 Consistência &amp; Evidências</div>
-<table class="data"><thead><tr><th>Verificação</th><th>Status</th><th>Observação</th></tr></thead><tbody>
-<tr><td>Objetivo × evidência</td><td>✅</td><td>Serviço sem uso desde 18/02/2026, validado com Banking/Cards</td></tr>
-<tr><td>Tipo de mudança</td><td>✅</td><td>Manutenção (remoção)</td></tr>
-<tr><td>Rollback</td><td>⚠️</td><td>customfield_10948 diz "Sem Impacto"; mas o plano real (customfield_10832) revela itens de drift não recriáveis pelo terraform</td></tr>
-<tr><td>Plano de implantação</td><td>✅</td><td>Passos detalhados (state rm do SNS, plan -destroy, destroy -auto-approve)</td></tr>
-<tr><td>Evidência de código</td><td>⚠️</td><td>Sem PR (destroy de IaC existente)</td></tr>
-</tbody></table>
-<div class="alert-list">
-<div class="alert-item alert-yellow"><div><strong>Divergência #1 — rollback declarado × rollback real</strong><p>O plano de rollback (customfield_10948) afirma "Sem Impacto", mas o rollback detalhado (customfield_10832) exige recriar manualmente drift no SNS (assinatura cross-account + policy) com apoio do Banking — itens fora do Terraform. Relevância: média.</p></div></div>
-</div>
+<table class="data"><thead><tr><th>Arquivo</th><th>Tipo</th><th>Impacto em produção</th></tr></thead><tbody><tr><td><code>classes/Services/Cancel/NppCnpCancelService.php</code></td><td>added (+109)</td><td>Novo service de cancelamento CNP → <code>NppApiClient::voidInvoice()</code></td></tr><tr><td><code>classes/Services/Capture/NppCnpCaptureService.php</code></td><td>added (+115)</td><td>Novo service de captura CNP → <code>NppApiClient::concludeInvoice()</code></td></tr><tr><td><code>classes/Services/Capture/CaptureService.php</code></td><td>added</td><td>Interface do service de captura</td></tr><tr><td><code>classes/Services/Tap/NppApiClient.php</code></td><td>modified (+54)</td><td>Novos métodos <code>voidInvoice</code>/<code>concludeInvoice</code>, <code>buildInvoiceId</code> (prefixo de shard) e payloads <code>operation_scope</code>/<code>processing_mode=ASYNC</code></td></tr><tr><td><code>routes/void.php</code>, <code>capture.php</code>, <code>cancellation.php</code>, <code>v2/cardnotpresent/*</code></td><td>modified</td><td>Dispatch NPP quando <code>npp.rede_pdv</code> E toggle ligado; senão, bloqueio preservado</td></tr><tr><td><code>classes/repositories/TransactionRepository.php</code>, <code>classes/models/Transaction.php</code></td><td>modified</td><td>Suporte a criação/busca de operações NPP</td></tr><tr><td><code>tests/*</code> (unit + component + wiremock)</td><td>added (+903)</td><td>Cobertura: 17 tests NppCnpRouting, 1406 unit, 903 integration (0 falhas)</td></tr></tbody></table>
+<p style="margin-top:8px"><b>Infra/Config:</b> toggle <code>ENABLE_NPP_CNP_ROUTING</code> lido via <code>getSecretOrEnv()</code>
+(default <code>false</code>). Constantes <code>NPP_API_BASE_DOMAIN</code>, <code>NPP_API_REQUESTER_TOKEN</code>,
+<code>NPP_API_TIMEOUT</code> já existentes (env). Sem migração de schema.</p>
+</div><div class="section"><div class="section-title">🔍 Consistência & Evidências</div>
+<table class="data"><thead><tr><th>Verificação</th><th>Resultado</th><th>Observação</th></tr></thead><tbody><tr><td>Objetivo × código</td><td><span class="ok">✅</span></td><td>Descrição do ticket bate com o diff (toggle, rotas, services)</td></tr><tr><td>Tipo de mudança</td><td><span class="ok">✅</span></td><td>Nova Funcionalidade</td></tr><tr><td>Rollback documentado</td><td><span class="warn">⚠️</span></td><td>Campo cf10832 só "Via githubActions"; o detalhe (desligar toggle) está na descrição</td></tr><tr><td>Plano de implantação</td><td><span class="ok">✅</span></td><td>Merge da PR (mas PR ainda aberto)</td></tr><tr><td>Feature flag</td><td><span class="ok">✅</span></td><td>ENABLE_NPP_CNP_ROUTING (default off)</td></tr><tr><td>Jira ref no PR</td><td><span class="bad">❌</span></td><td>PR #2341 não referencia GST-49851</td></tr><tr><td>Estado do PR</td><td><span class="warn">⚠️</span></td><td>open, 0 reviews</td></tr><tr><td>Env vars / secrets</td><td><span class="ok">✅</span></td><td>Toggle via secret manager; sem secrets hardcoded</td></tr></tbody></table>
+<p style="margin-top:10px"><b>Divergências:</b></p>
+<ol>
+<li><b>#1</b> — PR aberto e sem reviews a 4 dias da janela (25/08) — <b>fonte:</b> GitHub — relevância <span class="badge badge-red">alta</span></li>
+<li><b>#2</b> — Evento <code>transaction.capture.pending</code> é um <b>no-op</b> (comentário no código: hook não registrado em <code>hooks/transaction_operations.php</code>) — <b>fonte:</b> <code>NppCnpCaptureService.php</code> — relevância <span class="badge badge-yellow">média</span></li>
+<li><b>#3</b> — Campo rollback genérico ("Via githubActions"), detalhe só na descrição — <b>fonte:</b> <code>customfield_10832</code> — relevância <span class="badge badge-gray">baixa</span></li>
+</ol>
 <p style="margin-top:10px"><b>Informações ausentes:</b></p>
-<div class="missing-item">Confirmação por escrito de Banking e Cards sobre o desligamento?</div>
-<div class="missing-item">Versioning do state S3 confirmado (o ticket cita; validar)?</div>
-<div class="missing-item">Monitoramento pós-mudança durante a janela de observação?</div></div>
-<div class="section"><div class="section-title">⚠️ Avaliação de Risco &amp; Política</div>
-<table class="data"><thead><tr><th>Fator</th><th>Avaliação</th></tr></thead><tbody>
-<tr><td>Serviço sem uso desde 18/02/2026</td><td><span class='ok'>reduz risco</span></td></tr>
-<tr><td>Destroy irreversível de API GW/WAF/IAM</td><td><span class='warn'>atenção</span> (mitigado por state versioning)</td></tr>
-<tr><td>Rollback com gap (drift cross-account fora do Terraform)</td><td><span class='warn'>eleva risco</span></td></tr>
-<tr><td>Domínio compartilhado <code>api.settlement.zoop.ws</code></td><td><span class='warn'>atenção</span> (apenas /voiter é removido)</td></tr>
-</tbody></table>
-<p style="margin-top:8px"><b>Conformidade de janela</b> — IC "[Plataforma] Cloud Platform" <b>não catalogado</b> na política GSTI → sem restrição formal; janela 16:00–17:00 válida.</p>
-<div class="alert-list">
-<div class="alert-item alert-yellow"><div><strong>🟡 Template da GMUD não preenchido</strong><p>Escopo/Premissas/Critérios em branco; description nulo.</p></div></div>
-<div class="alert-item alert-yellow"><div><strong>🟡 Pergunta direta ao CAB</strong><p>O CAB está ciente de que o rollback real exige recriar manualmente a assinatura cross-account (conta <code>251894224173</code>) e a policy SNS (itens fora do Terraform), dependendo do time de Banking?</p></div></div>
-</div></div>
-<div class="section"><div class="section-title">✅ Rollback</div>
-<p><b>Método documentado</b> (customfield_10832): restaurar state via versioning do S3; <code>terraform apply</code> (workspace production) recriando API GW/WAF/IAM/CloudWatch/base path; recriação <b>manual</b> do drift no SNS (assinatura cross-account us-east-1 + policy <code>AllowSNSAccessIfoodPagoBankingProduction</code>).</p>
-<p><b>Riscos do rollback</b>:</p><ul>
-<li>Itens de drift (assinatura SNS cross-account + policy) <b>não</b> são recriados pelo terraform apply — dependem do Banking.</li>
-<li>Restaurar state do bucket com versioning exige apontar para a versão correta.</li>
-<li>Se o destroy remover além do /voiter, outros base paths do domínio compartilhado podem ser afetados.</li>
-<li>Tempo estimado não declarado.</li>
+<div><div class="missing-item">Reviews/approvers no PR (0 reviews)</div><div class="missing-item">CI checks (0 statuses)</div><div class="missing-item">Registro do evento transaction.capture.pending nos hooks</div><div class="missing-item">Referência da GMUD no PR</div></div>
+</div><div class="section"><div class="section-title">⚠️ Avaliação de Risco & Política</div>
+<table class="data"><thead><tr><th>Fator</th><th>Avaliação</th></tr></thead><tbody><tr><td>Toggle off por default (seguro por padrão)</td><td><span class="badge badge-green">reduz risco</span></td></tr><tr><td>CP/TAP intacto</td><td><span class="badge badge-green">reduz risco</span></td></tr><tr><td>Cobertura de testes ampla (unit + component + wiremock)</td><td><span class="badge badge-green">reduz risco</span></td></tr><tr><td>PR sem review e sem CI</td><td><span class="badge badge-red">eleva risco</span></td></tr><tr><td>Novo fluxo de captura NPP (antes inexistente)</td><td><span class="badge badge-red">eleva risco</span></td></tr></tbody></table>
+<p style="margin-top:10px"><b>Conformidade de janela (catálogo GSTI):</b></p>
+<table class="data"><thead><tr><th>Critério</th><th>GMUD</th><th>Política GSTI</th><th>Status</th></tr></thead><tbody><tr><td>Horário</td><td>terça 25/08 04:00–06:00</td><td>Payments Transacional API (zoop-payments-api): 04h00 às 06h00</td><td><span class="ok">✅ dentro</span></td></tr><tr><td>Dia</td><td>terça-feira</td><td>Dias proibidos: sábado e domingo</td><td><span class="ok">✅ dentro</span></td></tr></tbody></table>
+<div class="alert-list" style="margin-top:12px">
+<div class="alert-item alert-yellow"><div><strong>🟡 PR aberto, sem reviews e sem CI a 4 dias da janela</strong><p>A mudança é a mais relevante do dia (novo fluxo transacional), mas ainda não tem revisão no GitHub. <span class="q">Pergunta ao CAB: quem revisa o PR #2341 antes de terça? Merge + deploy cabem na janela de 04h00–06h00?</span></p></div></div>
+<div class="alert-item alert-yellow"><div><strong>🟡 Evento transaction.capture.pending é no-op</strong><p>O hook de captura pendente não está registrado — webhooks/consumidores não serão notificados até o time de webhooks alinhar. <span class="q">Pergunta ao CAB: o time de webhooks/conciliação está ciente desse gap?</span></p></div></div>
+</div>
+</div><div class="section"><div class="section-title">✅ Rollback</div>
+<p><b>Método documentado:</b> "Via githubActions" (campo <code>customfield_10832</code>); na descrição: "com o toggle desligado (chave ausente ou false), nada muda; rollback imediato sem redeploy — remover/desligar a chave <code>ENABLE_NPP_CNP_ROUTING</code> e reciclar os workers".</p>
+<ul>
+<li><b>Depende de acesso</b> ao AWS Secrets Manager / env do serviço.</li>
+<li><b>Reciclagem de workers</b> pode afetar transações em voo.</li>
+<li><b>Operações NPP ASYNC</b> já disparadas podem ficar órfãs (cancelamento/captura pendente).</li>
+<li><b>Rollback rápido</b> — não exige redeploy (só desligar o toggle).</li>
 </ul>
-<p><b>Confiança</b>: <b>média</b> — state versioning ajuda, mas há gap no drift cross-account.</p></div>
-<div class="conclusion"><b>📌 Conclusão</b><br>Remoção de serviço ocioso bem documentada e de baixo risco; o único ponto é o rollback com gap manual (drift cross-account). A decisão é do CAB.<div class="disclaimer">Análise técnica de apoio — a decisão de aprovar/reprovar é exclusivamente do CAB.</div></div></div>
-</div>
-
-<div class="card" id="card-GST-49839" data-risk="med" data-text="GST-49839 [payment-orders] Instant not found caindo na dlq [Payments] Core-payments-zoop Pedro Henrique Sevenini Silva SWPAYZP-632">
-  <div class="card-header">
-    <h2><a href="https://ifood-zoop.atlassian.net/browse/GST-49839" target="_blank">GST-49839</a> — [payment-orders] Instant not found, caindo na dlq</h2>
-    <div class="meta-row">
-      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value"><span class="badge badge-gray">Liberação</span></span></div>
-      <div class="meta-item"><span class="meta-label">Janela</span><span class="meta-value">20/08 22:00–23:30</span></div>
-      <div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Manutenção</span></div>
-      <div class="meta-item"><span class="meta-label">Risco (análise)</span><span class="meta-value"><span class="pill risk-med">🟡 Atenção</span></span></div>
-      <div class="meta-item"><span class="meta-label">IC / Domínio</span><span class="meta-value">[Payments] Core-payments-zoop</span></div>
-      <div class="meta-item"><span class="meta-label">Responsável</span><span class="meta-value">Pedro Henrique Sevenini Silva</span></div>
-      <div class="meta-item"><span class="meta-label">Ticket relacionado</span><span class="meta-value">SWPAYZP-632</span></div>
-      <div class="meta-item"><span class="meta-label">Risco declarado</span><span class="meta-value">Baixa · Tier 2</span></div>
-    </div>
-    <div class="approvals">Planejamento ✓ Adriano Brandao De Oliveira · Produto ✓ Rodrigo Goncalves Goulart · Áreas Executoras ✓ Jun Kei Silva · Liberação ⏳ pendente</div>
-  </div>
-  <div class="card-body">
-<div class="section"><div class="section-title">🎯 Objetivo da Mudança</div>
-<p>Corrigir o acúmulo de eventos na DLQ do <code>payment-orders</code>: quando um evento de confirmação PIX chega e a payment order não é encontrada, o listener hoje lança <code>PaymentOrdersNotFoundForTransferNumberException</code> (exceto para "Instant Payout B91"), fazendo o evento cair na DLQ. A mudança passa a <b>descartar silenciosamente</b> todo evento PIX "not found" (<code>log.info</code> + return), eliminando o gargalo na DLQ.</p>
-<p><b>Intenção declarada × código</b>: coincide parcialmente — o PR #888 remove a exception e o branch condicional B91 e passa a descartar qualquer "payment order not found". Inclui também bump de dependências (Jackson 2.21.5, logback 1.5.36, bouncycastle 1.85, tomcat 10.1.56) não citado no título.</p></div>
-<div class="section"><div class="section-title">🔬 Superfície Técnica</div>
-<div class="pr-card">
-  <div class="pr-card-title"><a href="https://github.com/getzoop/zoop-payment-orders/pull/888" target="_blank">PR #888</a> — discard all PIX confirmation events when payment order is missing and… bump dependencies</div>
-  <div class="pr-stat"><span class="pr-stat-label">Autor</span><span class="pr-stat-value">PedroSevenini</span></div>
-  <div class="pr-stat"><span class="pr-stat-label">Estado</span><span class="pr-stat-value yellow">open (não mergeado)</span></div>
-  <div class="pr-stat"><span class="pr-stat-label">Branch</span><span class="pr-stat-value">feature/fix-dlq-not-found → master</span></div>
-  <div class="pr-stat"><span class="pr-stat-label">Arquivos / diff</span><span class="pr-stat-value">5 · <span class="add">+25</span> <span class="del">-64</span></span></div>
-  <div class="pr-stat"><span class="pr-stat-label">Aprovadores</span><span class="pr-stat-value">Nekuji (APPROVED)</span></div>
-  <div class="pr-stat"><span class="pr-stat-label">CI checks</span><span class="pr-stat-value yellow">pending · 0 checks reportados</span></div>
-</div>
-<p><b>Componentes afetados</b> (PR #888, 5 arquivos):</p>
-<table class="data"><thead><tr><th>Arquivo</th><th>Tipo</th><th>Impacto em produção</th></tr></thead><tbody>
-<tr><td><code>PixConfirmationResultListener.java</code></td><td>Listener JMS</td><td>+3/-13: remove o <code>throw</code>; agora descarta <b>todo</b> "not found" com <code>log.info</code> (antes só B91 era descartado)</td></tr>
-<tr><td><code>PixDebitConfirmationResultDTO.java</code></td><td>DTO</td><td>-4: remove <code>isDiscardableInstantPayoutB91()</code></td></tr>
-<tr><td><code>PixConfirmationResultListenerTest.java</code></td><td>Teste</td><td>+2/-32: remove teste da exception; renomeia para <code>should_discard_event_when_payment_order_not_found</code></td></tr>
-<tr><td><code>build.gradle</code></td><td>Deps</td><td>jackson 2.21.2→2.21.5, logback 1.2.13→1.5.36</td></tr>
-<tr><td><code>upgrade-transitive-deps.properties</code></td><td>Deps</td><td>+18/-13 (bouncycastle 1.85, tomcat 10.1.56, httpcore5, etc.)</td></tr>
-</tbody></table>
-<p><b>Infra/Config</b>: Java / Spring Boot 3.5.15, listener JMS de liquidação (settlement). Deploy via GitHub Actions. Sem Terraform/Helm/DB no diff.</p></div>
-<div class="section"><div class="section-title">🔍 Consistência &amp; Evidências</div>
-<table class="data"><thead><tr><th>Verificação</th><th>Status</th><th>Observação</th></tr></thead><tbody>
-<tr><td>Objetivo × código</td><td>✅</td><td>Descarte de "not found" implementado no listener</td></tr>
-<tr><td>Escopo de comportamento</td><td>⚠️</td><td>Passa a descartar <b>todos</b> os "not found", não só "Instant Payout B91"</td></tr>
-<tr><td>Estado do PR</td><td>⚠️</td><td>open (não mergeado) na análise</td></tr>
-<tr><td>Tipo de mudança</td><td>✅</td><td>Manutenção (correção de DLQ)</td></tr>
-<tr><td>Rollback</td><td>⚠️</td><td>"Via githubActions" — vago, sem commit/tag</td></tr>
-<tr><td>Bump de dependências</td><td>⚠️</td><td>Incluído no mesmo PR sem destaque na GMUD</td></tr>
-<tr><td>CI checks</td><td>⚠️</td><td>0 checks reportados</td></tr>
-</tbody></table>
-<div class="alert-list">
-<div class="alert-item alert-red"><div><strong>Divergência #1 — descarte silencioso generalizado</strong><p>Antes apenas "Instant Payout B91" era descartado; agora qualquer "payment order not found" (incluindo falhas reais de order ausente) deixa de ir à DLQ e perde visibilidade. Fonte: diff do listener × comportamento anterior. Relevância: alta.</p></div></div>
-<div class="alert-item alert-yellow"><div><strong>Divergência #2 — bump de deps não declarado</strong><p>Upgrade de Jackson/logback/bouncycastle/tomcat (CVE) no mesmo PR, sem destaque no título/descrição da GMUD. Relevância: baixa/média.</p></div></div>
-</div>
-<p style="margin-top:10px"><b>Informações ausentes:</b></p>
-<div class="missing-item">O descarte silencioso tem métrica/alerta substituto (já que a DLQ deixa de capturar)?</div>
-<div class="missing-item">Há retry/reprocessamento para "not found" legítimos?</div>
-<div class="missing-item">PR será mergeado antes das 22:00?</div></div>
-<div class="section"><div class="section-title">⚠️ Avaliação de Risco &amp; Política</div>
-<table class="data"><thead><tr><th>Fator</th><th>Avaliação</th></tr></thead><tbody>
-<tr><td>Perda de visibilidade de "not found" (sem DLQ)</td><td><span class='bad'>eleva risco</span></td></tr>
-<tr><td>Mudança em listener de liquidação PIX</td><td><span class='warn'>eleva risco</span></td></tr>
-<tr><td>Bump de deps (logback 1.2→1.5, CVE)</td><td><span class='warn'>atenção</span></td></tr>
-<tr><td>Escopo pequeno (5 arquivos)</td><td><span class='ok'>reduz risco</span></td></tr>
-<tr><td>Janela 22:00–23:30 dentro do catálogo</td><td><span class='ok'>reduz risco</span></td></tr>
-</tbody></table>
-<p style="margin-top:8px"><b>Conformidade de janela</b> — IC "[Payments] Core-payments-zoop" → catálogo GSTI: "Zoop-transfers / Payment-orders" janela <b>21h30–23h30</b>. GMUD 22:00–23:30 está <span class='ok'><b>dentro do padrão</b></span> ✅.</p>
-<div class="alert-list">
-<div class="alert-item alert-yellow"><div><strong>🟡 Template da GMUD não preenchido</strong><p>Escopo/Premissas/Critérios em branco; description nulo.</p></div></div>
-<div class="alert-item alert-red"><div><strong>🔴 Pergunta direta ao CAB</strong><p>Ao descartar silenciosamente todo "payment order not found", como o time vai detectar um eventual bug real de order ausente (que hoje cai na DLQ)? Há métrica/alerta substituto?</p></div></div>
-</div></div>
-<div class="section"><div class="section-title">✅ Rollback</div>
-<p><b>Método documentado</b>: "Via githubActions" (re-deploy do commit anterior).</p>
-<p><b>Riscos do rollback</b>:</p><ul>
-<li>Rollback vago — sem commit/tag de referência explícito.</li>
-<li>Re-deploy em listener de liquidação PIX exige novo pipeline (sem toggle).</li>
-<li>Sem alteração de schema → sem perda de dados.</li>
-</ul>
-<p><b>Confiança</b>: <b>média</b> — reversível por re-deploy, mas referência de versão não documentada.</p></div>
-<div class="conclusion"><b>📌 Conclusão</b><br>Fix direcionado para a DLQ, mas generaliza o descarte para qualquer "not found" — perda de visibilidade a ser endereçada com métrica/alerta; PR ainda aberto. A decisão é do CAB.<div class="disclaimer">Análise técnica de apoio — a decisão de aprovar/reprovar é exclusivamente do CAB.</div></div></div>
-</div>
-
+<p><b>Confiança: alta</b> — rollback por toggle é imediato e não depende de novo deploy.</p>
+</div><div class="section"><div class="conclusion">Mudança bem documentada e com <b>toggle seguro (off por default)</b>, ampla cobertura de testes e janela dentro do padrão de Payments. O principal risco não é o código, mas a <b>governança do merge</b>: PR ainda aberto, sem reviews e sem CI a 4 dias da janela.<div class="disclaimer">Análise técnica de apoio — a decisão de aprovação/reprovação é exclusiva do CAB.</div></div></div></div></div>
 
 <div class="footer">
-ICCP — CAB Intelligence Analyst · Análise técnica de apoio ao comitê · Somente leitura · Nunca aprova, reprova ou executa mudanças · 20/08/2026
+ICCP — CAB Intelligence Analyst · Análise técnica de apoio ao comitê · Somente leitura · Nunca aprova, reprova ou executa mudanças · 21/08/2026
 </div>
 
 </div>
